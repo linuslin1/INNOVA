@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Data Analysis Project</title><link href="http://linuslin1.github.io/data-analysis-template/" rel="alternate"></link><link href="http://linuslin1.github.io/data-analysis-template/feeds/all.atom.xml" rel="self"></link><id>http://linuslin1.github.io/data-analysis-template/</id><updated>2014-03-04T00:00:00-08:00</updated><entry><title>Project Report</title><link href="http://linuslin1.github.io/data-analysis-template/nb4.html" rel="alternate"></link><updated>2014-03-04T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-04:data-analysis-template/nb4.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="testing"&gt;TESTING&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;item 1&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;In this notebook, you'll sumarize your finding for the class presentation.&lt;/p&gt;
 &lt;p&gt;The class presentation will use this notebook in slide mode, as I do during lecture time.&lt;/p&gt;
 &lt;p&gt;You'll need to download the following &lt;a href="https://github.com/fperez/nb-slideshow-template/archive/master.zip"&gt;zip file&lt;/a&gt;, unzip it, and run the following notebook &lt;code&gt;install-support.ipynb&lt;/code&gt; to install the slide capabilities.&lt;/p&gt;
