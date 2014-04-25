@@ -10,7 +10,7 @@ import os
 AUTHOR = u'Jiarong Lin'
 SITENAME = u'Data Analysis Project'
 SITESUBTITLE = u'Template using the iPython notebook'
-GITHUB_REPOSITORY_URL = u'https://github.com/linuslin1/data-analysis-template'
+GITHUB_REPOSITORY_URL = u'https://github.com/linuslin1/INNOVA'
 
 ###################################################
 # FINER WEBSITE CONF (Defaults should be okay)
@@ -44,7 +44,7 @@ LINKS = (('Project Report', 'nb4'),
 
 
 # Social widget
-SOCIAL = (('View on Github', 'https://github.com/linuslin1/data-analysis-template'),)
+SOCIAL = (('View on Github', 'https://github.com/linuslin1/INNOVA'),)
 
 DEFAULT_PAGINATION = 10
 
