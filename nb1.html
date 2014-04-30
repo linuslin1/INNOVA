@@ -1720,7 +1720,7 @@ init_mathjax();
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Data Gathering"/>
             <meta property="og:url" content="http://linuslin1.github.io/INNOVA/nb1.html"/>
-            <meta property="og:description" content="In this notebook, you'll create the directory structure for your project download the raw data for your project write functions and classes to transform raw data (e.g in XML, jason, etc.) into data frames explain what your are doing Team members responsible for this notebook: List the team ..."/>
+            <meta property="og:description" content="In this notebook, you'll create the directory structure for your project download the raw data for your project write functions and classes to transform raw data (e.g in XML, jason, etc.) into data frames explain what your are doing Team Members Responsible for This Notebook: List the team ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://linuslin1.github.io/INNOVA/theme/css/bootstrap.min.css" type="text/css"/>
@@ -1824,14 +1824,323 @@ Data Analysis Project            </a>
 </ul>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
+<h2 id="team-members-responsible-for-this-notebook">Team Members Responsible for This Notebook:</h2>
 <p>List the team members contributing to this notebook, along with their responsabilities:</p>
 <ul>
-<li>team member 1 <strong>name</strong>: team member 1 <strong>responsabilities</strong></li>
-<li>team member 2 <strong>name</strong>: team member 2 <strong>responsabilities</strong></li>
+<li>Team Member 1 <strong>Hui, Man Kin (Ken)</strong>: Write Code for Downloading Data from API</li>
+<li>Team Member 2 <strong>name</strong>: team member 2 <strong>responsabilities</strong></li>
 <li>etc.</li>
 </ul>
 <p>I advise you to work at least in pairs for each project notebook, as you did for the homework assignments. Of course, all team members may participate to each notebook.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Creating-Directory">Creating Directory<a class="anchor-link" href="#Creating-Directory">&#182;</a></h1>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">bash</span>
+<span class="n">mkdir</span> <span class="o">../</span><span class="n">script</span> <span class="o">../</span><span class="n">data</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">cleaned</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">simulated</span> <span class="o">../</span><span class="n">visualizations</span>
+<span class="n">ls</span> <span class="o">-</span><span class="n">r</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Untitled0.ipynb
+try.ipynb
+README.md
+NB4_project_report.ipynb
+NB3_data_analysis.ipynb
+NB2_data_cleaning.ipynb
+NB1_data_gathering.ipynb
+
+</pre>
+</div>
+</div>
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stderr">
+<pre>
+mkdir: cannot create directory ‘../script’: File exists
+mkdir: cannot create directory ‘../data’: File exists
+mkdir: cannot create directory ‘../data/raw’: File exists
+mkdir: cannot create directory ‘../data/cleaned’: File exists
+mkdir: cannot create directory ‘../data/simulated’: File exists
+mkdir: cannot create directory ‘../visualizations’: File exists
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Downloading-and-Display-Raw-Data">Downloading and Display Raw Data<a class="anchor-link" href="#Downloading-and-Display-Raw-Data">&#182;</a></h1>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[24]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Import datetime &amp; pandas</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas.io.data</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[25]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for Apple</span>
+<span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;AAPL&#39;</span><span class="p">,</span> 
+                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
+                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">aapl</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/aapl.csv&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/raw/aapl.csv
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,143.27,145.71,142.52,143.5,27430900,137.93
+2008-04-01,146.3,149.66,143.61,149.53,36877400,143.72
+2008-04-02,148.78,151.2,145.85,147.49,37320300,141.76
+2008-04-03,147.06,153.63,147.0,151.61,37556000,145.72
+2008-04-04,152.19,154.71,150.75,153.08,30514900,147.13
+2008-04-07,156.13,159.69,155.11,155.89,41368800,149.83
+2008-04-08,153.55,156.45,152.32,152.84,36224800,146.9
+2008-04-09,153.31,153.89,150.46,151.44,31192800,145.56
+2008-04-10,151.13,155.42,150.6,154.55,34134400,148.55
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[26]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for Google</span>
+<span class="n">googl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;GOOGL&#39;</span><span class="p">,</span> 
+                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
+                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="n">googl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">googl</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/googl.csv&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/raw/googl.csv
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,435.64,442.69,432.01,440.47,8883900,220.46
+2008-04-01,447.74,466.5,446.87,465.71,12174000,233.09
+2008-04-02,469.9,475.74,460.39,465.7,11986000,233.08
+2008-04-03,461.73,463.29,448.13,455.12,13543200,227.79
+2008-04-04,457.01,477.83,456.2,471.09,11782600,235.78
+2008-04-07,477.03,485.44,473.53,476.82,11875100,238.65
+2008-04-08,473.04,474.14,462.01,467.81,9084900,234.14
+2008-04-09,469.13,472.0,457.54,464.19,12084100,232.33
+2008-04-10,464.96,473.86,461.85,469.08,10134600,234.77
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[29]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for Amazon</span>
+<span class="n">amzn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;AMZN&#39;</span><span class="p">,</span> 
+                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
+                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="n">amzn</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">amzn</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/amzn.csv&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/raw/amzn.csv
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,70.25,71.64,69.63,71.3,5470300,71.3
+2008-04-01,72.99,77.09,72.76,76.7,9734000,76.7
+2008-04-02,77.08,79.0,76.12,77.37,8592400,77.37
+2008-04-03,75.15,76.01,73.81,74.94,8149900,74.94
+2008-04-04,75.26,77.83,74.28,76.87,7152800,76.87
+2008-04-07,77.36,78.43,76.0,76.9,6672400,76.9
+2008-04-08,76.4,77.61,75.5,77.3,4966000,77.3
+2008-04-09,76.56,76.67,73.66,74.39,6660300,74.39
+2008-04-10,74.48,75.49,72.73,74.83,6255500,74.83
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[28]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for Microsoft</span>
+<span class="n">msft</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;MSFT&#39;</span><span class="p">,</span> 
+                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
+                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="n">msft</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">msft</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/msft.csv&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/raw/msft.csv
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,27.88,28.59,27.84,28.38,46780600,24.44
+2008-04-01,28.83,29.54,28.63,29.5,65796200,25.4
+2008-04-02,29.57,29.58,29.0,29.16,49499400,25.11
+2008-04-03,29.0,29.32,28.8,29.0,38961400,24.97
+2008-04-04,29.13,29.26,28.74,29.16,43860800,25.11
+2008-04-07,29.55,29.59,29.03,29.16,44428600,25.11
+2008-04-08,28.94,29.0,28.54,28.75,44733500,24.76
+2008-04-09,28.72,29.04,28.54,28.89,45839300,24.88
+2008-04-10,28.83,29.4,28.8,29.11,65591600,25.07
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[22]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for HP</span>
+<span class="n">hp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;HP&#39;</span><span class="p">,</span> 
+                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
+                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="n">hp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">hp</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/hp.csv&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/raw/hp.csv
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,46.33,47.13,45.51,46.87,1699500,44.51
+2008-04-01,47.35,47.55,45.57,47.46,1303600,45.07
+2008-04-02,47.57,48.95,46.51,48.5,1629800,46.06
+2008-04-03,48.43,49.61,48.06,48.97,1957800,46.51
+2008-04-04,49.73,50.37,48.94,49.41,1829200,46.93
+2008-04-07,50.39,50.69,49.58,49.93,1252500,47.42
+2008-04-08,50.47,51.11,49.62,50.79,1003700,48.24
+2008-04-09,50.57,51.98,50.55,51.37,1160000,48.79
+2008-04-10,50.81,52.11,50.5,52.1,1513900,49.48
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb">
+</pre></div>
+
+</div>
+</div>
+
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="instructions">Instructions:</h2>
@@ -2288,212 +2597,6 @@ In&nbsp;[16]:
 
 </pre>
 
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Creating-Directory">Creating Directory<a class="anchor-link" href="#Creating-Directory">&#182;</a></h1>
-</div>
-
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[3]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">bash</span>
-<span class="n">mkdir</span> <span class="o">../</span><span class="n">script</span> <span class="o">../</span><span class="n">data</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">raw</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">cleaned</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">simulated</span> <span class="o">../</span><span class="n">visualizations</span>
-<span class="n">ls</span> <span class="o">-</span><span class="n">r</span>
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-README.md
-NB4_project_report.ipynb
-NB3_data_analysis.ipynb
-NB2_data_cleaning.ipynb
-NB1_data_gathering.ipynb
-
-</pre>
-</div>
-</div>
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stderr">
-<pre>
-mkdir: cannot create directory ‘../script’: File exists
-mkdir: cannot create directory ‘../data’: File exists
-mkdir: cannot create directory ‘../data/raw’: File exists
-mkdir: cannot create directory ‘../data/cleaned’: File exists
-mkdir: cannot create directory ‘../data/simulated’: File exists
-mkdir: cannot create directory ‘../visualizations’: File exists
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Downloading-and-Display-Raw-Data">Downloading and Display Raw Data<a class="anchor-link" href="#Downloading-and-Display-Raw-Data">&#182;</a></h1>
-</div>
-
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[4]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Import datetime &amp; pandas</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pandas.io.data</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
-</pre></div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[5]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for Apple</span>
-<span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;AAPL&#39;</span><span class="p">,</span> 
-                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
-                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
-<span class="n">aapl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="n">aapl</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/aapl.csv&#39;</span><span class="p">)</span>
-<span class="o">!</span>head ../data/raw/aapl.csv
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-Date,Open,High,Low,Close,Volume,Adj Close
-2013-04-01,441.9,443.7,427.74,428.91,13919000,418.33
-2013-04-02,427.6,438.14,426.4,429.79,18911400,419.19
-2013-04-03,431.37,437.28,430.31,431.99,12972000,421.34
-2013-04-04,433.76,435.0,425.25,427.72,12801700,417.17
-2013-04-05,424.5,424.95,419.68,423.2,13703400,412.76
-2013-04-08,424.85,427.5,422.49,426.21,10743900,415.7
-2013-04-09,426.36,428.5,422.75,426.98,10950500,416.45
-2013-04-10,428.1,437.06,426.01,435.69,13426000,424.95
-2013-04-11,433.72,437.99,431.2,434.33,11727300,423.62
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[6]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for Google</span>
-<span class="n">googl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;GOOGL&#39;</span><span class="p">,</span> 
-                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
-                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
-<span class="n">googl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="n">googl</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/googl.csv&#39;</span><span class="p">)</span>
-<span class="o">!</span>head ../data/raw/googl.csv
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-Date,Open,High,Low,Close,Volume,Adj Close
-2013-04-01,795.01,802.25,793.25,801.19,3610900,401.0
-2013-04-02,804.54,814.83,804.0,813.04,4078900,406.93
-2013-04-03,813.46,814.2,800.67,806.2,3473500,403.5
-2013-04-04,804.25,805.75,791.3,795.07,4890300,397.93
-2013-04-05,786.06,786.99,776.4,783.05,6860900,391.92
-2013-04-08,778.75,779.55,768.4,774.85,5658500,387.81
-2013-04-09,775.5,783.75,773.11,777.65,4310200,389.21
-2013-04-10,782.92,792.35,776.0,790.18,3953200,395.49
-2013-04-11,792.88,793.1,784.06,790.39,4053300,395.59
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell vbox">
-<div class="input hbox">
-<div class="prompt input_prompt">
-In&nbsp;[7]:
-</div>
-<div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Download Data for Facebook</span>
-<span class="n">fb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">&#39;FB&#39;</span><span class="p">,</span> 
-                                 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> 
-                                 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
-<span class="n">fb</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="n">fb</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/fb.csv&#39;</span><span class="p">)</span>
-<span class="o">!</span>head ../data/raw/fb.csv
-</pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-Date,Open,High,Low,Close,Volume,Adj Close
-2013-04-01,25.63,25.89,25.28,25.53,22249300,25.53
-2013-04-02,25.77,26.12,25.3,25.42,35153300,25.42
-2013-04-03,25.83,26.39,25.7,26.25,48195200,26.25
-2013-04-04,26.62,27.23,26.11,27.07,82016800,27.07
-2013-04-05,26.86,27.8,26.61,27.39,64566600,27.39
-2013-04-08,27.19,27.2,26.63,26.85,27256000,26.85
-2013-04-09,26.58,26.89,26.42,26.59,21311100,26.59
-2013-04-10,27.01,27.84,26.9,27.57,45949400,27.57
-2013-04-11,27.48,28.1,27.25,28.02,33368500,28.02
-
-</pre>
 </div>
 </div>
 
