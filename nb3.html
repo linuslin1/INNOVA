@@ -1901,6 +1901,7 @@ In&nbsp;[3]:
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="n">IT</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">zoo</span><span class="p">(</span><span class="s">&quot;../data/cleaned/IT.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">format</span> <span class="o">=</span> <span class="s">&quot;%Y-%m-</span><span class="si">%d</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">apple</span> <span class="o">=</span> <span class="n">ts</span><span class="p">(</span><span class="n">IT</span><span class="err">$</span><span class="n">Apple</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1938,13 +1939,13 @@ In&nbsp;[4]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[28]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="c"># Time Plot</span>
 <span class="n">jpeg</span><span class="p">(</span><span class="s">&#39;../visualizations/TS_IT.jpg&#39;</span><span class="p">)</span>
-<span class="n">timeplotfunction</span><span class="p">(</span><span class="n">IT</span><span class="err">$</span><span class="n">Apple</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">))</span>
+<span class="n">timeplotfunction</span><span class="p">(</span><span class="n">apple</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">))</span>
 <span class="n">par</span><span class="p">(</span><span class="n">new</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 <span class="n">timeplotfunction</span><span class="p">(</span><span class="n">IT</span><span class="err">$</span><span class="n">Google</span><span class="p">,</span> <span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">))</span>
 <span class="n">par</span><span class="p">(</span><span class="n">new</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
@@ -1958,6 +1959,22 @@ In&nbsp;[5]:
 <span class="n">legend</span><span class="p">(</span><span class="s">&#39;topleft&#39;</span><span class="p">,</span> <span class="n">colnames</span><span class="p">(</span><span class="n">IT</span><span class="p">)</span> <span class="p">,</span> <span class="n">lty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;orange&#39;</span><span class="p">,</span> <span class="s">&#39;yellow&#39;</span><span class="p">,</span><span class="s">&#39; green&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">),</span> <span class="n">bty</span><span class="o">=</span><span class="s">&#39;n&#39;</span><span class="p">)</span>
 <span class="n">dev</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
 </pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Error in plot.window(xlim, ylim, log, ...) : invalid &apos;ylim&apos; value
+
+</pre>
+</div>
+</div>
 
 </div>
 </div>
@@ -4632,7 +4649,7 @@ In&nbsp;[24]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[25]:
+In&nbsp;[34]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -4640,15 +4657,15 @@ In&nbsp;[25]:
                   <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
                   <span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">2</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">3</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">4</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">5</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">6</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">7</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">8</span><span class="p">]]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">total_fit_apple</span><span class="p">(</span><span class="n">possible</span><span class="p">[[</span><span class="mi">9</span><span class="p">]]))</span>
+<span class="c">#print(total_fit_apple(possible[[1]]))</span>
+<span class="c">#print(total_fit_apple(possible[[2]]))</span>
+<span class="c">#print(total_fit_apple(possible[[3]]))</span>
+<span class="c">#print(total_fit_apple(possible[[4]]))</span>
+<span class="c">#print(total_fit_apple(possible[[5]]))</span>
+<span class="c">#print(total_fit_apple(possible[[6]]))</span>
+<span class="c">#print(total_fit_apple(possible[[7]]))</span>
+<span class="c">#print(total_fit_apple(possible[[8]]))</span>
+<span class="c">#print(total_fit_apple(possible[[9]]))</span>
 </pre></div>
 
 </div>
@@ -4659,7 +4676,9 @@ In&nbsp;[25]:
 
 
 <div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
+<div class="box-flex1 output_subarea output_display_data">
+
+
 <pre>
 Series: IT$Apple 
 ARIMA(3,1,0)(0,1,0)[365]                    
@@ -4671,10 +4690,9 @@ s.e.   0.0355   0.0454  0.0527
 
 sigma^2 estimated as 71.87:  log likelihood=-4315.37
 AIC=8638.73   AICc=8638.75   BIC=8660.77
-Error in makeARIMA(trarma[[1L]], trarma[[2L]], Delta, kappa) : 
-  maximum supported lag is 350
 
 </pre>
+
 </div>
 </div>
 
@@ -4693,7 +4711,7 @@ In&nbsp;[]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="n">apple_possible_seasonal</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mf">10865.18</span><span class="p">,</span> <span class="mf">9895.96</span><span class="p">,</span> <span class="mf">9893.02</span><span class="p">,</span>
+<span class="n">apple_possible_seasonal</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mf">8638.73</span><span class="p">,</span> <span class="mf">9895.96</span><span class="p">,</span> <span class="mf">9893.02</span><span class="p">,</span>
                             <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="s">&quot;-&quot;</span><span class="p">,</span>
                             <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="s">&quot;-&quot;</span><span class="p">)</span>
 </pre></div>
