@@ -1891,13 +1891,141 @@ In&nbsp;[14]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Loading-Libor-Data">Loading Libor Data<a class="anchor-link" href="#Loading-Libor-Data">&#182;</a></h1>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[166]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Loading Libor CSV</span>
+<span class="n">libor</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/libor.csv&quot;</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stringsAsFactors</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+<span class="n">colnames</span><span class="p">(</span><span class="n">libor</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Time&quot;</span><span class="p">,</span> <span class="s">&quot;1 Month Rate&quot;</span><span class="p">)</span>
+
+<span class="c"># Subset Libor</span>
+<span class="n">libor</span> <span class="o">=</span> <span class="n">libor</span><span class="p">[</span><span class="n">which</span><span class="p">(</span><span class="n">libor</span><span class="err">$</span><span class="n">Time</span> <span class="o">==</span> <span class="s">&quot;2008-03-31&quot;</span><span class="p">):</span><span class="n">which</span><span class="p">(</span><span class="n">libor</span><span class="err">$</span><span class="n">Time</span> <span class="o">==</span> <span class="s">&quot;2014-04-30&quot;</span><span class="p">),]</span>
+
+<span class="c"># Removing Missing Data</span>
+<span class="n">remove_list</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="n">libor</span><span class="err">$</span><span class="s">&quot;1 Month Rate&quot;</span> <span class="o">==</span> <span class="s">&quot;ND&quot;</span><span class="p">)</span><span class="o">*-</span><span class="mi">1</span>
+<span class="n">libor</span> <span class="o">=</span> <span class="n">libor</span><span class="p">[</span><span class="n">remove_list</span><span class="p">,]</span>
+
+<span class="c"># Saving to CSV</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;../data/cleaned/libor.csv&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">libor</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+
+Error while parsing the string.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Displaying-Libor-Data">Displaying Libor Data<a class="anchor-link" href="#Displaying-Libor-Data">&#182;</a></h2>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[167]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">!</span>head ../data/cleaned/libor.csv
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+&quot;Time&quot;,&quot;1 Month Rate&quot;
+&quot;2008-03-31&quot;,&quot;3.00&quot;
+&quot;2008-04-01&quot;,&quot;3.00&quot;
+&quot;2008-04-02&quot;,&quot;3.00&quot;
+&quot;2008-04-03&quot;,&quot;3.00&quot;
+&quot;2008-04-04&quot;,&quot;3.00&quot;
+&quot;2008-04-07&quot;,&quot;2.95&quot;
+&quot;2008-04-08&quot;,&quot;3.00&quot;
+&quot;2008-04-09&quot;,&quot;3.00&quot;
+&quot;2008-04-10&quot;,&quot;3.00&quot;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Loading-Data-to-Panda">Loading Data to Panda<a class="anchor-link" href="#Loading-Data-to-Panda">&#182;</a></h1>
 </div>
 
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[35]:
+In&nbsp;[28]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Mapping Dictionary</span>
+<span class="n">stocks</span> <span class="o">=</span> <span class="p">[{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Apple&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;aapl&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Google&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;googl&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Amazon&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;amzn&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Microsoft&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;msft&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;HP&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;hp&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;SP500&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;^GSPC&#39;</span><span class="p">}]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
+    
+    <span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">download</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="c"># Downloading Data</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="s">&#39;../data/raw/&#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;symbol&#39;</span><span class="p">]</span><span class="o">+</span><span class="s">&#39;.csv&#39;</span> <span class="c"># Path</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="c"># Saving Raw Data to CSV</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Raw Data - &#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span> <span class="c"># Displaying Data</span>
+    <span class="err">!</span><span class="n">head</span> <span class="err">$</span><span class="n">fname</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[16]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/aapl.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
@@ -1905,6 +2033,7 @@ In&nbsp;[35]:
 <span class="n">amzn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/amzn.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">msft</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/msft.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">hp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/hp.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">sp500</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/sp500.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1918,7 +2047,7 @@ In&nbsp;[35]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[36]:
+In&nbsp;[17]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Making Daily Adjust Close Price</span>
@@ -1927,6 +2056,7 @@ In&nbsp;[36]:
 <span class="n">damzn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">amzn</span><span class="p">)[[</span><span class="s">&#39;Adj Close&#39;</span><span class="p">]]</span>
 <span class="n">dmsft</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">msft</span><span class="p">)[[</span><span class="s">&#39;Adj Close&#39;</span><span class="p">]]</span>
 <span class="n">dhp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hp</span><span class="p">)[[</span><span class="s">&#39;Adj Close&#39;</span><span class="p">]]</span>
+<span class="n">dsp500</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sp500</span><span class="p">)[[</span><span class="s">&#39;Adj Close&#39;</span><span class="p">]]</span>
 
 <span class="c"># Saving to CSV</span>
 <span class="n">daapl</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/cleaned/daapl.csv&#39;</span><span class="p">)</span>
@@ -1934,6 +2064,7 @@ In&nbsp;[36]:
 <span class="n">damzn</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/cleaned/damzn.csv&#39;</span><span class="p">)</span>
 <span class="n">dmsft</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/cleaned/dmsft.csv&#39;</span><span class="p">)</span>
 <span class="n">dhp</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/cleaned/dhp.csv&#39;</span><span class="p">)</span>
+<span class="n">dsp500</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/cleaned/dsp500.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1947,7 +2078,7 @@ In&nbsp;[36]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[99]:
+In&nbsp;[18]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Displaying CSV Data</span>
@@ -1969,6 +2100,11 @@ In&nbsp;[99]:
 
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;Daily Data - HP&#39;</span><span class="p">)</span>
 <span class="o">!</span>head ../data/cleaned/dhp.csv
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Daily Data - S&amp;P500&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/cleaned/dsp500.csv
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2041,6 +2177,19 @@ Date,Adj Close
 2008-04-09,48.79
 2008-04-10,49.48
 
+Daily Data - S&amp;P500
+Date,Adj Close
+2008-03-31,1322.7
+2008-04-01,1370.18
+2008-04-02,1367.53
+2008-04-03,1369.31
+2008-04-04,1370.4
+2008-04-07,1372.54
+2008-04-08,1365.54
+2008-04-09,1354.49
+2008-04-10,1360.55
+
+
 </pre>
 </div>
 </div>
@@ -2056,7 +2205,7 @@ Date,Adj Close
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[95]:
+In&nbsp;[19]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2066,6 +2215,7 @@ In&nbsp;[95]:
 <span class="n">amzn</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/amzn.csv&quot;</span><span class="p">)</span>
 <span class="n">msft</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/msft.csv&quot;</span><span class="p">)</span>
 <span class="n">hp</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/hp.csv&quot;</span><span class="p">)</span>
+<span class="n">sp500</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/sp500.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2083,17 +2233,17 @@ In&nbsp;[95]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[96]:
+In&nbsp;[20]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="n">weeklydata</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">x</span><span class="err">$</span><span class="n">Adj</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">colMeans</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-    <span class="n">wweek</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">wweek</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="n">colnames</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Week&quot;</span><span class="p">,</span> <span class="s">&quot;Adj Close&quot;</span><span class="p">)</span>
-    <span class="n">c</span><span class="p">}</span>
+    <span class="n">colmeans</span> <span class="o">=</span> <span class="n">colMeans</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">wweek</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">colmeans</span><span class="p">))</span>
+    <span class="n">dataf</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">wweek</span><span class="p">,</span> <span class="n">colmeans</span><span class="p">)</span>
+    <span class="n">colnames</span><span class="p">(</span><span class="n">dataf</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Week&quot;</span><span class="p">,</span> <span class="s">&quot;Adj Close&quot;</span><span class="p">)</span>
+    <span class="n">dataf</span><span class="p">}</span>
 </pre></div>
 
 </div>
@@ -2107,7 +2257,7 @@ In&nbsp;[96]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[97]:
+In&nbsp;[21]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2117,6 +2267,7 @@ In&nbsp;[97]:
 <span class="n">wamzn</span> <span class="o">=</span> <span class="n">weeklydata</span><span class="p">(</span><span class="n">amzn</span><span class="p">)</span>
 <span class="n">wmsft</span> <span class="o">=</span> <span class="n">weeklydata</span><span class="p">(</span><span class="n">msft</span><span class="p">)</span>
 <span class="n">whp</span> <span class="o">=</span> <span class="n">weeklydata</span><span class="p">(</span><span class="n">hp</span><span class="p">)</span>
+<span class="n">wsp500</span> <span class="o">=</span> <span class="n">weeklydata</span><span class="p">(</span><span class="n">sp500</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2130,7 +2281,7 @@ In&nbsp;[97]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[106]:
+In&nbsp;[22]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2140,6 +2291,7 @@ In&nbsp;[106]:
 <span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;../data/cleaned/wamzn.csv&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">wamzn</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
 <span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;../data/cleaned/wmsft.csv&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">wmsft</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
 <span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;../data/cleaned/whp.csv&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">whp</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;../data/cleaned/wsp500.csv&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">wsp500</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2153,7 +2305,7 @@ In&nbsp;[106]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[107]:
+In&nbsp;[23]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Displaying CSV Data</span>
@@ -2175,6 +2327,11 @@ In&nbsp;[107]:
 
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;Weekly Data - HP&#39;</span><span class="p">)</span>
 <span class="o">!</span>head ../data/cleaned/whp.csv
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Weekly Data - S&amp;P500&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/cleaned/wsp500.csv
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2247,6 +2404,19 @@ Weekly Data - HP
 8,63.6614285714286
 9,69.0542857142857
 
+Weekly Data - S&amp;P500
+&quot;Week&quot;,&quot;Adj Close&quot;
+1,1362.6
+2,1348.69857142857
+3,1388.2
+4,1402.58428571429
+5,1407.16571428571
+6,1396.74428571429
+7,1386.27
+8,1352.38
+9,1319.42571428571
+
+
 </pre>
 </div>
 </div>
@@ -2266,7 +2436,7 @@ Weekly Data - HP
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[141]:
+In&nbsp;[24]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2276,6 +2446,7 @@ In&nbsp;[141]:
 <span class="n">damzn</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/cleaned/damzn.csv&quot;</span><span class="p">)</span>
 <span class="n">dmsft</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/cleaned/dmsft.csv&quot;</span><span class="p">)</span>
 <span class="n">dhp</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/cleaned/dhp.csv&quot;</span><span class="p">)</span>
+<span class="n">dsp500</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/cleaned/dsp500.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2289,13 +2460,13 @@ In&nbsp;[141]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[145]:
+In&nbsp;[25]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="c"># Function</span>
 <span class="n">adjclosecombine</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">){</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">a</span><span class="err">$</span><span class="n">Date</span><span class="p">,</span> <span class="n">a</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">b</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">c</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">d</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">e</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">a</span><span class="err">$</span><span class="n">Date</span><span class="p">,</span> <span class="n">a</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">b</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">c</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">d</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">e</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">,</span> <span class="n">sp500</span><span class="err">$</span><span class="s">&quot;Adj.Close&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -2310,14 +2481,74 @@ In&nbsp;[145]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[148]:
+In&nbsp;[26]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
 <span class="c"># Making IT Stock Data</span>
 <span class="n">IT</span> <span class="o">=</span> <span class="n">adjclosecombine</span><span class="p">(</span><span class="n">aapl</span><span class="p">,</span> <span class="n">googl</span><span class="p">,</span> <span class="n">amzn</span><span class="p">,</span> <span class="n">msft</span><span class="p">,</span> <span class="n">hp</span><span class="p">)</span>
-<span class="n">colnames</span><span class="p">(</span><span class="n">IT</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="s">&quot;Amazon&quot;</span><span class="p">,</span> <span class="s">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s">&quot;HP&quot;</span><span class="p">)</span>
+<span class="n">colnames</span><span class="p">(</span><span class="n">IT</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="s">&quot;Amazon&quot;</span><span class="p">,</span> <span class="s">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s">&quot;HP&quot;</span><span class="p">,</span> <span class="s">&quot;S&amp;P 500&quot;</span><span class="p">)</span>
 <span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;../data/cleaned/IT.csv&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">IT</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Displaying-Category-Data---IT">Displaying Category Data - IT<a class="anchor-link" href="#Displaying-Category-Data---IT">&#182;</a></h3>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[27]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Displaying CSV Data</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Category Data - IT&#39;</span><span class="p">)</span>
+<span class="o">!</span>head ../data/cleaned/IT.csv
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Category Data - IT
+&quot;Date&quot;,&quot;Apple&quot;,&quot;Google&quot;,&quot;Amazon&quot;,&quot;Microsoft&quot;,&quot;HP&quot;,&quot;S&amp;P 500&quot;
+&quot;2008-03-31&quot;,137.93,220.46,71.3,24.44,44.51,1322.7
+&quot;2008-04-01&quot;,143.72,233.09,76.7,25.4,45.07,1370.18
+&quot;2008-04-02&quot;,141.76,233.08,77.37,25.11,46.06,1367.53
+&quot;2008-04-03&quot;,145.72,227.79,74.94,24.97,46.51,1369.31
+&quot;2008-04-04&quot;,147.13,235.78,76.87,25.11,46.93,1370.4
+&quot;2008-04-07&quot;,149.83,238.65,76.9,25.11,47.42,1372.54
+&quot;2008-04-08&quot;,146.9,234.14,77.3,24.76,48.24,1365.54
+&quot;2008-04-09&quot;,145.56,232.33,74.39,24.88,48.79,1354.49
+&quot;2008-04-10&quot;,148.55,234.77,74.83,25.07,49.48,1360.55
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb">
 </pre></div>
 
 </div>
