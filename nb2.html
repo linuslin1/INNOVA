@@ -1841,29 +1841,12 @@ Data Analysis Project            </a>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[1]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Loading R Magic</span>
 <span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
 </pre></div>
-
-</div>
-</div>
-
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-The rmagic extension is already loaded. To reload it, use:
-  %reload_ext rmagic
-
-</pre>
-</div>
-</div>
 
 </div>
 </div>
@@ -1876,7 +1859,7 @@ The rmagic extension is already loaded. To reload it, use:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[2]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Import Datetime &amp; Pandas</span>
@@ -1891,13 +1874,17 @@ In&nbsp;[14]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Loading-Libor-Data">Loading Libor Data<a class="anchor-link" href="#Loading-Libor-Data">&#182;</a></h1>
+<h1 id="Cleaning-LIBOR-Data">Cleaning LIBOR Data<a class="anchor-link" href="#Cleaning-LIBOR-Data">&#182;</a></h1>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cleaning">Cleaning<a class="anchor-link" href="#Cleaning">&#182;</a></h2>
 </div>
 
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[166]:
+In&nbsp;[3]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -1919,32 +1906,15 @@ In&nbsp;[166]:
 </div>
 </div>
 
-<div class="vbox output_wrapper">
-<div class="output vbox">
-
-
-<div class="hbox output_area"><div class="prompt"></div>
-<div class="box-flex1 output_subarea output_stream output_stdout">
-<pre>
-
-Error while parsing the string.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Displaying-Libor-Data">Displaying Libor Data<a class="anchor-link" href="#Displaying-Libor-Data">&#182;</a></h2>
+<h2 id="Displaying">Displaying<a class="anchor-link" href="#Displaying">&#182;</a></h2>
 </div>
 
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[167]:
+In&nbsp;[4]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">!</span>head ../data/cleaned/libor.csv
@@ -1980,13 +1950,13 @@ In&nbsp;[167]:
 
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Loading-Data-to-Panda">Loading Data to Panda<a class="anchor-link" href="#Loading-Data-to-Panda">&#182;</a></h1>
+<h1 id="Cleaning-Yahoo-Finance-Data">Cleaning Yahoo Finance Data<a class="anchor-link" href="#Cleaning-Yahoo-Finance-Data">&#182;</a></h1>
 </div>
 
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[28]:
+In&nbsp;[5]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Mapping Dictionary</span>
@@ -2002,20 +1972,420 @@ In&nbsp;[28]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Making-Daily-Data">Making Daily Data<a class="anchor-link" href="#Making-Daily-Data">&#182;</a></h2>
+</div>
+
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[6]:
 </div>
 <div class="input_area box-flex1">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
-    
-    <span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">download</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="c"># Downloading Data</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Loading Data to Panda</span>
+<span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="s">&#39;../data/raw/&#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;symbol&#39;</span><span class="p">]</span><span class="o">+</span><span class="s">&#39;.csv&#39;</span> <span class="c"># Path</span>
-    <span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="c"># Saving Raw Data to CSV</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Raw Data - &#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span> <span class="c"># Displaying Data</span>
-    <span class="err">!</span><span class="n">head</span> <span class="err">$</span><span class="n">fname</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span> <span class="c"># Loading Data</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">][</span><span class="s">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">&#39;../data/cleaned/d&#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;symbol&#39;</span><span class="p">]</span><span class="o">+</span><span class="s">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s">&#39;Adj Close&#39;</span><span class="p">)</span> <span class="c"># Saving Daily Data to CSV</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Daily Data - &#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span> <span class="c"># Displaying Daily Data</span>
+    <span class="n">dfname</span> <span class="o">=</span> <span class="s">&#39;../data/cleaned/d&#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;symbol&#39;</span><span class="p">]</span><span class="o">+</span><span class="s">&#39;.csv&#39;</span> <span class="c"># Path for Daily Data</span>
+    <span class="err">!</span><span class="n">head</span> <span class="err">$</span><span class="n">dfname</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Daily Data - Apple
+Date,Adj Close
+2008-03-31,137.93
+2008-04-01,143.72
+2008-04-02,141.76
+2008-04-03,145.72
+2008-04-04,147.13
+2008-04-07,149.83
+2008-04-08,146.9
+2008-04-09,145.56
+2008-04-10,148.55
+
+Daily Data - Google
+Date,Adj Close
+2008-03-31,220.46
+2008-04-01,233.09
+2008-04-02,233.08
+2008-04-03,227.79
+2008-04-04,235.78
+2008-04-07,238.65
+2008-04-08,234.14
+2008-04-09,232.33
+2008-04-10,234.77
+
+Daily Data - Amazon
+Date,Adj Close
+2008-03-31,71.3
+2008-04-01,76.7
+2008-04-02,77.37
+2008-04-03,74.94
+2008-04-04,76.87
+2008-04-07,76.9
+2008-04-08,77.3
+2008-04-09,74.39
+2008-04-10,74.83
+
+Daily Data - Microsoft
+Date,Adj Close
+2008-03-31,24.44
+2008-04-01,25.4
+2008-04-02,25.11
+2008-04-03,24.97
+2008-04-04,25.11
+2008-04-07,25.11
+2008-04-08,24.76
+2008-04-09,24.88
+2008-04-10,25.07
+
+Daily Data - HP
+Date,Adj Close
+2008-03-31,44.51
+2008-04-01,45.07
+2008-04-02,46.06
+2008-04-03,46.51
+2008-04-04,46.93
+2008-04-07,47.42
+2008-04-08,48.24
+2008-04-09,48.79
+2008-04-10,49.48
+
+Daily Data - SP500
+Date,Adj Close
+2008-03-31,1322.7
+2008-04-01,1370.18
+2008-04-02,1367.53
+2008-04-03,1369.31
+2008-04-04,1370.4
+2008-04-07,1372.54
+2008-04-08,1365.54
+2008-04-09,1354.49
+2008-04-10,1360.55
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Making-Weekly-Data">Making Weekly Data<a class="anchor-link" href="#Making-Weekly-Data">&#182;</a></h2>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Dictionary-like DataFrame</span>
+<span class="n">stocks</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="s">&quot;Amazon&quot;</span><span class="p">,</span> <span class="s">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s">&quot;HP&quot;</span><span class="p">,</span> <span class="s">&quot;SP500&quot;</span><span class="p">),</span>
+                    <span class="n">c</span><span class="p">(</span><span class="s">&quot;aapl&quot;</span><span class="p">,</span> <span class="s">&quot;googl&quot;</span><span class="p">,</span> <span class="s">&quot;amzn&quot;</span><span class="p">,</span> <span class="s">&quot;msft&quot;</span><span class="p">,</span> <span class="s">&quot;hp&quot;</span><span class="p">,</span> <span class="s">&quot;^GSPC&quot;</span><span class="p">))</span>
+<span class="n">colnames</span><span class="p">(</span><span class="n">stocks</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;symbol&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stocks</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+       name symbol
+1     Apple   aapl
+2    Google  googl
+3    Amazon   amzn
+4 Microsoft   msft
+5        HP     hp
+6     SP500  ^GSPC
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[66]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">library</span><span class="p">(</span><span class="n">zoo</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">xts</span><span class="p">)</span>
+<span class="nb">apply</span><span class="p">(</span><span class="nb">eval</span><span class="p">,</span> <span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">paste0</span><span class="p">(</span><span class="s">&quot;read.zoo(&#39;../data/cleaned/d&quot;</span><span class="p">,</span><span class="n">stock</span><span class="p">,</span> <span class="s">&quot;.csv&#39;, header=TRUE, sep=&#39;,&#39;, format = &#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;)&quot;</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Error in parse(text = paste0(&quot;read.zoo(&apos;../data/cleaned/d&quot;, stock, &quot;.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)&quot;)) : 
+  &lt;text&gt;:2:38: unexpected symbol
+1: read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+2: read.zoo(&apos;../data/cleaned/dread.zoo(&apos;..
+                                        ^
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[155]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">library</span><span class="p">(</span><span class="n">zoo</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">xts</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="err">$</span><span class="n">symbol</span><span class="p">){</span>
+    <span class="n">stocks</span><span class="err">$</span><span class="n">read</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s">&quot;read.zoo(&#39;../data/cleaned/d&quot;</span><span class="p">,</span><span class="n">stock</span><span class="p">,</span> <span class="s">&quot;.csv&#39;, header=TRUE, sep=&#39;,&#39;, format = &#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;)&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+<span class="n">myread</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">mycsv</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">myweek</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="p">)){</span>
+    <span class="n">myread</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s">&quot;read.zoo(&#39;../data/cleaned/d&quot;</span><span class="p">,</span><span class="n">stocks</span><span class="err">$</span><span class="n">symbol</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;.csv&#39;, header=TRUE, sep=&#39;,&#39;, format = &#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;)&quot;</span><span class="p">)</span>
+    <span class="n">mycsv</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">myweek</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">apply</span><span class="o">.</span><span class="n">weekly</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span><span class="n">mean</span><span class="p">)}</span>
+
+<span class="n">stocks</span><span class="err">$</span><span class="n">week</span> <span class="o">=</span> <span class="n">myweek</span>
+<span class="k">print</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">stocks</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+       name symbol
+1     Apple   aapl
+2    Google  googl
+3    Amazon   amzn
+4 Microsoft   msft
+5        HP     hp
+6     SP500  ^GSPC
+                                                                               read
+1 read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+2 read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+3 read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+4 read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+5 read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+6 read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              week
+1 1360.0240, 1357.1900, 1356.6700, 1386.1400, 1399.2280, 1400.8560, 1412.8400, 1400.2040, 1393.7075, 1381.0500, 1351.1180, 1341.9280, 1303.1580, 1272.3325, 1252.7160, 1241.9140, 1265.8980, 1261.9040, 1277.0940, 1294.3740, 1277.9500, 1280.7040, 1257.9250, 1245.0180, 1204.8560, 1200.7260, 1129.4700, 969.4400, 959.2360, 924.4220, 928.4720, 952.1380, 891.0080, 813.7840, 873.2800, 851.4100, 890.1860, 891.8660, 868.9350, 898.7775, 913.7760, 855.7060, 826.2275, 845.4780, 842.1260, 838.5640, 781.6450, 753.8580, 695.1900, 724.9560, 775.7880, 818.3440, 814.6720, 833.1875, 857.4380, 848.8340, 867.3280, 913.4380, 895.4920, 899.3280, 907.3400, 940.3840, 942.3640, 917.2000, 905.6480, 916.5750, 884.2240, 924.1380, 963.0660, 982.2360, 1003.7120, 1004.8160, 999.8720, 1028.3200, 1006.6100, 1036.4075, 1060.9040, 1058.4700, 1047.1460, 1057.9460, 1085.1280, 1088.5760, 1055.0580, 1054.1440, 1093.0640, 1103.1400, 1103.5025, 1103.9260, 1099.9800, 1105.9540, 1119.7850, 1123.8750, 1138.6640, 1142.6740, 1124.1275, 1088.9700, 1083.8180, 1069.8740, 1102.5750, 1103.0560, 1122.8960, 1144.9580, 1160.3820, 1168.0040, 1173.5050, 1188.0280, 1201.6460, 1207.3160, 1196.1180, 1156.1520, 1156.0620, 1106.4140, 1081.6200, 1084.2000, 1069.3200, 1110.6040, 1090.2000, 1039.2940, 1059.1350, 1086.1240, 1084.1300, 1107.6220, 1124.2020, 1100.2360, 1082.6800, 1057.2740, 1074.6300, 1101.1100, 1123.6640, 1138.0540, 1144.4060, 1156.1920, 1172.6380, 1178.4240, 1184.1500, 1204.5640, 1213.6220, 1190.2200, 1191.5800, 1204.1240, 1229.7100, 1240.8120, 1254.3225, 1258.2700, 1272.7960, 1281.4380, 1285.1375, 1290.9060, 1303.1420, 1323.1040, 1336.0180, 1312.2050, 1318.8220, 1310.2720, 1277.6140, 1302.6300, 1323.2260, 1332.5440, 1317.4460, 1321.3750, 1352.4480, 1348.0920, 1346.3900, 1335.2000, 1322.1820, 1318.2125, 1282.1300, 1272.8520, 1282.5940, 1308.8980, 1343.5300, 1315.1720, 1329.3660, 1313.4420, 1240.1560, 1152.8400, 1171.0640, 1159.9680, 1204.0560, 1175.9975, 1189.7880, 1167.7860, 1156.2420, 1137.5280, 1205.1840, 1217.9520, 1258.9840, 1244.7720, 1253.9380, 1235.6560, 1175.3700, 1224.7120, 1253.2200, 1221.8860, 1241.9400, 1258.9225, 1278.3075, 1289.9700, 1307.8975, 1318.2940, 1323.9900, 1347.1860, 1352.9540, 1362.2675, 1369.8340, 1359.4200, 1393.6180, 1401.6100, 1409.2640, 1407.3650, 1373.4660, 1380.1880, 1386.5880, 1393.3420, 1359.8520, 1318.7780, 1317.9960, 1308.5275, 1303.8920, 1323.9860, 1343.7960, 1331.3520, 1365.4475, 1345.3840, 1365.8520, 1354.5420, 1379.1860, 1401.2940, 1409.4480, 1411.6000, 1407.2580, 1419.6050, 1444.9920, 1460.3940, 1443.9240, 1452.7120, 1438.2700, 1449.2980, 1416.1180, 1417.9833, 1399.5080, 1364.6520, 1393.7200, 1409.4580, 1411.5600, 1421.5800, 1437.3600, 1416.7550, 1453.6125, 1464.8460, 1476.5140, 1496.2875, 1504.2520, 1509.2880, 1519.5880, 1515.2275, 1506.7320, 1540.3780, 1557.4300, 1552.3680, 1561.8750, 1559.8740, 1580.3260, 1555.1600, 1577.4940, 1597.1780, 1627.3040, 1652.1660, 1658.1820, 1648.3925, 1629.3280, 1628.9100, 1620.0800, 1596.7720, 1619.0850, 1660.1220, 1684.2260, 1691.1520, 1694.7120, 1696.8640, 1677.2340, 1652.3340, 1638.6720, 1650.7750, 1683.2480, 1712.0260, 1696.4900, 1687.9160, 1676.7460, 1721.4780, 1751.5100, 1763.1100, 1763.8300, 1782.0760, 1792.2760, 1804.5675, 1795.7960, 1788.8060, 1801.2220, 1836.1825, 1838.1950, 1836.5280, 1838.2100, 1826.8525, 1785.0080, 1763.8360, 1821.4620, 1836.3850, 1850.3260, 1869.7040, 1860.0940, 1866.0760, 1856.4560, 1872.3400
+2 1360.0240, 1357.1900, 1356.6700, 1386.1400, 1399.2280, 1400.8560, 1412.8400, 1400.2040, 1393.7075, 1381.0500, 1351.1180, 1341.9280, 1303.1580, 1272.3325, 1252.7160, 1241.9140, 1265.8980, 1261.9040, 1277.0940, 1294.3740, 1277.9500, 1280.7040, 1257.9250, 1245.0180, 1204.8560, 1200.7260, 1129.4700, 969.4400, 959.2360, 924.4220, 928.4720, 952.1380, 891.0080, 813.7840, 873.2800, 851.4100, 890.1860, 891.8660, 868.9350, 898.7775, 913.7760, 855.7060, 826.2275, 845.4780, 842.1260, 838.5640, 781.6450, 753.8580, 695.1900, 724.9560, 775.7880, 818.3440, 814.6720, 833.1875, 857.4380, 848.8340, 867.3280, 913.4380, 895.4920, 899.3280, 907.3400, 940.3840, 942.3640, 917.2000, 905.6480, 916.5750, 884.2240, 924.1380, 963.0660, 982.2360, 1003.7120, 1004.8160, 999.8720, 1028.3200, 1006.6100, 1036.4075, 1060.9040, 1058.4700, 1047.1460, 1057.9460, 1085.1280, 1088.5760, 1055.0580, 1054.1440, 1093.0640, 1103.1400, 1103.5025, 1103.9260, 1099.9800, 1105.9540, 1119.7850, 1123.8750, 1138.6640, 1142.6740, 1124.1275, 1088.9700, 1083.8180, 1069.8740, 1102.5750, 1103.0560, 1122.8960, 1144.9580, 1160.3820, 1168.0040, 1173.5050, 1188.0280, 1201.6460, 1207.3160, 1196.1180, 1156.1520, 1156.0620, 1106.4140, 1081.6200, 1084.2000, 1069.3200, 1110.6040, 1090.2000, 1039.2940, 1059.1350, 1086.1240, 1084.1300, 1107.6220, 1124.2020, 1100.2360, 1082.6800, 1057.2740, 1074.6300, 1101.1100, 1123.6640, 1138.0540, 1144.4060, 1156.1920, 1172.6380, 1178.4240, 1184.1500, 1204.5640, 1213.6220, 1190.2200, 1191.5800, 1204.1240, 1229.7100, 1240.8120, 1254.3225, 1258.2700, 1272.7960, 1281.4380, 1285.1375, 1290.9060, 1303.1420, 1323.1040, 1336.0180, 1312.2050, 1318.8220, 1310.2720, 1277.6140, 1302.6300, 1323.2260, 1332.5440, 1317.4460, 1321.3750, 1352.4480, 1348.0920, 1346.3900, 1335.2000, 1322.1820, 1318.2125, 1282.1300, 1272.8520, 1282.5940, 1308.8980, 1343.5300, 1315.1720, 1329.3660, 1313.4420, 1240.1560, 1152.8400, 1171.0640, 1159.9680, 1204.0560, 1175.9975, 1189.7880, 1167.7860, 1156.2420, 1137.5280, 1205.1840, 1217.9520, 1258.9840, 1244.7720, 1253.9380, 1235.6560, 1175.3700, 1224.7120, 1253.2200, 1221.8860, 1241.9400, 1258.9225, 1278.3075, 1289.9700, 1307.8975, 1318.2940, 1323.9900, 1347.1860, 1352.9540, 1362.2675, 1369.8340, 1359.4200, 1393.6180, 1401.6100, 1409.2640, 1407.3650, 1373.4660, 1380.1880, 1386.5880, 1393.3420, 1359.8520, 1318.7780, 1317.9960, 1308.5275, 1303.8920, 1323.9860, 1343.7960, 1331.3520, 1365.4475, 1345.3840, 1365.8520, 1354.5420, 1379.1860, 1401.2940, 1409.4480, 1411.6000, 1407.2580, 1419.6050, 1444.9920, 1460.3940, 1443.9240, 1452.7120, 1438.2700, 1449.2980, 1416.1180, 1417.9833, 1399.5080, 1364.6520, 1393.7200, 1409.4580, 1411.5600, 1421.5800, 1437.3600, 1416.7550, 1453.6125, 1464.8460, 1476.5140, 1496.2875, 1504.2520, 1509.2880, 1519.5880, 1515.2275, 1506.7320, 1540.3780, 1557.4300, 1552.3680, 1561.8750, 1559.8740, 1580.3260, 1555.1600, 1577.4940, 1597.1780, 1627.3040, 1652.1660, 1658.1820, 1648.3925, 1629.3280, 1628.9100, 1620.0800, 1596.7720, 1619.0850, 1660.1220, 1684.2260, 1691.1520, 1694.7120, 1696.8640, 1677.2340, 1652.3340, 1638.6720, 1650.7750, 1683.2480, 1712.0260, 1696.4900, 1687.9160, 1676.7460, 1721.4780, 1751.5100, 1763.1100, 1763.8300, 1782.0760, 1792.2760, 1804.5675, 1795.7960, 1788.8060, 1801.2220, 1836.1825, 1838.1950, 1836.5280, 1838.2100, 1826.8525, 1785.0080, 1763.8360, 1821.4620, 1836.3850, 1850.3260, 1869.7040, 1860.0940, 1866.0760, 1856.4560, 1872.3400
+3 1360.0240, 1357.1900, 1356.6700, 1386.1400, 1399.2280, 1400.8560, 1412.8400, 1400.2040, 1393.7075, 1381.0500, 1351.1180, 1341.9280, 1303.1580, 1272.3325, 1252.7160, 1241.9140, 1265.8980, 1261.9040, 1277.0940, 1294.3740, 1277.9500, 1280.7040, 1257.9250, 1245.0180, 1204.8560, 1200.7260, 1129.4700, 969.4400, 959.2360, 924.4220, 928.4720, 952.1380, 891.0080, 813.7840, 873.2800, 851.4100, 890.1860, 891.8660, 868.9350, 898.7775, 913.7760, 855.7060, 826.2275, 845.4780, 842.1260, 838.5640, 781.6450, 753.8580, 695.1900, 724.9560, 775.7880, 818.3440, 814.6720, 833.1875, 857.4380, 848.8340, 867.3280, 913.4380, 895.4920, 899.3280, 907.3400, 940.3840, 942.3640, 917.2000, 905.6480, 916.5750, 884.2240, 924.1380, 963.0660, 982.2360, 1003.7120, 1004.8160, 999.8720, 1028.3200, 1006.6100, 1036.4075, 1060.9040, 1058.4700, 1047.1460, 1057.9460, 1085.1280, 1088.5760, 1055.0580, 1054.1440, 1093.0640, 1103.1400, 1103.5025, 1103.9260, 1099.9800, 1105.9540, 1119.7850, 1123.8750, 1138.6640, 1142.6740, 1124.1275, 1088.9700, 1083.8180, 1069.8740, 1102.5750, 1103.0560, 1122.8960, 1144.9580, 1160.3820, 1168.0040, 1173.5050, 1188.0280, 1201.6460, 1207.3160, 1196.1180, 1156.1520, 1156.0620, 1106.4140, 1081.6200, 1084.2000, 1069.3200, 1110.6040, 1090.2000, 1039.2940, 1059.1350, 1086.1240, 1084.1300, 1107.6220, 1124.2020, 1100.2360, 1082.6800, 1057.2740, 1074.6300, 1101.1100, 1123.6640, 1138.0540, 1144.4060, 1156.1920, 1172.6380, 1178.4240, 1184.1500, 1204.5640, 1213.6220, 1190.2200, 1191.5800, 1204.1240, 1229.7100, 1240.8120, 1254.3225, 1258.2700, 1272.7960, 1281.4380, 1285.1375, 1290.9060, 1303.1420, 1323.1040, 1336.0180, 1312.2050, 1318.8220, 1310.2720, 1277.6140, 1302.6300, 1323.2260, 1332.5440, 1317.4460, 1321.3750, 1352.4480, 1348.0920, 1346.3900, 1335.2000, 1322.1820, 1318.2125, 1282.1300, 1272.8520, 1282.5940, 1308.8980, 1343.5300, 1315.1720, 1329.3660, 1313.4420, 1240.1560, 1152.8400, 1171.0640, 1159.9680, 1204.0560, 1175.9975, 1189.7880, 1167.7860, 1156.2420, 1137.5280, 1205.1840, 1217.9520, 1258.9840, 1244.7720, 1253.9380, 1235.6560, 1175.3700, 1224.7120, 1253.2200, 1221.8860, 1241.9400, 1258.9225, 1278.3075, 1289.9700, 1307.8975, 1318.2940, 1323.9900, 1347.1860, 1352.9540, 1362.2675, 1369.8340, 1359.4200, 1393.6180, 1401.6100, 1409.2640, 1407.3650, 1373.4660, 1380.1880, 1386.5880, 1393.3420, 1359.8520, 1318.7780, 1317.9960, 1308.5275, 1303.8920, 1323.9860, 1343.7960, 1331.3520, 1365.4475, 1345.3840, 1365.8520, 1354.5420, 1379.1860, 1401.2940, 1409.4480, 1411.6000, 1407.2580, 1419.6050, 1444.9920, 1460.3940, 1443.9240, 1452.7120, 1438.2700, 1449.2980, 1416.1180, 1417.9833, 1399.5080, 1364.6520, 1393.7200, 1409.4580, 1411.5600, 1421.5800, 1437.3600, 1416.7550, 1453.6125, 1464.8460, 1476.5140, 1496.2875, 1504.2520, 1509.2880, 1519.5880, 1515.2275, 1506.7320, 1540.3780, 1557.4300, 1552.3680, 1561.8750, 1559.8740, 1580.3260, 1555.1600, 1577.4940, 1597.1780, 1627.3040, 1652.1660, 1658.1820, 1648.3925, 1629.3280, 1628.9100, 1620.0800, 1596.7720, 1619.0850, 1660.1220, 1684.2260, 1691.1520, 1694.7120, 1696.8640, 1677.2340, 1652.3340, 1638.6720, 1650.7750, 1683.2480, 1712.0260, 1696.4900, 1687.9160, 1676.7460, 1721.4780, 1751.5100, 1763.1100, 1763.8300, 1782.0760, 1792.2760, 1804.5675, 1795.7960, 1788.8060, 1801.2220, 1836.1825, 1838.1950, 1836.5280, 1838.2100, 1826.8525, 1785.0080, 1763.8360, 1821.4620, 1836.3850, 1850.3260, 1869.7040, 1860.0940, 1866.0760, 1856.4560, 1872.3400
+4 1360.0240, 1357.1900, 1356.6700, 1386.1400, 1399.2280, 1400.8560, 1412.8400, 1400.2040, 1393.7075, 1381.0500, 1351.1180, 1341.9280, 1303.1580, 1272.3325, 1252.7160, 1241.9140, 1265.8980, 1261.9040, 1277.0940, 1294.3740, 1277.9500, 1280.7040, 1257.9250, 1245.0180, 1204.8560, 1200.7260, 1129.4700, 969.4400, 959.2360, 924.4220, 928.4720, 952.1380, 891.0080, 813.7840, 873.2800, 851.4100, 890.1860, 891.8660, 868.9350, 898.7775, 913.7760, 855.7060, 826.2275, 845.4780, 842.1260, 838.5640, 781.6450, 753.8580, 695.1900, 724.9560, 775.7880, 818.3440, 814.6720, 833.1875, 857.4380, 848.8340, 867.3280, 913.4380, 895.4920, 899.3280, 907.3400, 940.3840, 942.3640, 917.2000, 905.6480, 916.5750, 884.2240, 924.1380, 963.0660, 982.2360, 1003.7120, 1004.8160, 999.8720, 1028.3200, 1006.6100, 1036.4075, 1060.9040, 1058.4700, 1047.1460, 1057.9460, 1085.1280, 1088.5760, 1055.0580, 1054.1440, 1093.0640, 1103.1400, 1103.5025, 1103.9260, 1099.9800, 1105.9540, 1119.7850, 1123.8750, 1138.6640, 1142.6740, 1124.1275, 1088.9700, 1083.8180, 1069.8740, 1102.5750, 1103.0560, 1122.8960, 1144.9580, 1160.3820, 1168.0040, 1173.5050, 1188.0280, 1201.6460, 1207.3160, 1196.1180, 1156.1520, 1156.0620, 1106.4140, 1081.6200, 1084.2000, 1069.3200, 1110.6040, 1090.2000, 1039.2940, 1059.1350, 1086.1240, 1084.1300, 1107.6220, 1124.2020, 1100.2360, 1082.6800, 1057.2740, 1074.6300, 1101.1100, 1123.6640, 1138.0540, 1144.4060, 1156.1920, 1172.6380, 1178.4240, 1184.1500, 1204.5640, 1213.6220, 1190.2200, 1191.5800, 1204.1240, 1229.7100, 1240.8120, 1254.3225, 1258.2700, 1272.7960, 1281.4380, 1285.1375, 1290.9060, 1303.1420, 1323.1040, 1336.0180, 1312.2050, 1318.8220, 1310.2720, 1277.6140, 1302.6300, 1323.2260, 1332.5440, 1317.4460, 1321.3750, 1352.4480, 1348.0920, 1346.3900, 1335.2000, 1322.1820, 1318.2125, 1282.1300, 1272.8520, 1282.5940, 1308.8980, 1343.5300, 1315.1720, 1329.3660, 1313.4420, 1240.1560, 1152.8400, 1171.0640, 1159.9680, 1204.0560, 1175.9975, 1189.7880, 1167.7860, 1156.2420, 1137.5280, 1205.1840, 1217.9520, 1258.9840, 1244.7720, 1253.9380, 1235.6560, 1175.3700, 1224.7120, 1253.2200, 1221.8860, 1241.9400, 1258.9225, 1278.3075, 1289.9700, 1307.8975, 1318.2940, 1323.9900, 1347.1860, 1352.9540, 1362.2675, 1369.8340, 1359.4200, 1393.6180, 1401.6100, 1409.2640, 1407.3650, 1373.4660, 1380.1880, 1386.5880, 1393.3420, 1359.8520, 1318.7780, 1317.9960, 1308.5275, 1303.8920, 1323.9860, 1343.7960, 1331.3520, 1365.4475, 1345.3840, 1365.8520, 1354.5420, 1379.1860, 1401.2940, 1409.4480, 1411.6000, 1407.2580, 1419.6050, 1444.9920, 1460.3940, 1443.9240, 1452.7120, 1438.2700, 1449.2980, 1416.1180, 1417.9833, 1399.5080, 1364.6520, 1393.7200, 1409.4580, 1411.5600, 1421.5800, 1437.3600, 1416.7550, 1453.6125, 1464.8460, 1476.5140, 1496.2875, 1504.2520, 1509.2880, 1519.5880, 1515.2275, 1506.7320, 1540.3780, 1557.4300, 1552.3680, 1561.8750, 1559.8740, 1580.3260, 1555.1600, 1577.4940, 1597.1780, 1627.3040, 1652.1660, 1658.1820, 1648.3925, 1629.3280, 1628.9100, 1620.0800, 1596.7720, 1619.0850, 1660.1220, 1684.2260, 1691.1520, 1694.7120, 1696.8640, 1677.2340, 1652.3340, 1638.6720, 1650.7750, 1683.2480, 1712.0260, 1696.4900, 1687.9160, 1676.7460, 1721.4780, 1751.5100, 1763.1100, 1763.8300, 1782.0760, 1792.2760, 1804.5675, 1795.7960, 1788.8060, 1801.2220, 1836.1825, 1838.1950, 1836.5280, 1838.2100, 1826.8525, 1785.0080, 1763.8360, 1821.4620, 1836.3850, 1850.3260, 1869.7040, 1860.0940, 1866.0760, 1856.4560, 1872.3400
+5 1360.0240, 1357.1900, 1356.6700, 1386.1400, 1399.2280, 1400.8560, 1412.8400, 1400.2040, 1393.7075, 1381.0500, 1351.1180, 1341.9280, 1303.1580, 1272.3325, 1252.7160, 1241.9140, 1265.8980, 1261.9040, 1277.0940, 1294.3740, 1277.9500, 1280.7040, 1257.9250, 1245.0180, 1204.8560, 1200.7260, 1129.4700, 969.4400, 959.2360, 924.4220, 928.4720, 952.1380, 891.0080, 813.7840, 873.2800, 851.4100, 890.1860, 891.8660, 868.9350, 898.7775, 913.7760, 855.7060, 826.2275, 845.4780, 842.1260, 838.5640, 781.6450, 753.8580, 695.1900, 724.9560, 775.7880, 818.3440, 814.6720, 833.1875, 857.4380, 848.8340, 867.3280, 913.4380, 895.4920, 899.3280, 907.3400, 940.3840, 942.3640, 917.2000, 905.6480, 916.5750, 884.2240, 924.1380, 963.0660, 982.2360, 1003.7120, 1004.8160, 999.8720, 1028.3200, 1006.6100, 1036.4075, 1060.9040, 1058.4700, 1047.1460, 1057.9460, 1085.1280, 1088.5760, 1055.0580, 1054.1440, 1093.0640, 1103.1400, 1103.5025, 1103.9260, 1099.9800, 1105.9540, 1119.7850, 1123.8750, 1138.6640, 1142.6740, 1124.1275, 1088.9700, 1083.8180, 1069.8740, 1102.5750, 1103.0560, 1122.8960, 1144.9580, 1160.3820, 1168.0040, 1173.5050, 1188.0280, 1201.6460, 1207.3160, 1196.1180, 1156.1520, 1156.0620, 1106.4140, 1081.6200, 1084.2000, 1069.3200, 1110.6040, 1090.2000, 1039.2940, 1059.1350, 1086.1240, 1084.1300, 1107.6220, 1124.2020, 1100.2360, 1082.6800, 1057.2740, 1074.6300, 1101.1100, 1123.6640, 1138.0540, 1144.4060, 1156.1920, 1172.6380, 1178.4240, 1184.1500, 1204.5640, 1213.6220, 1190.2200, 1191.5800, 1204.1240, 1229.7100, 1240.8120, 1254.3225, 1258.2700, 1272.7960, 1281.4380, 1285.1375, 1290.9060, 1303.1420, 1323.1040, 1336.0180, 1312.2050, 1318.8220, 1310.2720, 1277.6140, 1302.6300, 1323.2260, 1332.5440, 1317.4460, 1321.3750, 1352.4480, 1348.0920, 1346.3900, 1335.2000, 1322.1820, 1318.2125, 1282.1300, 1272.8520, 1282.5940, 1308.8980, 1343.5300, 1315.1720, 1329.3660, 1313.4420, 1240.1560, 1152.8400, 1171.0640, 1159.9680, 1204.0560, 1175.9975, 1189.7880, 1167.7860, 1156.2420, 1137.5280, 1205.1840, 1217.9520, 1258.9840, 1244.7720, 1253.9380, 1235.6560, 1175.3700, 1224.7120, 1253.2200, 1221.8860, 1241.9400, 1258.9225, 1278.3075, 1289.9700, 1307.8975, 1318.2940, 1323.9900, 1347.1860, 1352.9540, 1362.2675, 1369.8340, 1359.4200, 1393.6180, 1401.6100, 1409.2640, 1407.3650, 1373.4660, 1380.1880, 1386.5880, 1393.3420, 1359.8520, 1318.7780, 1317.9960, 1308.5275, 1303.8920, 1323.9860, 1343.7960, 1331.3520, 1365.4475, 1345.3840, 1365.8520, 1354.5420, 1379.1860, 1401.2940, 1409.4480, 1411.6000, 1407.2580, 1419.6050, 1444.9920, 1460.3940, 1443.9240, 1452.7120, 1438.2700, 1449.2980, 1416.1180, 1417.9833, 1399.5080, 1364.6520, 1393.7200, 1409.4580, 1411.5600, 1421.5800, 1437.3600, 1416.7550, 1453.6125, 1464.8460, 1476.5140, 1496.2875, 1504.2520, 1509.2880, 1519.5880, 1515.2275, 1506.7320, 1540.3780, 1557.4300, 1552.3680, 1561.8750, 1559.8740, 1580.3260, 1555.1600, 1577.4940, 1597.1780, 1627.3040, 1652.1660, 1658.1820, 1648.3925, 1629.3280, 1628.9100, 1620.0800, 1596.7720, 1619.0850, 1660.1220, 1684.2260, 1691.1520, 1694.7120, 1696.8640, 1677.2340, 1652.3340, 1638.6720, 1650.7750, 1683.2480, 1712.0260, 1696.4900, 1687.9160, 1676.7460, 1721.4780, 1751.5100, 1763.1100, 1763.8300, 1782.0760, 1792.2760, 1804.5675, 1795.7960, 1788.8060, 1801.2220, 1836.1825, 1838.1950, 1836.5280, 1838.2100, 1826.8525, 1785.0080, 1763.8360, 1821.4620, 1836.3850, 1850.3260, 1869.7040, 1860.0940, 1866.0760, 1856.4560, 1872.3400
+6 1360.0240, 1357.1900, 1356.6700, 1386.1400, 1399.2280, 1400.8560, 1412.8400, 1400.2040, 1393.7075, 1381.0500, 1351.1180, 1341.9280, 1303.1580, 1272.3325, 1252.7160, 1241.9140, 1265.8980, 1261.9040, 1277.0940, 1294.3740, 1277.9500, 1280.7040, 1257.9250, 1245.0180, 1204.8560, 1200.7260, 1129.4700, 969.4400, 959.2360, 924.4220, 928.4720, 952.1380, 891.0080, 813.7840, 873.2800, 851.4100, 890.1860, 891.8660, 868.9350, 898.7775, 913.7760, 855.7060, 826.2275, 845.4780, 842.1260, 838.5640, 781.6450, 753.8580, 695.1900, 724.9560, 775.7880, 818.3440, 814.6720, 833.1875, 857.4380, 848.8340, 867.3280, 913.4380, 895.4920, 899.3280, 907.3400, 940.3840, 942.3640, 917.2000, 905.6480, 916.5750, 884.2240, 924.1380, 963.0660, 982.2360, 1003.7120, 1004.8160, 999.8720, 1028.3200, 1006.6100, 1036.4075, 1060.9040, 1058.4700, 1047.1460, 1057.9460, 1085.1280, 1088.5760, 1055.0580, 1054.1440, 1093.0640, 1103.1400, 1103.5025, 1103.9260, 1099.9800, 1105.9540, 1119.7850, 1123.8750, 1138.6640, 1142.6740, 1124.1275, 1088.9700, 1083.8180, 1069.8740, 1102.5750, 1103.0560, 1122.8960, 1144.9580, 1160.3820, 1168.0040, 1173.5050, 1188.0280, 1201.6460, 1207.3160, 1196.1180, 1156.1520, 1156.0620, 1106.4140, 1081.6200, 1084.2000, 1069.3200, 1110.6040, 1090.2000, 1039.2940, 1059.1350, 1086.1240, 1084.1300, 1107.6220, 1124.2020, 1100.2360, 1082.6800, 1057.2740, 1074.6300, 1101.1100, 1123.6640, 1138.0540, 1144.4060, 1156.1920, 1172.6380, 1178.4240, 1184.1500, 1204.5640, 1213.6220, 1190.2200, 1191.5800, 1204.1240, 1229.7100, 1240.8120, 1254.3225, 1258.2700, 1272.7960, 1281.4380, 1285.1375, 1290.9060, 1303.1420, 1323.1040, 1336.0180, 1312.2050, 1318.8220, 1310.2720, 1277.6140, 1302.6300, 1323.2260, 1332.5440, 1317.4460, 1321.3750, 1352.4480, 1348.0920, 1346.3900, 1335.2000, 1322.1820, 1318.2125, 1282.1300, 1272.8520, 1282.5940, 1308.8980, 1343.5300, 1315.1720, 1329.3660, 1313.4420, 1240.1560, 1152.8400, 1171.0640, 1159.9680, 1204.0560, 1175.9975, 1189.7880, 1167.7860, 1156.2420, 1137.5280, 1205.1840, 1217.9520, 1258.9840, 1244.7720, 1253.9380, 1235.6560, 1175.3700, 1224.7120, 1253.2200, 1221.8860, 1241.9400, 1258.9225, 1278.3075, 1289.9700, 1307.8975, 1318.2940, 1323.9900, 1347.1860, 1352.9540, 1362.2675, 1369.8340, 1359.4200, 1393.6180, 1401.6100, 1409.2640, 1407.3650, 1373.4660, 1380.1880, 1386.5880, 1393.3420, 1359.8520, 1318.7780, 1317.9960, 1308.5275, 1303.8920, 1323.9860, 1343.7960, 1331.3520, 1365.4475, 1345.3840, 1365.8520, 1354.5420, 1379.1860, 1401.2940, 1409.4480, 1411.6000, 1407.2580, 1419.6050, 1444.9920, 1460.3940, 1443.9240, 1452.7120, 1438.2700, 1449.2980, 1416.1180, 1417.9833, 1399.5080, 1364.6520, 1393.7200, 1409.4580, 1411.5600, 1421.5800, 1437.3600, 1416.7550, 1453.6125, 1464.8460, 1476.5140, 1496.2875, 1504.2520, 1509.2880, 1519.5880, 1515.2275, 1506.7320, 1540.3780, 1557.4300, 1552.3680, 1561.8750, 1559.8740, 1580.3260, 1555.1600, 1577.4940, 1597.1780, 1627.3040, 1652.1660, 1658.1820, 1648.3925, 1629.3280, 1628.9100, 1620.0800, 1596.7720, 1619.0850, 1660.1220, 1684.2260, 1691.1520, 1694.7120, 1696.8640, 1677.2340, 1652.3340, 1638.6720, 1650.7750, 1683.2480, 1712.0260, 1696.4900, 1687.9160, 1676.7460, 1721.4780, 1751.5100, 1763.1100, 1763.8300, 1782.0760, 1792.2760, 1804.5675, 1795.7960, 1788.8060, 1801.2220, 1836.1825, 1838.1950, 1836.5280, 1838.2100, 1826.8525, 1785.0080, 1763.8360, 1821.4620, 1836.3850, 1850.3260, 1869.7040, 1860.0940, 1866.0760, 1856.4560, 1872.3400
+                                                                          read.code
+1  read.zoo(&apos;../data/cleaned/daapl.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+2 read.zoo(&apos;../data/cleaned/dgoogl.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+3  read.zoo(&apos;../data/cleaned/damzn.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+4  read.zoo(&apos;../data/cleaned/dmsft.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+5    read.zoo(&apos;../data/cleaned/dhp.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+6 read.zoo(&apos;../data/cleaned/d^GSPC.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[135]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">myread</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">mycsv</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">myweek</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="p">)){</span>
+    <span class="n">myread</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s">&quot;read.zoo(&#39;../data/cleaned/d&quot;</span><span class="p">,</span><span class="n">stocks</span><span class="err">$</span><span class="n">symbol</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;.csv&#39;, header=TRUE, sep=&#39;,&#39;, format = &#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;)&quot;</span><span class="p">)</span>
+    <span class="n">mycsv</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">myweek</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">apply</span><span class="o">.</span><span class="n">weekly</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span><span class="n">mean</span><span class="p">)}</span>
+<span class="n">stocks</span><span class="err">$</span><span class="n">read</span> <span class="o">=</span> <span class="n">myread</span>
+<span class="k">print</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">stocks</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+[1] &quot;read.zoo(&apos;../data/cleaned/daapl.csv&apos;, header=TRUE, sep=&apos;,&apos;, format = &apos;%Y-%m-%d&apos;)&quot;
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[46]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">library</span><span class="p">(</span><span class="n">zoo</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">xts</span><span class="p">)</span>
+<span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">sapply</span><span class="p">(</span><span class="n">stocks</span><span class="err">$</span><span class="n">symbol</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste0</span><span class="p">(</span><span class="s">&quot;read.zoo(&#39;../data/cleaned/d&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span> <span class="s">&quot;.csv&#39;, header=TRUE, sep=&#39;,&#39;, format = &#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;)&quot;</span><span class="p">))</span>
+<span class="n">myweek</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="n">stocks</span><span class="err">$</span><span class="n">read</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nb">apply</span><span class="o">.</span><span class="n">weekly</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">x</span><span class="p">)),</span><span class="n">mean</span><span class="p">)))</span>
+<span class="c">#a = data.frame(myweek)</span>
+<span class="n">colnames</span><span class="p">(</span><span class="n">myweek</span><span class="p">)</span> <span class="o">=</span> <span class="n">replicate</span><span class="p">(</span><span class="n">ncol</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s">&quot;Adj Close&quot;</span><span class="p">)</span>
+<span class="c">#colnames(a) = paste0(&quot;w&quot;,stocks$symbol)</span>
+<span class="c">#colnames(a) = replicate(&quot;Adj Close&quot;, ncol(a))</span>
+<span class="c">#print(colnames(a))</span>
+<span class="c">#print(class(myweek))</span>
+<span class="c">#print(a[1])</span>
+<span class="c">#print(ncol(a))</span>
+<span class="c">#print(replicate(ncol(a), &quot;Adj Close&quot;))</span>
+<span class="c">#print(a)</span>
+<span class="c">#print(a[&quot;waapl&quot;])</span>
+<span class="c">#print(as.data.frame(myweek))</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">ncol</span><span class="p">(</span><span class="n">myweek</span><span class="p">)){</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">rownames</span><span class="p">(</span><span class="n">myweek</span><span class="p">),</span> <span class="n">myweek</span><span class="p">[,</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)}</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Error in &#96;colnames&lt;-&#96;(&#96;*tmp*&#96;, value = c(&quot;Adj Close&quot;, &quot;Adj Close&quot;, &quot;Adj Close&quot;,  : 
+  &apos;names&apos; attribute [7] must be the same length as the vector [6]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[20]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Loading Raw Data</span>
+<span class="n">library</span><span class="p">(</span><span class="n">zoo</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">xts</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="err">$</span><span class="n">symbol</span><span class="p">){</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s">&quot;read.zoo(&#39;../data/cleaned/d&quot;</span><span class="p">,</span> <span class="n">stock</span><span class="p">,</span> <span class="s">&quot;.csv&#39;, header=TRUE, sep=&#39;,&#39;, format = &#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;)&quot;</span><span class="p">)</span>
+    
+    <span class="k">print</span><span class="p">(</span><span class="n">fname</span><span class="p">)}</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+Error in eval(expr, envir, enclos) : object &apos;stocks&apos; not found
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[162]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">library</span><span class="p">(</span><span class="n">xts</span><span class="p">)</span>
+<span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">apply</span><span class="o">.</span><span class="n">weekly</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">fname</span><span class="p">),</span><span class="n">mean</span><span class="p">)}</span>
 </pre></div>
 
 </div>
@@ -2025,7 +2395,134 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[170]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Loading Raw Data</span>
+<span class="n">library</span><span class="p">(</span><span class="n">zoo</span><span class="p">)</span>
+
+<span class="n">daapl</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">zoo</span><span class="p">(</span><span class="s">&quot;../data/cleaned/daapl.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="n">format</span> <span class="o">=</span> <span class="s">&quot;%Y-%m-</span><span class="si">%d</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">waapl</span> <span class="o">=</span> <span class="nb">apply</span><span class="o">.</span><span class="n">weekly</span><span class="p">(</span><span class="n">daapl</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">waapl</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+2008-04-04 2008-04-11 2008-04-18 2008-04-25 2008-05-02 2008-05-09 2008-05-16 
+  143.2520   146.4520   147.1320   159.5380   169.5820   177.3300   181.0280 
+2008-05-23 2008-05-30 2008-06-06 2008-06-13 2008-06-20 2008-06-27 2008-07-03 
+  174.1440   179.9500   179.1080   171.7960   171.6980   165.7300   163.4975 
+2008-07-11 2008-07-18 2008-07-25 2008-08-01 2008-08-08 2008-08-15 2008-08-22 
+  168.8140   164.0300   156.8060   151.2800   155.9340   170.0560   168.3640 
+2008-08-29 2008-09-05 2008-09-12 2008-09-19 2008-09-26 2008-10-03 2008-10-10 
+  166.1100   157.2800   146.6340   131.3080   124.3300   100.9600    88.9320 
+2008-10-17 2008-10-24 2008-10-31 2008-11-07 2008-11-14 2008-11-21 2008-11-28 
+   98.3440    92.5440    99.0340    99.6900    89.8580    82.1620    89.2475 
+2008-12-05 2008-12-12 2008-12-19 2008-12-26 2009-01-02 2009-01-09 2009-01-16 
+   88.9480    94.4340    88.1900    82.4125    83.8600    88.7900    82.1620 
+2009-01-23 2009-01-30 2009-02-06 2009-02-13 2009-02-20 2009-02-27 2009-03-06 
+   81.1575    87.9860    91.1620    95.2680    89.0850    85.9000    84.8940 
+2009-03-13 2009-03-20 2009-03-27 2009-04-03 2009-04-09 2009-04-17 2009-04-24 
+   87.7920    96.0780   103.2980   105.1500   112.7775   115.5380   117.8520 
+2009-05-01 2009-05-08 2009-05-15 2009-05-22 2009-05-29 2009-06-05 2009-06-12 
+  120.4980   126.0120   118.9620   120.4620   128.4825   136.1380   135.2800 
+2009-06-19 2009-06-26 2009-07-02 2009-07-10 2009-07-17 2009-07-24 2009-07-31 
+  131.3640   132.6200   136.3050   131.8920   140.4740   149.7420   154.9960 
+2009-08-07 2009-08-14 2009-08-21 2009-08-28 2009-09-04 2009-09-11 2009-09-18 
+  158.8800   159.1780   158.3500   162.5060   160.6180   165.5075   173.0700 
+2009-09-25 2009-10-02 2009-10-09 2009-10-16 2009-10-23 2009-10-30 2009-11-06 
+  176.8880   177.3600   181.8540   182.7620   192.7460   187.8280   184.0120 
+2009-11-13 2009-11-20 2009-11-27 2009-12-04 2009-12-11 2009-12-18 2009-12-24 
+  194.9460   196.0780   195.8600   188.9460   186.0260   187.1320   194.5700 
+2009-12-31 2010-01-08 2010-01-15 2010-01-22 2010-01-29 2010-02-05 2010-02-12 
+  202.5825   204.1340   200.6580   200.0650   193.8140   187.8740   189.2480 
+2010-02-19 2010-02-26 2010-03-05 2010-03-12 2010-03-19 2010-03-26 2010-04-01 
+  194.7675   193.1460   203.1540   215.1160   215.1640   219.1500   225.6800 
+2010-04-09 2010-04-16 2010-04-23 2010-04-30 2010-05-07 2010-05-14 2010-05-21 
+  230.7480   235.8160   247.6280   254.2960   242.8120   246.9740   237.4040 
+2010-05-28 2010-06-04 2010-06-11 2010-06-18 2010-06-25 2010-07-02 2010-07-09 
+  239.5800   250.8300   239.8040   255.1200   259.6440   244.4080   246.2950 
+2010-07-16 2010-07-23 2010-07-30 2010-08-06 2010-08-13 2010-08-20 2010-08-27 
+  242.8200   244.2620   249.8380   251.5440   244.5620   240.7100   232.6980 
+2010-09-03 2010-09-10 2010-09-17 2010-09-24 2010-10-01 2010-10-08 2010-10-15 
+  239.6880   251.6350   260.9080   276.0420   275.2120   276.8280   290.4780 
+2010-10-22 2010-10-29 2010-11-05 2010-11-12 2010-11-19 2010-11-26 2010-12-03 
+  298.9240   294.2920   300.2140   303.2260   293.0140   300.8150   303.7260 
+2010-12-10 2010-12-17 2010-12-23 2010-12-31 2011-01-07 2011-01-14 2011-01-21 
+  307.5100   308.3740   311.2150   311.7340   320.0100   331.1500   321.7225 
+2011-01-28 2011-02-04 2011-02-11 2011-02-18 2011-02-25 2011-03-04 2011-03-11 
+  327.1780   330.3700   341.5240   344.2980   329.7425   341.0560   338.7600 
+2011-03-18 2011-03-25 2011-04-01 2011-04-08 2011-04-15 2011-04-21 2011-04-29 
+  325.6980   329.9060   335.0800   325.1140   318.9520   327.4725   336.4940 
+2011-05-06 2011-05-13 2011-05-20 2011-05-27 2011-06-03 2011-06-10 2011-06-17 
+  333.9920   332.8200   323.9200   322.1380   332.2925   319.0460   313.5700 
+2011-06-24 2011-07-01 2011-07-08 2011-07-15 2011-07-22 2011-07-29 2011-08-05 
+  311.5680   323.0000   340.7550   343.7960   368.7260   380.0020   370.8560 
+2011-08-12 2011-08-19 2011-08-26 2011-09-02 2011-09-09 2011-09-16 2011-09-23 
+  354.0120   358.7820   358.2260   369.0580   366.5125   374.3360   392.7920 
+2011-09-30 2011-10-07 2011-10-14 2011-10-21 2011-10-28 2011-11-04 2011-11-11 
+  378.9520   359.9560   388.6380   390.0440   387.1120   384.8480   378.9040 
+2011-11-18 2011-11-25 2011-12-02 2011-12-09 2011-12-16 2011-12-23 2011-12-30 
+  366.2420   354.6850   366.9960   376.2580   369.2380   379.9420   389.0975 
+2012-01-06 2012-01-13 2012-01-20 2012-01-27 2012-02-03 2012-02-10 2012-02-17 
+  400.1050   405.3620   408.9350   420.2940   438.3780   460.5980   483.2800 
+2012-02-24 2012-03-02 2012-03-09 2012-03-16 2012-03-23 2012-03-30 2012-04-05 
+  496.6025   517.7280   515.4240   553.7800   577.6460   586.0140   602.1475 
+2012-04-13 2012-04-20 2012-04-27 2012-05-04 2012-05-11 2012-05-18 2012-05-25 
+  599.5440   568.7320   567.5960   557.3080   546.7200   522.4800   541.4040 
+2012-06-01 2012-06-08 2012-06-15 2012-06-22 2012-06-29 2012-07-06 2012-07-13 
+  550.3000   547.9780   550.7700   561.0660   551.7680   578.5550   582.5360 
+2012-07-20 2012-07-27 2012-08-03 2012-08-10 2012-08-17 2012-08-24 2012-08-31 
+  584.1380   565.1120   583.6300   598.0480   613.3360   640.1600   647.3280 
+2012-09-07 2012-09-14 2012-09-21 2012-09-28 2012-10-05 2012-10-12 2012-10-19 
+  652.0275   650.0960   676.1920   652.1340   639.3140   612.5160   612.3060 
+2012-10-26 2012-11-02 2012-11-09 2012-11-16 2012-11-23 2012-11-30 2012-12-07 
+  594.1800   569.0833   543.9900   518.9620   547.8350   568.6060   539.4040 
+2012-12-14 2012-12-21 2012-12-28 2013-01-04 2013-01-11 2013-01-18 2013-01-25 
+  513.8760   508.1380   498.8600   521.2825   506.2020   484.1540   462.8250 
+2013-02-01 2013-02-08 2013-02-15 2013-02-22 2013-03-01 2013-03-08 2013-03-15 
+  441.0220   447.2600   456.7680   440.2950   430.7540   417.2780   423.4580 
+2013-03-22 2013-03-28 2013-04-05 2013-04-12 2013-04-19 2013-04-26 2013-05-03 
+  444.1560   443.6475   417.7580   419.9840   396.2760   397.1280   430.6480 
+2013-05-10 2013-05-17 2013-05-24 2013-05-31 2013-06-07 2013-06-14 2013-06-21 
+  448.4560   431.0640   434.1980   438.7875   436.9820   427.0180   415.7140 
+2013-06-28 2013-07-05 2013-07-12 2013-07-19 2013-07-26 2013-08-02 2013-08-09 
+  391.4500   408.9000   414.6960   421.1240   425.1760   446.2980   455.7860 
+2013-08-16 2013-08-23 2013-08-30 2013-09-06 2013-09-13 2013-09-20 2013-09-27 
+  485.3760   497.1360   486.5080   489.3875   475.5820   456.5480   480.3520 
+2013-10-04 2013-10-11 2013-10-18 2013-10-25 2013-11-01 2013-11-08 2013-11-15 
+  478.4660   481.8300   495.9660   518.6640   516.7100   516.9180   519.4600 
+2013-11-22 2013-11-29 2013-12-06 2013-12-13 2013-12-20 2013-12-27 2014-01-03 
+  515.7380   536.5800   558.7500   558.3180   548.0660   562.0725   549.1250 
+2014-01-10 2014-01-17 2014-01-24 2014-01-31 2014-02-07 2014-02-14 2014-02-21 
+  536.1700   543.6240   547.4300   508.5820   509.2080   537.8580   534.9400 
+2014-02-28 2014-03-07 2014-03-14 2014-03-21 2014-03-28 2014-03-31 
+  524.1740   530.5100   531.7920   530.1940   539.6560   536.7400 
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[28]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="n">aapl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/aapl.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
@@ -2034,7 +2531,89 @@ In&nbsp;[16]:
 <span class="n">msft</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/msft.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">hp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/hp.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">sp500</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data/raw/sp500.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">aapl</span><span class="p">)</span>
 </pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+              Open    High     Low   Close    Volume  Adj Close
+Date                                                           
+2008-03-31  143.27  145.71  142.52  143.50  27430900     137.93
+2008-04-01  146.30  149.66  143.61  149.53  36877400     143.72
+2008-04-02  148.78  151.20  145.85  147.49  37320300     141.76
+2008-04-03  147.06  153.63  147.00  151.61  37556000     145.72
+2008-04-04  152.19  154.71  150.75  153.08  30514900     147.13
+2008-04-07  156.13  159.69  155.11  155.89  41368800     149.83
+2008-04-08  153.55  156.45  152.32  152.84  36224800     146.90
+2008-04-09  153.31  153.89  150.46  151.44  31192800     145.56
+2008-04-10  151.13  155.42  150.60  154.55  34134400     148.55
+2008-04-11  152.72  153.30  146.40  147.14  43217000     141.42
+2008-04-14  146.77  149.25  144.54  147.78  30181700     142.04
+2008-04-15  149.40  149.72  145.72  148.38  24929900     142.62
+2008-04-16  151.72  154.10  150.62  153.70  28420500     147.73
+2008-04-17  154.17  156.00  153.35  154.49  25152400     148.49
+2008-04-18  159.12  162.26  158.38  161.04  36670200     154.78
+2008-04-21  162.21  168.50  161.76  168.16  37112600     161.63
+2008-04-22  167.40  168.00  158.09  160.20  51413300     153.98
+2008-04-23  164.05  164.84  161.08  162.89  53721100     156.56
+2008-04-24  165.34  169.98  159.19  168.94  60573800     162.38
+2008-04-25  170.70  171.10  166.42  169.73  35445500     163.14
+2008-04-28  169.75  173.75  169.13  172.24  28114800     165.55
+2008-04-29  171.11  175.66  170.25  175.05  32981300     168.25
+2008-04-30  176.19  180.00  172.92  173.95  40697300     167.19
+2008-05-01  174.96  180.00  174.86  180.00  32270600     173.01
+2008-05-02  180.19  181.92  178.55  180.94  35931500     173.91
+2008-05-05  181.92  185.31  181.05  184.73  30519900     177.55
+2008-05-06  184.66  187.12  182.18  186.66  32816800     179.41
+2008-05-07  186.05  188.20  180.54  182.59  41326200     175.50
+2008-05-08  183.77  186.50  183.07  185.06  32110200     177.87
+2008-05-09  183.16  184.25  181.37  183.45  24038300     176.32
+2008-05-12  185.21  188.87  182.85  188.16  29234400     180.85
+2008-05-13  188.61  191.45  187.86  189.96  29401300     182.58
+2008-05-14  191.23  192.24  185.57  186.26  32743700     179.02
+2008-05-15  186.81  189.90  184.20  189.73  31186000     182.36
+2008-05-16  190.11  190.30  187.00  187.62  27348900     180.33
+2008-05-19  187.86  188.69  181.30  183.60  33779300     176.47
+2008-05-20  181.82  186.16  180.12  185.90  34637500     178.68
+2008-05-21  185.67  187.95  176.25  178.19  41344900     171.27
+2008-05-22  179.26  181.33  172.00  177.05  43097700     170.17
+2008-05-23  180.77  181.99  177.80  181.17  32389900     174.13
+2008-05-27  182.75  186.43  181.84  186.43  28210900     179.19
+2008-05-28  187.41  187.95  183.72  187.01  26570700     179.75
+2008-05-29  186.76  188.20  185.50  186.69  23113800     179.44
+2008-05-30  187.45  189.54  187.38  188.75  21792300     181.42
+2008-06-02  188.60  189.65  184.53  186.10  24280000     178.87
+2008-06-03  186.86  188.20  182.34  185.37  26804300     178.17
+2008-06-04  184.02  187.09  183.23  185.19  25963700     178.00
+2008-06-05  186.34  189.84  185.70  189.43  26980200     182.07
+2008-06-06  188.00  189.95  185.55  185.64  34515100     178.43
+2008-06-09  184.79  184.94  175.75  181.61  67442600     174.56
+2008-06-10  180.51  186.78  179.02  185.64  40747900     178.43
+2008-06-11  184.34  186.00  179.59  180.81  34341100     173.79
+2008-06-12  181.49  182.60  171.20  173.26  46726200     166.53
+2008-06-13  171.64  174.16  165.31  172.37  48069900     165.67
+2008-06-16  171.30  177.90  169.07  176.84  37561800     169.97
+2008-06-17  178.10  181.99  177.41  181.43  32130600     174.38
+2008-06-18  181.12  182.20  177.35  178.75  28981000     171.81
+2008-06-19  178.55  182.34  176.80  180.90  28283900     173.87
+2008-06-20  179.35  181.00  175.00  175.27  31727400     168.46
+2008-06-23  174.74  175.88  171.56  173.16  23063600     166.43
+               ...     ...     ...     ...       ...        ...
+
+[1512 rows x 6 columns]
+
+</pre>
+</div>
+</div>
 
 </div>
 </div>
@@ -2205,18 +2784,165 @@ Date,Adj Close
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[19]:
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb">
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[103]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb">
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+2008-04-04 2008-04-11 2008-04-18 2008-04-25 2008-05-02 2008-05-09 2008-05-16 
+  143.2520   146.4520   147.1320   159.5380   169.5820   177.3300   181.0280 
+2008-05-23 2008-05-30 2008-06-06 2008-06-13 2008-06-20 2008-06-27 2008-07-03 
+  174.1440   179.9500   179.1080   171.7960   171.6980   165.7300   163.4975 
+2008-07-11 2008-07-18 2008-07-25 2008-08-01 2008-08-08 2008-08-15 2008-08-22 
+  168.8140   164.0300   156.8060   151.2800   155.9340   170.0560   168.3640 
+2008-08-29 2008-09-05 2008-09-12 2008-09-19 2008-09-26 2008-10-03 2008-10-10 
+  166.1100   157.2800   146.6340   131.3080   124.3300   100.9600    88.9320 
+2008-10-17 2008-10-24 2008-10-31 2008-11-07 2008-11-14 2008-11-21 2008-11-28 
+   98.3440    92.5440    99.0340    99.6900    89.8580    82.1620    89.2475 
+2008-12-05 2008-12-12 2008-12-19 2008-12-26 2009-01-02 2009-01-09 2009-01-16 
+   88.9480    94.4340    88.1900    82.4125    83.8600    88.7900    82.1620 
+2009-01-23 2009-01-30 2009-02-06 2009-02-13 2009-02-20 2009-02-27 2009-03-06 
+   81.1575    87.9860    91.1620    95.2680    89.0850    85.9000    84.8940 
+2009-03-13 2009-03-20 2009-03-27 2009-04-03 2009-04-09 2009-04-17 2009-04-24 
+   87.7920    96.0780   103.2980   105.1500   112.7775   115.5380   117.8520 
+2009-05-01 2009-05-08 2009-05-15 2009-05-22 2009-05-29 2009-06-05 2009-06-12 
+  120.4980   126.0120   118.9620   120.4620   128.4825   136.1380   135.2800 
+2009-06-19 2009-06-26 2009-07-02 2009-07-10 2009-07-17 2009-07-24 2009-07-31 
+  131.3640   132.6200   136.3050   131.8920   140.4740   149.7420   154.9960 
+2009-08-07 2009-08-14 2009-08-21 2009-08-28 2009-09-04 2009-09-11 2009-09-18 
+  158.8800   159.1780   158.3500   162.5060   160.6180   165.5075   173.0700 
+2009-09-25 2009-10-02 2009-10-09 2009-10-16 2009-10-23 2009-10-30 2009-11-06 
+  176.8880   177.3600   181.8540   182.7620   192.7460   187.8280   184.0120 
+2009-11-13 2009-11-20 2009-11-27 2009-12-04 2009-12-11 2009-12-18 2009-12-24 
+  194.9460   196.0780   195.8600   188.9460   186.0260   187.1320   194.5700 
+2009-12-31 2010-01-08 2010-01-15 2010-01-22 2010-01-29 2010-02-05 2010-02-12 
+  202.5825   204.1340   200.6580   200.0650   193.8140   187.8740   189.2480 
+2010-02-19 2010-02-26 2010-03-05 2010-03-12 2010-03-19 2010-03-26 2010-04-01 
+  194.7675   193.1460   203.1540   215.1160   215.1640   219.1500   225.6800 
+2010-04-09 2010-04-16 2010-04-23 2010-04-30 2010-05-07 2010-05-14 2010-05-21 
+  230.7480   235.8160   247.6280   254.2960   242.8120   246.9740   237.4040 
+2010-05-28 2010-06-04 2010-06-11 2010-06-18 2010-06-25 2010-07-02 2010-07-09 
+  239.5800   250.8300   239.8040   255.1200   259.6440   244.4080   246.2950 
+2010-07-16 2010-07-23 2010-07-30 2010-08-06 2010-08-13 2010-08-20 2010-08-27 
+  242.8200   244.2620   249.8380   251.5440   244.5620   240.7100   232.6980 
+2010-09-03 2010-09-10 2010-09-17 2010-09-24 2010-10-01 2010-10-08 2010-10-15 
+  239.6880   251.6350   260.9080   276.0420   275.2120   276.8280   290.4780 
+2010-10-22 2010-10-29 2010-11-05 2010-11-12 2010-11-19 2010-11-26 2010-12-03 
+  298.9240   294.2920   300.2140   303.2260   293.0140   300.8150   303.7260 
+2010-12-10 2010-12-17 2010-12-23 2010-12-31 2011-01-07 2011-01-14 2011-01-21 
+  307.5100   308.3740   311.2150   311.7340   320.0100   331.1500   321.7225 
+2011-01-28 2011-02-04 2011-02-11 2011-02-18 2011-02-25 2011-03-04 2011-03-11 
+  327.1780   330.3700   341.5240   344.2980   329.7425   341.0560   338.7600 
+2011-03-18 2011-03-25 2011-04-01 2011-04-08 2011-04-15 2011-04-21 2011-04-29 
+  325.6980   329.9060   335.0800   325.1140   318.9520   327.4725   336.4940 
+2011-05-06 2011-05-13 2011-05-20 2011-05-27 2011-06-03 2011-06-10 2011-06-17 
+  333.9920   332.8200   323.9200   322.1380   332.2925   319.0460   313.5700 
+2011-06-24 2011-07-01 2011-07-08 2011-07-15 2011-07-22 2011-07-29 2011-08-05 
+  311.5680   323.0000   340.7550   343.7960   368.7260   380.0020   370.8560 
+2011-08-12 2011-08-19 2011-08-26 2011-09-02 2011-09-09 2011-09-16 2011-09-23 
+  354.0120   358.7820   358.2260   369.0580   366.5125   374.3360   392.7920 
+2011-09-30 2011-10-07 2011-10-14 2011-10-21 2011-10-28 2011-11-04 2011-11-11 
+  378.9520   359.9560   388.6380   390.0440   387.1120   384.8480   378.9040 
+2011-11-18 2011-11-25 2011-12-02 2011-12-09 2011-12-16 2011-12-23 2011-12-30 
+  366.2420   354.6850   366.9960   376.2580   369.2380   379.9420   389.0975 
+2012-01-06 2012-01-13 2012-01-20 2012-01-27 2012-02-03 2012-02-10 2012-02-17 
+  400.1050   405.3620   408.9350   420.2940   438.3780   460.5980   483.2800 
+2012-02-24 2012-03-02 2012-03-09 2012-03-16 2012-03-23 2012-03-30 2012-04-05 
+  496.6025   517.7280   515.4240   553.7800   577.6460   586.0140   602.1475 
+2012-04-13 2012-04-20 2012-04-27 2012-05-04 2012-05-11 2012-05-18 2012-05-25 
+  599.5440   568.7320   567.5960   557.3080   546.7200   522.4800   541.4040 
+2012-06-01 2012-06-08 2012-06-15 2012-06-22 2012-06-29 2012-07-06 2012-07-13 
+  550.3000   547.9780   550.7700   561.0660   551.7680   578.5550   582.5360 
+2012-07-20 2012-07-27 2012-08-03 2012-08-10 2012-08-17 2012-08-24 2012-08-31 
+  584.1380   565.1120   583.6300   598.0480   613.3360   640.1600   647.3280 
+2012-09-07 2012-09-14 2012-09-21 2012-09-28 2012-10-05 2012-10-12 2012-10-19 
+  652.0275   650.0960   676.1920   652.1340   639.3140   612.5160   612.3060 
+2012-10-26 2012-11-02 2012-11-09 2012-11-16 2012-11-23 2012-11-30 2012-12-07 
+  594.1800   569.0833   543.9900   518.9620   547.8350   568.6060   539.4040 
+2012-12-14 2012-12-21 2012-12-28 2013-01-04 2013-01-11 2013-01-18 2013-01-25 
+  513.8760   508.1380   498.8600   521.2825   506.2020   484.1540   462.8250 
+2013-02-01 2013-02-08 2013-02-15 2013-02-22 2013-03-01 2013-03-08 2013-03-15 
+  441.0220   447.2600   456.7680   440.2950   430.7540   417.2780   423.4580 
+2013-03-22 2013-03-28 2013-04-05 2013-04-12 2013-04-19 2013-04-26 2013-05-03 
+  444.1560   443.6475   417.7580   419.9840   396.2760   397.1280   430.6480 
+2013-05-10 2013-05-17 2013-05-24 2013-05-31 2013-06-07 2013-06-14 2013-06-21 
+  448.4560   431.0640   434.1980   438.7875   436.9820   427.0180   415.7140 
+2013-06-28 2013-07-05 2013-07-12 2013-07-19 2013-07-26 2013-08-02 2013-08-09 
+  391.4500   408.9000   414.6960   421.1240   425.1760   446.2980   455.7860 
+2013-08-16 2013-08-23 2013-08-30 2013-09-06 2013-09-13 2013-09-20 2013-09-27 
+  485.3760   497.1360   486.5080   489.3875   475.5820   456.5480   480.3520 
+2013-10-04 2013-10-11 2013-10-18 2013-10-25 2013-11-01 2013-11-08 2013-11-15 
+  478.4660   481.8300   495.9660   518.6640   516.7100   516.9180   519.4600 
+2013-11-22 2013-11-29 2013-12-06 2013-12-13 2013-12-20 2013-12-27 2014-01-03 
+  515.7380   536.5800   558.7500   558.3180   548.0660   562.0725   549.1250 
+2014-01-10 2014-01-17 2014-01-24 2014-01-31 2014-02-07 2014-02-14 2014-02-21 
+  536.1700   543.6240   547.4300   508.5820   509.2080   537.8580   534.9400 
+2014-02-28 2014-03-07 2014-03-14 2014-03-21 2014-03-28 2014-03-31 
+  524.1740   530.5100   531.7920   530.1940   539.6560   536.7400 
+
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[89]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
-<span class="c"># Loading Raw Data</span>
-<span class="n">aapl</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/aapl.csv&quot;</span><span class="p">)</span>
-<span class="n">googl</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/googl.csv&quot;</span><span class="p">)</span>
-<span class="n">amzn</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/amzn.csv&quot;</span><span class="p">)</span>
-<span class="n">msft</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/msft.csv&quot;</span><span class="p">)</span>
-<span class="n">hp</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/hp.csv&quot;</span><span class="p">)</span>
-<span class="n">sp500</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/sp500.csv&quot;</span><span class="p">)</span>
+<span class="c">#install.packages(&#39;xts&#39;)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">xts</span><span class="p">)</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="nb">apply</span><span class="o">.</span><span class="n">weekly</span><span class="p">(</span><span class="n">daapl</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
 </pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Error in match.fun(FUN) : argument &quot;FUN&quot; is missing, with no default
+
+</pre>
+</div>
+</div>
 
 </div>
 </div>
