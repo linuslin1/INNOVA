@@ -61,7 +61,7 @@ In&amp;nbsp;[1]:
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Since we analysis 3 different area of stock, and each area contains 5 differetnt type of stock, it would be realy unefficent to repeat all of the codes for 15 times. Therefore the biggest challenge for us is to come up with some functions that can make it simple and efficent.&lt;/p&gt;
+&lt;p&gt;Since we analysis 3 different area of stock, and each area contains 5 differetnt type of stock, it would be really unefficent to repeat all of the codes for 15 times. Therefore, the biggest challenge for us is to come up with some functions that can make it simple and efficent.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="Presentation-of-our-Finding"&gt;Presentation of our Finding&lt;a class="anchor-link" href="#Presentation-of-our-Finding"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
@@ -85,13 +85,13 @@ In&amp;nbsp;[]:
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;\(Yahoo Finance\). 18 April 2014. &amp;lt;&lt;a href="http://finance.yahoo.com/"&gt;&lt;code class="url"&gt;http://finance.yahoo.com/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;p&gt;\(Yahoo\) \(Finance\). 18 April 2014. &amp;lt;&lt;a href="http://finance.yahoo.com/"&gt;&lt;code class="url"&gt;http://finance.yahoo.com/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;\(Federal Reserve\). 25 April 2014. &amp;lt;&lt;a href="http://www.federalreserve.gov/datadownload/"&gt;&lt;code class="url"&gt;http://www.federalreserve.gov/datadownload/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;p&gt;\(Federal\) \(Reserve\). 25 April 2014. &amp;lt;&lt;a href="http://www.federalreserve.gov/datadownload/"&gt;&lt;code class="url"&gt;http://www.federalreserve.gov/datadownload/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Daroczi, Gergeky, Michael Pchle, Edina Berlinger, Peter Csoka, Daniel Havran, Marton Michaletzky, Zsolt Tulassay, Kata Varadi and Agnes Vidovics-Dancs. \(Introduction to R for Quantitative Finance\). Packt Publishing,2013. Print.&lt;/p&gt;
+&lt;p&gt;Daroczi, Gergeky, Michael Pchle, Edina Berlinger, Peter Csoka, Daniel Havran, Marton Michaletzky, Zsolt Tulassay, Kata Varadi and Agnes Vidovics-Dancs. \(Introduction\) \(to\) \(R\) \(for\) \(Quantitative\) \(Finance\). Packt Publishing, 2013. Print.&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Analysis</title><link href="http://linuslin1.github.io/INNOVA/nb3.html" rel="alternate"></link><updated>2014-03-03T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-03:INNOVA/nb3.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;In this notebook, you'll perform the actual analysis of the data stored in the directory&lt;/p&gt;
