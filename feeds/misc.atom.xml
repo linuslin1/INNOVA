@@ -32,7 +32,7 @@ pdflatex NB4_report.tex&lt;/code&gt;&lt;/pre&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[2]:
+In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;load_ext&lt;/span&gt; &lt;span class="n"&gt;rmagic&lt;/span&gt;
@@ -54,7 +54,7 @@ In&amp;nbsp;[2]:
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;We get our date from Yahoo Finance, which has provided daily stock market price information in a large spreadsheet on its website. In addition, the daily open price, close price and 52 high/low price can be retrieved from NASDAQ.com. These data is in a format of API data. They will be used to quantify the stock market trend in each specific field. We use the internet interactive facilities of Python, Bash, and R to get different datasets, highlight the importance, graph the trend and organize them into dataframe portfolio.&lt;/p&gt;
+&lt;p&gt;We get our data from Yahoo Finance, which has provided daily stock market price information in a large spreadsheet on its website. These data is in a format of API data. In addition, we also acquire the LIBOR rate from the official website of Federal Reserve. They will be used to quantify the stock market trend in each specific field. We use the internet interactive facilities of Python, Bash, and R to get different datasets, highlight the importance, graph the trend and organize them into dataframe portfolio.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Main-challenge-of-this-project"&gt;Main challenge of this project&lt;a class="anchor-link" href="#Main-challenge-of-this-project"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
@@ -79,6 +79,19 @@ In&amp;nbsp;[]:
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h5 id="Work-Cited"&gt;Work Cited&lt;a class="anchor-link" href="#Work-Cited"&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;
+&lt;/div&gt;
+
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;\(Yahoo Finance\). 18 April 2014. &amp;lt;&lt;a href="http://finance.yahoo.com/"&gt;&lt;code class="url"&gt;http://finance.yahoo.com/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;\(Federal Reserve\). 25 April 2014. &amp;lt;&lt;a href="http://www.federalreserve.gov/datadownload/"&gt;&lt;code class="url"&gt;http://www.federalreserve.gov/datadownload/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Daroczi, Gergeky, Michael Pchle, Edina Berlinger, Peter Csoka, Daniel Havran, Marton Michaletzky, Zsolt Tulassay, Kata Varadi and Agnes Vidovics-Dancs. \(Introduction to R for Quantitative Finance\). Packt Publishing,2013. Print.&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Analysis</title><link href="http://linuslin1.github.io/INNOVA/nb3.html" rel="alternate"></link><updated>2014-03-03T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-03:INNOVA/nb3.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;In this notebook, you'll perform the actual analysis of the data stored in the directory&lt;/p&gt;
@@ -106,10 +119,24 @@ In&amp;nbsp;[]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[16]:
+In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;load_ext&lt;/span&gt; &lt;span class="n"&gt;rmagic&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[2]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
+&lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;zoo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -120,28 +147,22 @@ In&amp;nbsp;[16]:
 
 
 &lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="box-flex1 output_subarea output_stream output_stdout"&gt;
+&lt;div class="box-flex1 output_subarea output_display_data"&gt;
+
+
 &lt;pre&gt;
-The rmagic extension is already loaded. To reload it, use:
-  %reload_ext rmagic
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
 
 &lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell vbox"&gt;
-&lt;div class="input hbox"&gt;
-&lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[17]:
-&lt;/div&gt;
-&lt;div class="input_area box-flex1"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
-&lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;zoo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -154,7 +175,7 @@ In&amp;nbsp;[17]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[18]:
+In&amp;nbsp;[3]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -177,7 +198,7 @@ In&amp;nbsp;[18]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[19]:
+In&amp;nbsp;[9]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -197,7 +218,7 @@ In&amp;nbsp;[19]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[28]:
+In&amp;nbsp;[10]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -241,7 +262,7 @@ Error in plot.window(xlim, ylim, log, ...) : invalid &amp;apos;ylim&amp;apos; va
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[6]:
+In&amp;nbsp;[11]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
@@ -256,516 +277,11 @@ In&amp;nbsp;[6]:
 
 
 &lt;div class="hbox output_area"&gt;&lt;div class="prompt output_prompt"&gt;
-    Out[6]:&lt;/div&gt;
+    Out[11]:&lt;/div&gt;
 &lt;div class="box-flex1 output_subarea output_pyout"&gt;
 
 
-&lt;img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
-HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
-MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAeADASIA
-AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
-AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
-ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
-p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
-AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
-BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
-U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
-uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iii
-gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA
-CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK
-KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKz9b0TTvEejz
-6Tq1v9osZ9vmRb2TdtYMOVII5APBrw34X+C/D1x488aPNpwc6BqanTczSDyNss23o3zf6tPvZ6e5
-oA+gqK8A8J+NfEdnoXgrw/4U0vRYpNWiupBHdecY4yk0uSG8wtjCknqc9Owqx4c+Mfi/VLjQLm70
-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
-ACXAAmOWUHCkfIMccDoJNI0PX/hx8QLqK036UmoXl/p7KzIjSx2ygyoVIDJ5gfA5Xjv2APVb/wAQ
-6LpUME2o6xp9nFcDML3Fykayjg5UsRnqOnqK0I5EmiSWJ1eN1DK6nIYHoQe4rxfxfrOi6cPD1qya
-eNcutCEK3WqsTa2duwAL7CCHdiGUAD13fLwfUvCdvaWnhDR7awvBe2kNnFHFcjpKqqAG6nGcdO3S
-gDYooooAKzb/AMQ6LpV3Ha6jrGn2dzKAY4bi5SN3BOAQGIJ5GK0q8S+IuoeHZ/F2r6B5+nWN5e20
-EeqapqZMnkRDlY7eMg/OQQ2RhRgHO7BAB682uaQmrLpLapZLqTDK2ZuEEx4zwmd3Tnp0qyLy2N6b
-IXEP2sRiUwbxvCEkBtvXGQRnpkV4cTYr4gvdNu0E/iWXxnbXVk2DJL9k+Ro5N3Vo1iWTv8uecV1P
-9i6Vo/xP8T/Z7C4kivfD5u7uG3d2luJHml37MtkMwAACkDOMYoA73Tdf0bWZJI9L1ewvniAMi2ty
-kpTPTO0nFaNeNfDq40m9+JiXOiS2sunr4eEVtFbRGNrOMTKRFPktulz/ABbsnaTjkGvZaACiiigA
-rLs/E2g6iZxY63pt19nQyTeRdxv5ajqzYPA9zU2syWcOhahLqEjx2SW0jXDoSGWMKdxBHOcZ6c18
-9SS2viLwtrFz4fl0+xkttDNpY6RaPm6NqJY3leeQYDMUVjs+b75/izkA+h9N1fTNZgafS9RtL6FG
-2NJazrKobGcEqSM4I496fBqFlc2Av7e7t5bNkLi4jkDRlR1O4HGOOtebeG9O8K+MNd8XRadZxzeH
-Lu10+KTyA0UU0iB2whXbt2qYgVGCDwfSsFG1if4KeFdMsNPvrjTrqBzqctltMiwoSfLwWXhycE54
-UNwc4oA9sgnhureK4t5Y5oJUDxyRsGV1IyCCOCCOc1JXLfDi7e7+HWgF7O4tvLsIIgJwoMgWNRvX
-BPynqM4PsK6mgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiii
-gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA
-CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK
-KKKACiiigAooooAKKKKACiiigAooooAKKKKAOP1v4gWfhjX7uw122NpaLYteWV55oK3ez/WRAEDE
-oOMKCcgg5GQKj0f4laPePZWGqt/ZmtXLRxvYFZJBDJIN0cbS7Aocrj5Tgg5HarHjnwnJ4rTQVjW0
-ZbDV4LycXIOHhXO9Bwck5HBwDjk1zJ+G2sReKbyaGe0k0i71pNVcyX90kifMrsohQiItuUbWOSAO
-c8YAOqh+InhW41SXTYtU3XUZmBH2eUKxhBMgVyu1ioBPyk1peHfE2keK9NbUNFujdWiyGIyGJ4/m
-ABIAcAnqOen5V5dD8MfGY1yzvry/0y8Nsb1TLJe3AMguFdSVj2GOLaGB2oME5yemPU/DOmS6L4V0
-jS52jaazsobeRoySpZECkjIBxkHsKANSiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKK
-KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo
-oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiig
-AooooAKKKKACiiigAooooAKKKKACiiigD//Z
-"&gt;
+&lt;img src="data:image/jpeg;base64,"&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7831,7 +7347,7 @@ In&amp;nbsp;[]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[1]:
+In&amp;nbsp;[2]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Loading R Magic&lt;/span&gt;
@@ -7849,7 +7365,7 @@ In&amp;nbsp;[1]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[2]:
+In&amp;nbsp;[3]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Import Datetime &amp;amp; Pandas&lt;/span&gt;
@@ -7874,7 +7390,7 @@ In&amp;nbsp;[2]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[3]:
+In&amp;nbsp;[4]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -7904,7 +7420,7 @@ In&amp;nbsp;[3]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[4]:
+In&amp;nbsp;[5]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;!&lt;/span&gt;head ../data/cleaned/libor.csv
@@ -7946,7 +7462,7 @@ In&amp;nbsp;[4]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[5]:
+In&amp;nbsp;[6]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Mapping Dictionary&lt;/span&gt;
@@ -7969,7 +7485,7 @@ In&amp;nbsp;[5]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[6]:
+In&amp;nbsp;[7]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Loading Data to Panda&lt;/span&gt;
@@ -8082,7 +7598,7 @@ Date,Adj Close
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[7]:
+In&amp;nbsp;[8]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -8277,30 +7793,10 @@ In&amp;nbsp;[135]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[46]:
+In&amp;nbsp;[66]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
-&lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zoo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;symbol&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;paste0&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;read.zoo(&amp;#39;../data/cleaned/d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;.csv&amp;#39;, header=TRUE, sep=&amp;#39;,&amp;#39;, format = &amp;#39;%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;myweek&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;apply&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;weekly&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="c"&gt;#a = data.frame(myweek)&lt;/span&gt;
-&lt;span class="n"&gt;colnames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;replicate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ncol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Adj Close&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c"&gt;#colnames(a) = paste0(&amp;quot;w&amp;quot;,stocks$symbol)&lt;/span&gt;
-&lt;span class="c"&gt;#colnames(a) = replicate(&amp;quot;Adj Close&amp;quot;, ncol(a))&lt;/span&gt;
-&lt;span class="c"&gt;#print(colnames(a))&lt;/span&gt;
-&lt;span class="c"&gt;#print(class(myweek))&lt;/span&gt;
-&lt;span class="c"&gt;#print(a[1])&lt;/span&gt;
-&lt;span class="c"&gt;#print(ncol(a))&lt;/span&gt;
-&lt;span class="c"&gt;#print(replicate(ncol(a), &amp;quot;Adj Close&amp;quot;))&lt;/span&gt;
-&lt;span class="c"&gt;#print(a)&lt;/span&gt;
-&lt;span class="c"&gt;#print(a[&amp;quot;waapl&amp;quot;])&lt;/span&gt;
-&lt;span class="c"&gt;#print(as.data.frame(myweek))&lt;/span&gt;
-
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;ncol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;)){&lt;/span&gt;
-    &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rownames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -8311,12 +7807,1915 @@ In&amp;nbsp;[46]:
 
 
 &lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="box-flex1 output_subarea output_stream output_stdout"&gt;
+&lt;div class="box-flex1 output_subarea output_display_data"&gt;
+
+
 &lt;pre&gt;
-Error in &amp;#96;colnames&amp;lt;-&amp;#96;(&amp;#96;*tmp*&amp;#96;, value = c(&amp;quot;Adj Close&amp;quot;, &amp;quot;Adj Close&amp;quot;, &amp;quot;Adj Close&amp;quot;,  : 
-  &amp;apos;names&amp;apos; attribute [7] must be the same length as the vector [6]
+$&amp;#96;Adj Close&amp;#96;
+           Adj.Close
+2008-04-04  143.2520
+2008-04-11  146.4520
+2008-04-18  147.1320
+2008-04-25  159.5380
+2008-05-02  169.5820
+2008-05-09  177.3300
+2008-05-16  181.0280
+2008-05-23  174.1440
+2008-05-30  179.9500
+2008-06-06  179.1080
+2008-06-13  171.7960
+2008-06-20  171.6980
+2008-06-27  165.7300
+2008-07-03  163.4975
+2008-07-11  168.8140
+2008-07-18  164.0300
+2008-07-25  156.8060
+2008-08-01  151.2800
+2008-08-08  155.9340
+2008-08-15  170.0560
+2008-08-22  168.3640
+2008-08-29  166.1100
+2008-09-05  157.2800
+2008-09-12  146.6340
+2008-09-19  131.3080
+2008-09-26  124.3300
+2008-10-03  100.9600
+2008-10-10   88.9320
+2008-10-17   98.3440
+2008-10-24   92.5440
+2008-10-31   99.0340
+2008-11-07   99.6900
+2008-11-14   89.8580
+2008-11-21   82.1620
+2008-11-28   89.2475
+2008-12-05   88.9480
+2008-12-12   94.4340
+2008-12-19   88.1900
+2008-12-26   82.4125
+2009-01-02   83.8600
+2009-01-09   88.7900
+2009-01-16   82.1620
+2009-01-23   81.1575
+2009-01-30   87.9860
+2009-02-06   91.1620
+2009-02-13   95.2680
+2009-02-20   89.0850
+2009-02-27   85.9000
+2009-03-06   84.8940
+2009-03-13   87.7920
+2009-03-20   96.0780
+2009-03-27  103.2980
+2009-04-03  105.1500
+2009-04-09  112.7775
+2009-04-17  115.5380
+2009-04-24  117.8520
+2009-05-01  120.4980
+2009-05-08  126.0120
+2009-05-15  118.9620
+2009-05-22  120.4620
+2009-05-29  128.4825
+2009-06-05  136.1380
+2009-06-12  135.2800
+2009-06-19  131.3640
+2009-06-26  132.6200
+2009-07-02  136.3050
+2009-07-10  131.8920
+2009-07-17  140.4740
+2009-07-24  149.7420
+2009-07-31  154.9960
+2009-08-07  158.8800
+2009-08-14  159.1780
+2009-08-21  158.3500
+2009-08-28  162.5060
+2009-09-04  160.6180
+2009-09-11  165.5075
+2009-09-18  173.0700
+2009-09-25  176.8880
+2009-10-02  177.3600
+2009-10-09  181.8540
+2009-10-16  182.7620
+2009-10-23  192.7460
+2009-10-30  187.8280
+2009-11-06  184.0120
+2009-11-13  194.9460
+2009-11-20  196.0780
+2009-11-27  195.8600
+2009-12-04  188.9460
+2009-12-11  186.0260
+2009-12-18  187.1320
+2009-12-24  194.5700
+2009-12-31  202.5825
+2010-01-08  204.1340
+2010-01-15  200.6580
+2010-01-22  200.0650
+2010-01-29  193.8140
+2010-02-05  187.8740
+2010-02-12  189.2480
+2010-02-19  194.7675
+2010-02-26  193.1460
+2010-03-05  203.1540
+2010-03-12  215.1160
+2010-03-19  215.1640
+2010-03-26  219.1500
+2010-04-01  225.6800
+2010-04-09  230.7480
+2010-04-16  235.8160
+2010-04-23  247.6280
+2010-04-30  254.2960
+2010-05-07  242.8120
+2010-05-14  246.9740
+2010-05-21  237.4040
+2010-05-28  239.5800
+2010-06-04  250.8300
+2010-06-11  239.8040
+2010-06-18  255.1200
+2010-06-25  259.6440
+2010-07-02  244.4080
+2010-07-09  246.2950
+2010-07-16  242.8200
+2010-07-23  244.2620
+2010-07-30  249.8380
+2010-08-06  251.5440
+2010-08-13  244.5620
+2010-08-20  240.7100
+2010-08-27  232.6980
+2010-09-03  239.6880
+2010-09-10  251.6350
+2010-09-17  260.9080
+2010-09-24  276.0420
+2010-10-01  275.2120
+2010-10-08  276.8280
+2010-10-15  290.4780
+2010-10-22  298.9240
+2010-10-29  294.2920
+2010-11-05  300.2140
+2010-11-12  303.2260
+2010-11-19  293.0140
+2010-11-26  300.8150
+2010-12-03  303.7260
+2010-12-10  307.5100
+2010-12-17  308.3740
+2010-12-23  311.2150
+2010-12-31  311.7340
+2011-01-07  320.0100
+2011-01-14  331.1500
+2011-01-21  321.7225
+2011-01-28  327.1780
+2011-02-04  330.3700
+2011-02-11  341.5240
+2011-02-18  344.2980
+2011-02-25  329.7425
+2011-03-04  341.0560
+2011-03-11  338.7600
+2011-03-18  325.6980
+2011-03-25  329.9060
+2011-04-01  335.0800
+2011-04-08  325.1140
+2011-04-15  318.9520
+2011-04-21  327.4725
+2011-04-29  336.4940
+2011-05-06  333.9920
+2011-05-13  332.8200
+2011-05-20  323.9200
+2011-05-27  322.1380
+2011-06-03  332.2925
+2011-06-10  319.0460
+2011-06-17  313.5700
+2011-06-24  311.5680
+2011-07-01  323.0000
+2011-07-08  340.7550
+2011-07-15  343.7960
+2011-07-22  368.7260
+2011-07-29  380.0020
+2011-08-05  370.8560
+2011-08-12  354.0120
+2011-08-19  358.7820
+2011-08-26  358.2260
+2011-09-02  369.0580
+2011-09-09  366.5125
+2011-09-16  374.3360
+2011-09-23  392.7920
+2011-09-30  378.9520
+2011-10-07  359.9560
+2011-10-14  388.6380
+2011-10-21  390.0440
+2011-10-28  387.1120
+2011-11-04  384.8480
+2011-11-11  378.9040
+2011-11-18  366.2420
+2011-11-25  354.6850
+2011-12-02  366.9960
+2011-12-09  376.2580
+2011-12-16  369.2380
+2011-12-23  379.9420
+2011-12-30  389.0975
+2012-01-06  400.1050
+2012-01-13  405.3620
+2012-01-20  408.9350
+2012-01-27  420.2940
+2012-02-03  438.3780
+2012-02-10  460.5980
+2012-02-17  483.2800
+2012-02-24  496.6025
+2012-03-02  517.7280
+2012-03-09  515.4240
+2012-03-16  553.7800
+2012-03-23  577.6460
+2012-03-30  586.0140
+2012-04-05  602.1475
+2012-04-13  599.5440
+2012-04-20  568.7320
+2012-04-27  567.5960
+2012-05-04  557.3080
+2012-05-11  546.7200
+2012-05-18  522.4800
+2012-05-25  541.4040
+2012-06-01  550.3000
+2012-06-08  547.9780
+2012-06-15  550.7700
+2012-06-22  561.0660
+2012-06-29  551.7680
+2012-07-06  578.5550
+2012-07-13  582.5360
+2012-07-20  584.1380
+2012-07-27  565.1120
+2012-08-03  583.6300
+2012-08-10  598.0480
+2012-08-17  613.3360
+2012-08-24  640.1600
+2012-08-31  647.3280
+2012-09-07  652.0275
+2012-09-14  650.0960
+2012-09-21  676.1920
+2012-09-28  652.1340
+2012-10-05  639.3140
+2012-10-12  612.5160
+2012-10-19  612.3060
+2012-10-26  594.1800
+2012-11-02  569.0833
+2012-11-09  543.9900
+2012-11-16  518.9620
+2012-11-23  547.8350
+2012-11-30  568.6060
+2012-12-07  539.4040
+2012-12-14  513.8760
+2012-12-21  508.1380
+2012-12-28  498.8600
+2013-01-04  521.2825
+2013-01-11  506.2020
+2013-01-18  484.1540
+2013-01-25  462.8250
+2013-02-01  441.0220
+2013-02-08  447.2600
+2013-02-15  456.7680
+2013-02-22  440.2950
+2013-03-01  430.7540
+2013-03-08  417.2780
+2013-03-15  423.4580
+2013-03-22  444.1560
+2013-03-28  443.6475
+2013-04-05  417.7580
+2013-04-12  419.9840
+2013-04-19  396.2760
+2013-04-26  397.1280
+2013-05-03  430.6480
+2013-05-10  448.4560
+2013-05-17  431.0640
+2013-05-24  434.1980
+2013-05-31  438.7875
+2013-06-07  436.9820
+2013-06-14  427.0180
+2013-06-21  415.7140
+2013-06-28  391.4500
+2013-07-05  408.9000
+2013-07-12  414.6960
+2013-07-19  421.1240
+2013-07-26  425.1760
+2013-08-02  446.2980
+2013-08-09  455.7860
+2013-08-16  485.3760
+2013-08-23  497.1360
+2013-08-30  486.5080
+2013-09-06  489.3875
+2013-09-13  475.5820
+2013-09-20  456.5480
+2013-09-27  480.3520
+2013-10-04  478.4660
+2013-10-11  481.8300
+2013-10-18  495.9660
+2013-10-25  518.6640
+2013-11-01  516.7100
+2013-11-08  516.9180
+2013-11-15  519.4600
+2013-11-22  515.7380
+2013-11-29  536.5800
+2013-12-06  558.7500
+2013-12-13  558.3180
+2013-12-20  548.0660
+2013-12-27  562.0725
+2014-01-03  549.1250
+2014-01-10  536.1700
+2014-01-17  543.6240
+2014-01-24  547.4300
+2014-01-31  508.5820
+2014-02-07  509.2080
+2014-02-14  537.8580
+2014-02-21  534.9400
+2014-02-28  524.1740
+2014-03-07  530.5100
+2014-03-14  531.7920
+2014-03-21  530.1940
+2014-03-28  539.6560
+2014-03-31  536.7400
+
+$&amp;#96;Adj Close&amp;#96;
+           Adj.Close
+2008-04-04  230.0400
+2008-04-11  233.7680
+2008-04-18  234.4800
+2008-04-25  272.9100
+2008-05-02  286.2120
+2008-05-09  291.9400
+2008-05-16  290.8220
+2008-05-23  280.3000
+2008-05-30  287.5275
+2008-06-06  287.0680
+2008-06-13  278.4460
+2008-06-20  281.4100
+2008-06-27  269.8100
+2008-07-03  265.9125
+2008-07-11  271.7100
+2008-07-18  259.0660
+2008-07-25  240.5120
+2008-08-01  238.6920
+2008-08-08  240.5720
+2008-08-15  252.1660
+2008-08-22  245.3380
+2008-08-29  236.5200
+2008-09-05  228.2525
+2008-09-12  212.6320
+2008-09-19  218.1700
+2008-09-26  216.7340
+2008-10-03  197.2620
+2008-10-10  171.8020
+2008-10-17  181.0280
+2008-10-24  179.1140
+2008-10-31  177.7080
+2008-11-07  171.9760
+2008-11-14  154.4920
+2008-11-21  140.1120
+2008-11-28  140.7100
+2008-12-05  138.0240
+2008-12-12  153.4420
+2008-12-19  157.3220
+2008-12-26  149.9550
+2009-01-02  153.8425
+2009-01-09  162.6020
+2009-01-16  152.8160
+2009-01-23  152.2800
+2009-01-30  168.7560
+2009-02-06  175.0800
+2009-02-13  181.7860
+2009-02-20  173.2800
+2009-02-27  169.4020
+2009-03-06  158.7340
+2009-03-13  156.6480
+2009-03-20  164.9920
+2009-03-27  174.2560
+2009-04-03  177.8900
+2009-04-09  182.8550
+2009-04-17  190.9400
+2009-04-24  192.0740
+2009-05-01  195.2740
+2009-05-08  201.4400
+2009-05-15  197.5980
+2009-05-22  198.4900
+2009-05-29  204.8975
+2009-06-05  217.3360
+2009-06-12  216.2980
+2009-06-19  208.4180
+2009-06-26  206.5460
+2009-07-02  209.3600
+2009-07-10  203.5560
+2009-07-17  216.2160
+2009-07-24  217.1980
+2009-07-31  221.1800
+2009-08-07  226.6820
+2009-08-14  229.3700
+2009-08-21  226.2060
+2009-08-28  234.1240
+2009-09-04  229.1560
+2009-09-11  233.4450
+2009-09-18  242.6580
+2009-09-25  248.6260
+2009-10-02  246.7120
+2009-10-09  253.7760
+2009-10-16  266.7900
+2009-10-23  276.5460
+2009-10-30  273.2700
+2009-11-06  271.4080
+2009-11-13  284.2580
+2009-11-20  287.6240
+2009-11-27  291.6600
+2009-12-04  293.4060
+2009-12-11  294.7280
+2009-12-18  297.9980
+2009-12-24  304.0500
+2009-12-31  310.9350
+2010-01-08  305.8180
+2010-01-15  295.1500
+2010-01-22  287.9150
+2010-01-29  269.1440
+2010-02-05  266.5700
+2010-02-12  267.6560
+2010-02-19  270.7050
+2010-02-26  266.5220
+2010-03-05  274.0600
+2010-03-12  286.2660
+2010-03-19  282.3140
+2010-03-26  279.2180
+2010-04-01  283.4175
+2010-04-09  283.9300
+2010-04-16  289.6840
+2010-04-23  275.4260
+2010-04-30  265.0240
+2010-05-07  254.1100
+2010-05-14  255.7080
+2010-05-21  245.0260
+2010-05-28  240.8200
+2010-06-04  247.7550
+2010-06-11  242.2240
+2010-06-18  248.5060
+2010-06-25  240.7060
+2010-07-02  224.9580
+2010-07-09  226.5175
+2010-07-16  241.2420
+2010-07-23  240.2560
+2010-07-30  243.8240
+2010-08-06  249.7360
+2010-08-13  248.1660
+2010-08-20  239.0660
+2010-08-27  228.2180
+2010-09-03  229.8840
+2010-09-10  236.1500
+2010-09-17  241.6980
+2010-09-24  258.1100
+2010-10-01  263.9320
+2010-10-08  266.3940
+2010-10-15  276.8700
+2010-10-22  306.1080
+2010-10-29  308.6940
+2010-11-05  310.3240
+2010-11-12  309.8040
+2010-11-19  295.3080
+2010-11-26  295.1975
+2010-12-03  284.9860
+2010-12-10  294.2700
+2010-12-17  296.5320
+2010-12-23  301.2850
+2010-12-31  299.8120
+2011-01-07  304.8540
+2011-01-14  309.1020
+2011-01-21  314.0625
+2011-01-28  306.8360
+2011-02-04  304.7600
+2011-02-11  309.3200
+2011-02-18  313.5000
+2011-02-25  305.3550
+2011-03-04  302.8180
+2011-03-11  293.5680
+2011-03-18  282.1900
+2011-03-25  290.5520
+2011-04-01  292.0420
+2011-04-08  289.2000
+2011-04-15  283.6300
+2011-04-21  262.6625
+2011-04-29  268.0380
+2011-05-06  268.0480
+2011-05-13  268.3060
+2011-05-20  263.6620
+2011-05-27  259.7940
+2011-06-03  263.4800
+2011-06-10  258.8060
+2011-06-17  250.3960
+2011-06-24  242.2120
+2011-07-01  250.3920
+2011-07-08  268.5675
+2011-07-15  272.8820
+2011-07-22  302.1080
+2011-07-29  306.6420
+2011-08-05  295.9880
+2011-08-12  279.7140
+2011-08-19  262.7800
+2011-08-26  258.9760
+2011-09-02  268.0760
+2011-09-09  264.7675
+2011-09-16  268.3640
+2011-09-23  268.1360
+2011-09-30  264.5240
+2011-10-07  253.4480
+2011-10-14  278.2280
+2011-10-21  293.0720
+2011-10-28  296.7660
+2011-11-04  295.2700
+2011-11-11  302.8100
+2011-11-18  303.9840
+2011-11-25  287.0425
+2011-12-02  300.7640
+2011-12-09  311.9400
+2011-12-16  311.7700
+2011-12-23  314.4020
+2011-12-30  321.3525
+2012-01-06  330.6700
+2012-01-13  312.9320
+2012-01-20  311.1925
+2012-01-27  288.6900
+2012-02-03  292.3000
+2012-02-10  304.6140
+2012-02-17  304.1720
+2012-02-24  305.0500
+2012-03-02  309.2680
+2012-03-09  303.6420
+2012-03-16  308.8180
+2012-03-23  319.9300
+2012-03-30  324.5000
+2012-04-05  319.9450
+2012-04-13  317.2440
+2012-04-20  302.1480
+2012-04-27  304.2100
+2012-05-04  302.7560
+2012-05-11  305.1440
+2012-05-18  307.0560
+2012-05-25  302.2580
+2012-06-01  292.0950
+2012-06-08  289.1140
+2012-06-15  282.1060
+2012-06-22  286.9460
+2012-06-29  284.1900
+2012-07-06  294.0700
+2012-07-13  288.8800
+2012-07-20  293.9240
+2012-07-27  308.2480
+2012-08-03  317.1220
+2012-08-10  321.3160
+2012-08-17  334.9560
+2012-08-24  338.1040
+2012-08-31  340.4640
+2012-09-07  346.2600
+2012-09-14  350.3080
+2012-09-21  362.1480
+2012-09-28  376.6780
+2012-10-05  382.0780
+2012-10-12  374.6480
+2012-10-19  362.1580
+2012-10-26  339.2620
+2012-11-02  342.9767
+2012-11-09  335.0460
+2012-11-16  327.5180
+2012-11-23  334.3375
+2012-11-30  340.9200
+2012-12-07  345.2880
+2012-12-14  348.8000
+2012-12-21  360.3560
+2012-12-28  353.4400
+2013-01-04  361.8950
+2013-01-11  369.1340
+2013-01-18  358.2800
+2013-01-25  369.4000
+2013-02-01  379.3320
+2013-02-08  385.8100
+2013-02-15  393.0600
+2013-02-22  399.7200
+2013-03-01  399.2060
+2013-03-08  415.9780
+2013-03-15  412.7720
+2013-03-22  405.9460
+2013-03-28  402.7675
+2013-04-05  400.2560
+2013-04-12  392.7040
+2013-04-19  392.7580
+2013-04-26  403.6000
+2013-05-03  414.3540
+2013-05-10  434.8480
+2013-05-17  449.8060
+2013-05-24  446.5520
+2013-05-31  436.8850
+2013-06-07  433.5140
+2013-06-14  439.8480
+2013-06-21  445.7680
+2013-06-28  437.1440
+2013-07-05  444.2075
+2013-07-12  456.4120
+2013-07-19  457.4720
+2013-07-26  449.4940
+2013-08-02  447.6220
+2013-08-09  447.9760
+2013-08-16  435.7500
+2013-08-23  434.8660
+2013-08-30  427.1680
+2013-09-06  436.8300
+2013-09-13  445.9500
+2013-09-20  448.3160
+2013-09-27  440.9500
+2013-10-04  440.3720
+2013-10-11  431.9800
+2013-10-18  456.0900
+2013-10-25  508.7540
+2013-11-01  514.4440
+2013-11-08  509.9460
+2013-11-15  512.8760
+2013-11-22  515.0160
+2013-11-29  528.9100
+2013-12-06  529.8440
+2013-12-13  537.6220
+2013-12-20  541.9860
+2013-12-27  558.4100
+2014-01-03  556.5950
+2014-01-10  566.3520
+2014-01-17  573.3480
+2014-01-24  577.1575
+2014-01-31  565.3180
+2014-02-07  575.7940
+2014-02-14  595.8460
+2014-02-21  603.2450
+2014-02-28  609.3640
+2014-03-07  607.6340
+2014-03-14  598.6720
+2014-03-21  598.8820
+2014-03-28  568.8740
+2014-03-31  557.8100
+
+$&amp;#96;Adj Close&amp;#96;
+           Adj.Close
+2008-04-04   75.4360
+2008-04-11   75.0820
+2008-04-18   74.7680
+2008-04-25   79.8660
+2008-05-02   79.6020
+2008-05-09   74.0020
+2008-05-16   75.1740
+2008-05-23   79.7840
+2008-05-30   80.6675
+2008-06-06   81.3960
+2008-06-13   78.3300
+2008-06-20   82.5100
+2008-06-27   78.3580
+2008-07-03   72.5975
+2008-07-11   71.4620
+2008-07-18   69.2760
+2008-07-25   72.8040
+2008-08-01   76.8980
+2008-08-08   78.0740
+2008-08-15   87.2920
+2008-08-22   83.0100
+2008-08-29   82.1140
+2008-09-05   79.8500
+2008-09-12   78.9500
+2008-09-19   77.0220
+2008-09-26   71.8860
+2008-10-03   68.0100
+2008-10-10   59.4040
+2008-10-17   53.5080
+2008-10-24   50.4940
+2008-10-31   55.2920
+2008-11-07   52.5260
+2008-11-14   44.6000
+2008-11-21   37.3740
+2008-11-28   42.8375
+2008-12-05   44.4900
+2008-12-12   50.3720
+2008-12-19   51.6600
+2008-12-26   51.0350
+2009-01-02   51.4500
+2009-01-09   56.0580
+2009-01-16   50.9780
+2009-01-23   49.8875
+2009-01-30   51.4500
+2009-02-06   63.1060
+2009-02-13   64.3180
+2009-02-20   62.4575
+2009-02-27   63.6300
+2009-03-06   62.9920
+2009-03-13   66.5900
+2009-03-20   69.9280
+2009-03-27   73.0000
+2009-04-03   74.5780
+2009-04-09   77.5625
+2009-04-17   77.2340
+2009-04-24   80.1160
+2009-05-01   80.9580
+2009-05-08   80.1780
+2009-05-15   75.8880
+2009-05-22   76.6780
+2009-05-29   77.7825
+2009-06-05   85.3480
+2009-06-12   85.9600
+2009-06-19   82.5080
+2009-06-26   80.4360
+2009-07-02   81.9025
+2009-07-10   77.3640
+2009-07-17   83.9860
+2009-07-24   89.2780
+2009-07-31   85.0820
+2009-08-07   85.4640
+2009-08-14   84.4280
+2009-08-21   83.0540
+2009-08-28   83.9520
+2009-09-04   79.1640
+2009-09-11   82.8825
+2009-09-18   87.7660
+2009-09-25   91.8640
+2009-10-02   91.6360
+2009-10-09   92.8960
+2009-10-16   95.4440
+2009-10-23   99.0040
+2009-10-30  121.9480
+2009-11-06  120.2240
+2009-11-13  130.0460
+2009-11-20  130.5560
+2009-11-27  132.9275
+2009-12-04  139.0820
+2009-12-11  133.8320
+2009-12-18  129.0720
+2009-12-24  135.9875
+2009-12-31  137.4325
+2010-01-08  132.8720
+2010-01-15  128.2520
+2010-01-22  125.3600
+2010-01-29  122.7960
+2010-02-05  117.8840
+2010-02-12  118.3940
+2010-02-19  117.3600
+2010-02-26  118.3140
+2010-03-05  126.6800
+2010-03-12  130.9680
+2010-03-19  131.4740
+2010-03-26  131.5120
+2010-04-01  134.8200
+2010-04-09  136.5880
+2010-04-16  142.7260
+2010-04-23  145.3560
+2010-04-30  141.4620
+2010-05-07  130.3880
+2010-05-14  131.1240
+2010-05-21  124.4420
+2010-05-28  124.4700
+2010-06-04  125.2700
+2010-06-11  121.0000
+2010-06-18  125.8580
+2010-06-25  121.1280
+2010-07-02  111.1540
+2010-07-09  114.2425
+2010-07-16  121.4020
+2010-07-23  119.2820
+2010-07-30  117.4820
+2010-08-06  125.2440
+2010-08-13  127.1940
+2010-08-20  127.9820
+2010-08-27  125.8960
+2010-09-03  131.0220
+2010-09-10  139.7950
+2010-09-17  146.5440
+2010-09-24  153.4880
+2010-10-01  157.7660
+2010-10-08  156.6960
+2010-10-15  156.9700
+2010-10-22  163.0000
+2010-10-29  167.7060
+2010-11-05  167.0720
+2010-11-12  170.3280
+2010-11-19  160.8040
+2010-11-26  173.2600
+2010-12-03  176.7300
+2010-12-10  176.3160
+2010-12-17  175.8760
+2010-12-23  183.8475
+2010-12-31  181.8700
+2011-01-07  185.6000
+2011-01-14  185.4760
+2011-01-21  184.3750
+2011-01-28  176.9060
+2011-02-04  172.9840
+2011-02-11  184.0500
+2011-02-18  188.0660
+2011-02-25  178.0225
+2011-03-04  171.8420
+2011-03-11  167.8460
+2011-03-18  163.8600
+2011-03-25  166.9040
+2011-04-01  176.7300
+2011-04-08  184.1220
+2011-04-15  181.7280
+2011-04-21  181.7300
+2011-04-29  191.0460
+2011-05-06  198.8640
+2011-05-13  203.5500
+2011-05-20  196.3720
+2011-05-27  194.1760
+2011-06-03  192.7650
+2011-06-10  187.5000
+2011-06-17  186.4500
+2011-06-24  192.0580
+2011-07-01  204.3520
+2011-07-08  215.6000
+2011-07-15  212.1060
+2011-07-22  214.9740
+2011-07-29  219.3220
+2011-08-05  209.4320
+2011-08-12  198.7160
+2011-08-19  191.6020
+2011-08-26  191.2240
+2011-09-02  211.0440
+2011-09-09  216.1825
+2011-09-16  224.9480
+2011-09-23  230.7300
+2011-09-30  224.4880
+2011-10-07  218.0460
+2011-10-14  237.2940
+2011-10-21  237.2260
+2011-10-28  217.4520
+2011-11-04  215.2000
+2011-11-11  214.8780
+2011-11-18  210.0820
+2011-11-25  188.2450
+2011-12-02  193.5980
+2011-12-09  193.4120
+2011-12-16  182.5520
+2011-12-23  178.5020
+2011-12-30  174.2800
+2012-01-06  179.1900
+2012-01-13  178.2300
+2012-01-20  189.1200
+2012-01-27  189.9160
+2012-02-03  187.0900
+2012-02-10  184.6660
+2012-02-17  185.9580
+2012-02-24  180.2150
+2012-03-02  180.2720
+2012-03-09  183.4160
+2012-03-16  183.9440
+2012-03-23  191.4040
+2012-03-30  203.3180
+2012-04-05  196.5225
+2012-04-13  189.1940
+2012-04-20  189.2080
+2012-04-27  199.1660
+2012-05-04  229.1260
+2012-05-11  225.2820
+2012-05-18  220.7180
+2012-05-25  215.7700
+2012-06-01  211.2775
+2012-06-08  216.5400
+2012-06-15  216.0900
+2012-06-22  222.4880
+2012-06-29  224.1920
+2012-07-06  227.7400
+2012-07-13  219.3340
+2012-07-20  220.9740
+2012-07-27  224.6860
+2012-08-03  233.4520
+2012-08-10  234.3480
+2012-08-17  237.1540
+2012-08-24  241.9680
+2012-08-31  246.3280
+2012-09-07  251.1550
+2012-09-14  257.9800
+2012-09-21  259.3420
+2012-09-28  253.5680
+2012-10-05  255.5020
+2012-10-12  248.3180
+2012-10-19  244.0920
+2012-10-26  231.5480
+2012-11-02  232.4833
+2012-11-09  231.5220
+2012-11-16  224.3700
+2012-11-23  235.3500
+2012-11-30  247.4900
+2012-12-07  252.6840
+2012-12-14  250.1320
+2012-12-21  258.1340
+2012-12-28  250.1850
+2013-01-04  256.4525
+2013-01-11  266.8940
+2013-01-18  271.2320
+2013-01-25  273.9375
+2013-02-01  267.9300
+2013-02-08  262.2540
+2013-02-15  263.9420
+2013-02-22  266.8800
+2013-03-01  262.4980
+2013-03-08  274.1120
+2013-03-15  269.6060
+2013-03-22  256.5440
+2013-03-28  262.0300
+2013-04-05  259.7040
+2013-04-12  265.5160
+2013-04-19  265.4400
+2013-04-26  266.1480
+2013-05-03  252.4760
+2013-05-10  259.1840
+2013-05-17  266.6840
+2013-05-24  264.5980
+2013-05-31  267.2125
+2013-06-07  268.8900
+2013-06-14  275.4600
+2013-06-21  276.9560
+2013-06-28  275.1020
+2013-07-05  283.9350
+2013-07-12  296.3320
+2013-07-19  306.2940
+2013-07-26  303.7780
+2013-08-02  303.9020
+2013-08-09  298.3300
+2013-08-16  290.6580
+2013-08-23  287.3940
+2013-08-30  282.7360
+2013-09-06  293.1000
+2013-09-13  299.2980
+2013-09-20  308.1320
+2013-09-27  314.4800
+2013-10-04  317.5800
+2013-10-11  305.5100
+2013-10-18  313.4580
+2013-10-25  336.2680
+2013-11-01  360.9940
+2013-11-08  353.5360
+2013-11-15  359.3400
+2013-11-22  366.9840
+2013-11-29  384.5850
+2013-12-06  386.8720
+2013-12-13  384.0700
+2013-12-20  393.9940
+2013-12-27  401.1475
+2014-01-03  396.6425
+2014-01-10  398.4500
+2014-01-17  395.9600
+2014-01-24  399.7650
+2014-01-31  385.3220
+2014-02-07  351.2440
+2014-02-14  357.2920
+2014-02-21  349.3975
+2014-02-28  358.4260
+2014-03-07  368.0540
+2014-03-14  371.0480
+2014-03-21  371.3260
+2014-03-28  345.3460
+2014-03-31  336.3700
+
+$&amp;#96;Adj Close&amp;#96;
+           Adj.Close
+2008-04-04   25.0060
+2008-04-11   24.8340
+2008-04-18   24.8800
+2008-04-25   26.4780
+2008-05-02   24.9360
+2008-05-09   25.2540
+2008-05-16   25.9340
+2008-05-23   24.7140
+2008-05-30   24.4675
+2008-06-06   23.9300
+2008-06-13   24.2040
+2008-06-20   24.7780
+2008-06-27   24.1000
+2008-07-03   22.9525
+2008-07-11   22.0900
+2008-07-18   22.8060
+2008-07-25   22.3800
+2008-08-01   22.3000
+2008-08-08   23.1660
+2008-08-15   24.1360
+2008-08-22   23.8100
+2008-08-29   23.8980
+2008-09-05   22.9925
+2008-09-12   23.1880
+2008-09-19   22.1780
+2008-09-26   22.6580
+2008-10-03   22.6920
+2008-10-10   19.9500
+2008-10-17   20.8900
+2008-10-24   19.7640
+2008-10-31   19.4800
+2008-11-07   19.1980
+2008-11-14   18.0660
+2008-11-21   16.4760
+2008-11-28   17.7725
+2008-12-05   16.8800
+2008-12-12   17.6500
+2008-12-19   16.9860
+2008-12-26   16.7625
+2009-01-02   17.0475
+2009-01-09   17.5460
+2009-01-16   17.0060
+2009-01-23   15.7625
+2009-01-30   15.3800
+2009-02-06   16.3620
+2009-02-13   16.7360
+2009-02-20   15.8575
+2009-02-27   14.7600
+2009-03-06   13.7820
+2009-03-13   14.4940
+2009-03-20   14.8320
+2009-03-27   16.0260
+2009-04-03   16.3940
+2009-04-09   16.7950
+2009-04-17   17.0160
+2009-04-24   16.9200
+2009-05-01   17.7800
+2009-05-08   17.3300
+2009-05-15   17.4540
+2009-05-22   17.8320
+2009-05-29   18.1025
+2009-06-05   19.2060
+2009-06-12   19.9760
+2009-06-19   20.9120
+2009-06-26   20.7540
+2009-07-02   21.0325
+2009-07-10   20.0260
+2009-07-17   21.1000
+2009-07-24   21.8040
+2009-07-31   20.8380
+2009-08-07   20.9640
+2009-08-14   20.7820
+2009-08-21   21.0840
+2009-08-28   21.9320
+2009-09-04   21.5820
+2009-09-11   22.1325
+2009-09-18   22.4220
+2009-09-25   22.8340
+2009-10-02   22.6340
+2009-10-09   22.4420
+2009-10-16   23.2660
+2009-10-23   23.8400
+2009-10-30   25.1440
+2009-11-06   25.0060
+2009-11-13   26.0080
+2009-11-20   26.6260
+2009-11-27   26.5650
+2009-12-04   26.6420
+2009-12-11   26.6060
+2009-12-18   26.8540
+2009-12-24   27.5500
+2009-12-31   27.7150
+2010-01-08   27.4980
+2010-01-15   27.2680
+2010-01-22   26.9675
+2010-01-29   26.0740
+2010-02-05   25.2760
+2010-02-12   24.9900
+2010-02-19   25.7500
+2010-02-26   25.6840
+2010-03-05   25.7180
+2010-03-12   26.0220
+2010-03-19   26.4960
+2010-03-26   26.7320
+2010-04-01   26.4550
+2010-04-09   26.6220
+2010-04-16   27.5080
+2010-04-23   28.0400
+2010-04-30   27.7360
+2010-05-07   26.5920
+2010-05-14   26.1240
+2010-05-21   25.1920
+2010-05-28   23.3060
+2010-06-04   23.6850
+2010-06-11   22.7120
+2010-06-18   23.6780
+2010-06-25   22.8380
+2010-07-02   21.1240
+2010-07-09   21.8350
+2010-07-16   22.7000
+2010-07-23   23.0040
+2010-07-30   23.4680
+2010-08-06   23.3040
+2010-08-13   22.4560
+2010-08-20   22.2360
+2010-08-27   21.8020
+2010-09-03   21.6320
+2010-09-10   21.7125
+2010-09-17   22.8260
+2010-09-24   22.5680
+2010-10-01   22.2720
+2010-10-08   22.0960
+2010-10-15   22.7760
+2010-10-22   23.0460
+2010-10-29   23.6000
+2010-11-05   24.5600
+2010-11-12   24.2480
+2010-11-19   23.5400
+2010-11-26   23.1500
+2010-12-03   23.8240
+2010-12-10   24.7060
+2010-12-17   25.3020
+2010-12-23   25.6400
+2010-12-31   25.5200
+2011-01-07   25.8260
+2011-01-14   25.8060
+2011-01-21   25.8950
+2011-01-28   25.9640
+2011-02-04   25.3880
+2011-02-11   25.4100
+2011-02-18   24.8460
+2011-02-25   24.4425
+2011-03-04   24.0460
+2011-03-11   23.6160
+2011-03-18   23.0340
+2011-03-25   23.4300
+2011-04-01   23.3880
+2011-04-08   23.8240
+2011-04-15   23.5100
+2011-04-21   23.2975
+2011-04-29   24.0180
+2011-05-06   23.7220
+2011-05-13   23.3580
+2011-05-20   22.7020
+2011-05-27   22.5360
+2011-06-03   22.5400
+2011-06-10   22.1180
+2011-06-17   22.2260
+2011-06-24   22.6960
+2011-07-01   23.7740
+2011-07-08   24.5000
+2011-07-15   24.5900
+2011-07-22   25.1020
+2011-07-29   25.5860
+2011-08-05   24.5100
+2011-08-12   23.0180
+2011-08-19   23.1840
+2011-08-26   22.9540
+2011-09-02   24.3040
+2011-09-09   24.0550
+2011-09-16   24.6500
+2011-09-23   24.2320
+2011-09-30   23.6280
+2011-10-07   23.8700
+2011-10-14   25.1720
+2011-10-21   25.2240
+2011-10-28   25.0740
+2011-11-04   24.4400
+2011-11-11   24.8000
+2011-11-18   24.3980
+2011-11-25   23.0875
+2011-12-02   23.5720
+2011-12-09   23.9960
+2011-12-16   24.0640
+2011-12-23   24.2020
+2011-12-30   24.3225
+2012-01-06   25.7550
+2012-01-13   26.1480
+2012-01-20   26.7800
+2012-01-27   27.6140
+2012-02-03   27.9600
+2012-02-10   28.5740
+2012-02-17   28.9000
+2012-02-24   29.6025
+2012-03-02   30.0520
+2012-03-09   30.0280
+2012-03-16   30.7300
+2012-03-23   30.2000
+2012-03-30   30.4940
+2012-04-05   29.9325
+2012-04-13   28.9940
+2012-04-20   29.6280
+2012-04-27   30.2400
+2012-05-04   29.9100
+2012-05-11   29.0120
+2012-05-18   28.3960
+2012-05-25   27.8620
+2012-06-01   27.6575
+2012-06-08   27.5840
+2012-06-15   27.8460
+2012-06-22   28.9160
+2012-06-29   28.5840
+2012-07-06   29.0025
+2012-07-13   27.9200
+2012-07-20   28.5440
+2012-07-27   27.7520
+2012-08-03   27.9960
+2012-08-10   28.7540
+2012-08-17   29.0880
+2012-08-24   29.2200
+2012-08-31   29.2620
+2012-09-07   29.4025
+2012-09-14   29.5120
+2012-09-21   29.8260
+2012-09-28   28.9080
+2012-10-05   28.4540
+2012-10-12   27.9380
+2012-10-19   28.0420
+2012-10-26   26.7640
+2012-11-02   27.8900
+2012-11-09   27.9420
+2012-11-16   26.0320
+2012-11-23   26.0325
+2012-11-30   26.0900
+2012-12-07   25.5600
+2012-12-14   26.0920
+2012-12-21   26.4180
+2012-12-28   25.8750
+2013-01-04   26.0875
+2013-01-11   25.6700
+2013-01-18   26.1340
+2013-01-25   26.5600
+2013-02-01   26.8120
+2013-02-08   26.4180
+2013-02-15   26.9380
+2013-02-22   26.9975
+2013-03-01   26.8680
+2013-03-08   27.3400
+2013-03-15   27.1740
+2013-03-22   27.3860
+2013-03-28   27.5125
+2013-04-05   27.8340
+2013-04-12   28.4040
+2013-04-19   28.1800
+2013-04-26   30.4860
+2013-05-03   32.0700
+2013-05-10   32.1340
+2013-05-17   33.0880
+2013-05-24   33.8400
+2013-05-31   34.1975
+2013-06-07   34.4300
+2013-06-14   34.1260
+2013-06-21   33.5200
+2013-06-28   33.4360
+2013-07-05   33.3850
+2013-07-12   34.1840
+2013-07-19   34.2420
+2013-07-26   31.0680
+2013-08-02   31.0660
+2013-08-09   31.4840
+2013-08-16   31.6840
+2013-08-23   31.8700
+2013-08-30   32.9760
+2013-09-06   30.8950
+2013-09-13   32.0180
+2013-09-20   32.6020
+2013-09-27   32.2600
+2013-10-04   33.2000
+2013-10-11   32.9560
+2013-10-18   34.1760
+2013-10-25   34.0420
+2013-11-01   34.9840
+2013-11-08   36.6520
+2013-11-15   37.2300
+2013-11-22   36.8660
+2013-11-29   37.4000
+2013-12-06   38.1240
+2013-12-13   37.3880
+2013-12-20   36.3380
+2013-12-27   36.8300
+2014-01-03   36.9150
+2014-01-10   35.7060
+2014-01-17   35.8900
+2014-01-24   35.9725
+2014-01-31   36.4600
+2014-02-07   36.0080
+2014-02-14   37.0560
+2014-02-21   37.6650
+2014-02-28   37.7740
+2014-03-07   38.0700
+2014-03-14   37.9400
+2014-03-21   39.4720
+2014-03-28   40.0580
+2014-03-31   40.9900
+
+$&amp;#96;Adj Close&amp;#96;
+           Adj.Close
+2008-04-04   45.8160
+2008-04-11   48.5900
+2008-04-18   51.7820
+2008-04-25   52.7320
+2008-05-02   50.6000
+2008-05-09   53.6800
+2008-05-16   56.1700
+2008-05-23   58.2040
+2008-05-30   57.7800
+2008-06-06   61.2580
+2008-06-13   62.9880
+2008-06-20   66.9220
+2008-06-27   69.5580
+2008-07-03   67.2075
+2008-07-11   62.4080
+2008-07-18   60.4260
+2008-07-25   56.4440
+2008-08-01   56.5160
+2008-08-08   52.0780
+2008-08-15   51.2960
+2008-08-22   52.2820
+2008-08-29   54.4940
+2008-09-05   48.3000
+2008-09-12   43.7080
+2008-09-19   45.0120
+2008-09-26   46.1260
+2008-10-03   37.8660
+2008-10-10   28.0320
+2008-10-17   26.2620
+2008-10-24   27.1220
+2008-10-31   28.8340
+2008-11-07   30.5500
+2008-11-14   25.5800
+2008-11-21   22.1280
+2008-11-28   23.3500
+2008-12-05   18.9540
+2008-12-12   20.5960
+2008-12-19   21.0740
+2008-12-26   19.0425
+2009-01-02   21.6450
+2009-01-09   24.8320
+2009-01-16   22.4280
+2009-01-23   22.2525
+2009-01-30   22.7280
+2009-02-06   20.9820
+2009-02-13   21.6820
+2009-02-20   21.4400
+2009-02-27   22.0080
+2009-03-06   19.5840
+2009-03-13   21.2800
+2009-03-20   22.3080
+2009-03-27   23.6140
+2009-04-03   23.6500
+2009-04-09   26.5100
+2009-04-17   28.9620
+2009-04-24   30.6400
+2009-05-01   30.4840
+2009-05-08   32.2300
+2009-05-15   30.0800
+2009-05-22   30.8120
+2009-05-29   32.0050
+2009-06-05   33.5740
+2009-06-12   32.8100
+2009-06-19   30.3660
+2009-06-26   28.8860
+2009-07-02   29.1850
+2009-07-10   26.7040
+2009-07-17   29.3380
+2009-07-24   31.8380
+2009-07-31   32.2680
+2009-08-07   33.6480
+2009-08-14   32.3220
+2009-08-21   31.6360
+2009-08-28   32.9180
+2009-09-04   31.7960
+2009-09-11   34.9950
+2009-09-18   37.7560
+2009-09-25   36.6940
+2009-10-02   37.0420
+2009-10-09   39.0320
+2009-10-16   41.0800
+2009-10-23   42.3460
+2009-10-30   38.2660
+2009-11-06   36.7780
+2009-11-13   37.0280
+2009-11-20   36.3420
+2009-11-27   36.8600
+2009-12-04   35.7800
+2009-12-11   35.8580
+2009-12-18   38.0220
+2009-12-24   39.8075
+2009-12-31   39.3750
+2010-01-08   43.5160
+2010-01-15   45.1440
+2010-01-22   44.7825
+2010-01-29   42.3840
+2010-02-05   40.2380
+2010-02-12   39.3780
+2010-02-19   42.0800
+2010-02-26   39.6640
+2010-03-05   38.9880
+2010-03-12   38.7700
+2010-03-19   38.2820
+2010-03-26   36.2320
+2010-04-01   36.5275
+2010-04-09   37.7380
+2010-04-16   38.0740
+2010-04-23   39.9720
+2010-04-30   40.2920
+2010-05-07   37.0000
+2010-05-14   35.9180
+2010-05-21   33.9620
+2010-05-28   33.7880
+2010-06-04   36.9250
+2010-06-11   38.6780
+2010-06-18   40.6420
+2010-06-25   38.5940
+2010-07-02   35.5820
+2010-07-09   37.8100
+2010-07-16   38.1680
+2010-07-23   38.6800
+2010-07-30   39.2680
+2010-08-06   39.5520
+2010-08-13   37.4420
+2010-08-20   36.0520
+2010-08-27   35.7520
+2010-09-03   37.0140
+2010-09-10   37.8500
+2010-09-17   38.3980
+2010-09-24   37.7900
+2010-10-01   38.5340
+2010-10-08   39.8300
+2010-10-15   41.7960
+2010-10-22   40.6880
+2010-10-29   40.6820
+2010-11-05   41.6060
+2010-11-12   43.3640
+2010-11-19   44.3080
+2010-11-26   43.8775
+2010-12-03   45.2020
+2010-12-10   45.8400
+2010-12-17   46.5620
+2010-12-23   46.9300
+2010-12-31   46.9400
+2011-01-07   47.0100
+2011-01-14   47.8400
+2011-01-21   49.2525
+2011-01-28   51.1900
+2011-02-04   56.9200
+2011-02-11   57.3640
+2011-02-18   59.0300
+2011-02-25   60.7075
+2011-03-04   61.8640
+2011-03-11   60.0640
+2011-03-18   59.6220
+2011-03-25   61.7560
+2011-04-01   65.5680
+2011-04-08   65.8360
+2011-04-15   63.9540
+2011-04-21   65.7325
+2011-04-29   65.8000
+2011-05-06   57.6100
+2011-05-13   57.3360
+2011-05-20   57.2620
+2011-05-27   59.1300
+2011-06-03   61.0350
+2011-06-10   59.4120
+2011-06-17   57.2180
+2011-06-24   58.7300
+2011-07-01   62.2480
+2011-07-08   66.0600
+2011-07-15   65.5360
+2011-07-22   68.8220
+2011-07-29   68.8880
+2011-08-05   60.4500
+2011-08-12   53.8580
+2011-08-19   53.4580
+2011-08-26   49.9240
+2011-09-02   54.5860
+2011-09-09   52.7150
+2011-09-16   52.0000
+2011-09-23   46.8080
+2011-09-30   42.3440
+2011-10-07   39.5040
+2011-10-14   44.8880
+2011-10-21   45.7000
+2011-10-28   50.9400
+2011-11-04   51.1700
+2011-11-11   52.6160
+2011-11-18   53.0120
+2011-11-25   50.5050
+2011-12-02   54.2660
+2011-12-09   57.7360
+2011-12-16   54.1060
+2011-12-23   55.7100
+2011-12-30   56.5125
+2012-01-06   60.8150
+2012-01-13   59.9740
+2012-01-20   57.8475
+2012-01-27   59.3460
+2012-02-03   59.4940
+2012-02-10   58.5200
+2012-02-17   58.3740
+2012-02-24   60.8325
+2012-03-02   59.7600
+2012-03-09   57.7660
+2012-03-16   57.4440
+2012-03-23   55.1020
+2012-03-30   52.2100
+2012-04-05   52.6100
+2012-04-13   51.3240
+2012-04-20   50.4960
+2012-04-27   51.0540
+2012-05-04   48.6640
+2012-05-11   45.5260
+2012-05-18   42.6280
+2012-05-25   44.5800
+2012-06-01   44.3850
+2012-06-08   45.0160
+2012-06-15   43.1500
+2012-06-22   42.8660
+2012-06-29   39.7060
+2012-07-06   43.1725
+2012-07-13   41.7760
+2012-07-20   43.6080
+2012-07-27   44.1320
+2012-08-03   45.5960
+2012-08-10   47.0980
+2012-08-17   47.0400
+2012-08-24   46.6780
+2012-08-31   44.3480
+2012-09-07   44.3575
+2012-09-14   47.6860
+2012-09-21   47.9260
+2012-09-28   46.0980
+2012-10-05   45.2860
+2012-10-12   46.8320
+2012-10-19   49.5820
+2012-10-26   47.7500
+2012-11-02   47.0500
+2012-11-09   46.0860
+2012-11-16   46.4400
+2012-11-23   50.0350
+2012-11-30   49.7120
+2012-12-07   53.0220
+2012-12-14   53.2480
+2012-12-21   54.6120
+2012-12-28   54.0100
+2013-01-04   55.4775
+2013-01-11   56.2900
+2013-01-18   57.8760
+2013-01-25   60.0750
+2013-02-01   61.8300
+2013-02-08   62.6000
+2013-02-15   64.7280
+2013-02-22   64.3100
+2013-03-01   63.6560
+2013-03-08   63.0860
+2013-03-15   63.0040
+2013-03-22   59.6900
+2013-03-28   59.3500
+2013-04-05   58.3760
+2013-04-12   60.6600
+2013-04-19   56.1240
+2013-04-26   57.9400
+2013-05-03   57.9200
+2013-05-10   61.1460
+2013-05-17   61.5640
+2013-05-24   62.2120
+2013-05-31   61.9100
+2013-06-07   61.6580
+2013-06-14   60.7880
+2013-06-21   61.4360
+2013-06-28   61.4040
+2013-07-05   62.9350
+2013-07-12   63.8400
+2013-07-19   64.3700
+2013-07-26   64.8320
+2013-08-02   62.7080
+2013-08-09   65.7440
+2013-08-16   65.2640
+2013-08-23   63.5400
+2013-08-30   62.6880
+2013-09-06   63.0650
+2013-09-13   65.9980
+2013-09-20   68.7960
+2013-09-27   68.2200
+2013-10-04   70.6460
+2013-10-11   71.4540
+2013-10-18   74.4860
+2013-10-25   75.1320
+2013-11-01   76.6100
+2013-11-08   76.3420
+2013-11-15   77.1260
+2013-11-22   78.2740
+2013-11-29   77.0250
+2013-12-06   79.1840
+2013-12-13   78.7540
+2013-12-20   80.8860
+2013-12-27   82.3250
+2014-01-03   82.7600
+2014-01-10   83.4940
+2014-01-17   84.2860
+2014-01-24   86.5250
+2014-01-31   85.9940
+2014-02-07   85.4420
+2014-02-14   88.0880
+2014-02-21   93.9900
+2014-02-28   97.1040
+2014-03-07   99.5940
+2014-03-14   98.3300
+2014-03-21  103.4540
+2014-03-28  106.4740
+2014-03-31  107.5600
+
+$&amp;#96;Adj Close&amp;#96;
+           Adj.Close
+2008-04-04 1360.0240
+2008-04-11 1357.1900
+2008-04-18 1356.6700
+2008-04-25 1386.1400
+2008-05-02 1399.2280
+2008-05-09 1400.8560
+2008-05-16 1412.8400
+2008-05-23 1400.2040
+2008-05-30 1393.7075
+2008-06-06 1381.0500
+2008-06-13 1351.1180
+2008-06-20 1341.9280
+2008-06-27 1303.1580
+2008-07-03 1272.3325
+2008-07-11 1252.7160
+2008-07-18 1241.9140
+2008-07-25 1265.8980
+2008-08-01 1261.9040
+2008-08-08 1277.0940
+2008-08-15 1294.3740
+2008-08-22 1277.9500
+2008-08-29 1280.7040
+2008-09-05 1257.9250
+2008-09-12 1245.0180
+2008-09-19 1204.8560
+2008-09-26 1200.7260
+2008-10-03 1129.4700
+2008-10-10  969.4400
+2008-10-17  959.2360
+2008-10-24  924.4220
+2008-10-31  928.4720
+2008-11-07  952.1380
+2008-11-14  891.0080
+2008-11-21  813.7840
+2008-11-28  873.2800
+2008-12-05  851.4100
+2008-12-12  890.1860
+2008-12-19  891.8660
+2008-12-26  868.9350
+2009-01-02  898.7775
+2009-01-09  913.7760
+2009-01-16  855.7060
+2009-01-23  826.2275
+2009-01-30  845.4780
+2009-02-06  842.1260
+2009-02-13  838.5640
+2009-02-20  781.6450
+2009-02-27  753.8580
+2009-03-06  695.1900
+2009-03-13  724.9560
+2009-03-20  775.7880
+2009-03-27  818.3440
+2009-04-03  814.6720
+2009-04-09  833.1875
+2009-04-17  857.4380
+2009-04-24  848.8340
+2009-05-01  867.3280
+2009-05-08  913.4380
+2009-05-15  895.4920
+2009-05-22  899.3280
+2009-05-29  907.3400
+2009-06-05  940.3840
+2009-06-12  942.3640
+2009-06-19  917.2000
+2009-06-26  905.6480
+2009-07-02  916.5750
+2009-07-10  884.2240
+2009-07-17  924.1380
+2009-07-24  963.0660
+2009-07-31  982.2360
+2009-08-07 1003.7120
+2009-08-14 1004.8160
+2009-08-21  999.8720
+2009-08-28 1028.3200
+2009-09-04 1006.6100
+2009-09-11 1036.4075
+2009-09-18 1060.9040
+2009-09-25 1058.4700
+2009-10-02 1047.1460
+2009-10-09 1057.9460
+2009-10-16 1085.1280
+2009-10-23 1088.5760
+2009-10-30 1055.0580
+2009-11-06 1054.1440
+2009-11-13 1093.0640
+2009-11-20 1103.1400
+2009-11-27 1103.5025
+2009-12-04 1103.9260
+2009-12-11 1099.9800
+2009-12-18 1105.9540
+2009-12-24 1119.7850
+2009-12-31 1123.8750
+2010-01-08 1138.6640
+2010-01-15 1142.6740
+2010-01-22 1124.1275
+2010-01-29 1088.9700
+2010-02-05 1083.8180
+2010-02-12 1069.8740
+2010-02-19 1102.5750
+2010-02-26 1103.0560
+2010-03-05 1122.8960
+2010-03-12 1144.9580
+2010-03-19 1160.3820
+2010-03-26 1168.0040
+2010-04-01 1173.5050
+2010-04-09 1188.0280
+2010-04-16 1201.6460
+2010-04-23 1207.3160
+2010-04-30 1196.1180
+2010-05-07 1156.1520
+2010-05-14 1156.0620
+2010-05-21 1106.4140
+2010-05-28 1081.6200
+2010-06-04 1084.2000
+2010-06-11 1069.3200
+2010-06-18 1110.6040
+2010-06-25 1090.2000
+2010-07-02 1039.2940
+2010-07-09 1059.1350
+2010-07-16 1086.1240
+2010-07-23 1084.1300
+2010-07-30 1107.6220
+2010-08-06 1124.2020
+2010-08-13 1100.2360
+2010-08-20 1082.6800
+2010-08-27 1057.2740
+2010-09-03 1074.6300
+2010-09-10 1101.1100
+2010-09-17 1123.6640
+2010-09-24 1138.0540
+2010-10-01 1144.4060
+2010-10-08 1156.1920
+2010-10-15 1172.6380
+2010-10-22 1178.4240
+2010-10-29 1184.1500
+2010-11-05 1204.5640
+2010-11-12 1213.6220
+2010-11-19 1190.2200
+2010-11-26 1191.5800
+2010-12-03 1204.1240
+2010-12-10 1229.7100
+2010-12-17 1240.8120
+2010-12-23 1254.3225
+2010-12-31 1258.2700
+2011-01-07 1272.7960
+2011-01-14 1281.4380
+2011-01-21 1285.1375
+2011-01-28 1290.9060
+2011-02-04 1303.1420
+2011-02-11 1323.1040
+2011-02-18 1336.0180
+2011-02-25 1312.2050
+2011-03-04 1318.8220
+2011-03-11 1310.2720
+2011-03-18 1277.6140
+2011-03-25 1302.6300
+2011-04-01 1323.2260
+2011-04-08 1332.5440
+2011-04-15 1317.4460
+2011-04-21 1321.3750
+2011-04-29 1352.4480
+2011-05-06 1348.0920
+2011-05-13 1346.3900
+2011-05-20 1335.2000
+2011-05-27 1322.1820
+2011-06-03 1318.2125
+2011-06-10 1282.1300
+2011-06-17 1272.8520
+2011-06-24 1282.5940
+2011-07-01 1308.8980
+2011-07-08 1343.5300
+2011-07-15 1315.1720
+2011-07-22 1329.3660
+2011-07-29 1313.4420
+2011-08-05 1240.1560
+2011-08-12 1152.8400
+2011-08-19 1171.0640
+2011-08-26 1159.9680
+2011-09-02 1204.0560
+2011-09-09 1175.9975
+2011-09-16 1189.7880
+2011-09-23 1167.7860
+2011-09-30 1156.2420
+2011-10-07 1137.5280
+2011-10-14 1205.1840
+2011-10-21 1217.9520
+2011-10-28 1258.9840
+2011-11-04 1244.7720
+2011-11-11 1253.9380
+2011-11-18 1235.6560
+2011-11-25 1175.3700
+2011-12-02 1224.7120
+2011-12-09 1253.2200
+2011-12-16 1221.8860
+2011-12-23 1241.9400
+2011-12-30 1258.9225
+2012-01-06 1278.3075
+2012-01-13 1289.9700
+2012-01-20 1307.8975
+2012-01-27 1318.2940
+2012-02-03 1323.9900
+2012-02-10 1347.1860
+2012-02-17 1352.9540
+2012-02-24 1362.2675
+2012-03-02 1369.8340
+2012-03-09 1359.4200
+2012-03-16 1393.6180
+2012-03-23 1401.6100
+2012-03-30 1409.2640
+2012-04-05 1407.3650
+2012-04-13 1373.4660
+2012-04-20 1380.1880
+2012-04-27 1386.5880
+2012-05-04 1393.3420
+2012-05-11 1359.8520
+2012-05-18 1318.7780
+2012-05-25 1317.9960
+2012-06-01 1308.5275
+2012-06-08 1303.8920
+2012-06-15 1323.9860
+2012-06-22 1343.7960
+2012-06-29 1331.3520
+2012-07-06 1365.4475
+2012-07-13 1345.3840
+2012-07-20 1365.8520
+2012-07-27 1354.5420
+2012-08-03 1379.1860
+2012-08-10 1401.2940
+2012-08-17 1409.4480
+2012-08-24 1411.6000
+2012-08-31 1407.2580
+2012-09-07 1419.6050
+2012-09-14 1444.9920
+2012-09-21 1460.3940
+2012-09-28 1443.9240
+2012-10-05 1452.7120
+2012-10-12 1438.2700
+2012-10-19 1449.2980
+2012-10-26 1416.1180
+2012-11-02 1417.9833
+2012-11-09 1399.5080
+2012-11-16 1364.6520
+2012-11-23 1393.7200
+2012-11-30 1409.4580
+2012-12-07 1411.5600
+2012-12-14 1421.5800
+2012-12-21 1437.3600
+2012-12-28 1416.7550
+2013-01-04 1453.6125
+2013-01-11 1464.8460
+2013-01-18 1476.5140
+2013-01-25 1496.2875
+2013-02-01 1504.2520
+2013-02-08 1509.2880
+2013-02-15 1519.5880
+2013-02-22 1515.2275
+2013-03-01 1506.7320
+2013-03-08 1540.3780
+2013-03-15 1557.4300
+2013-03-22 1552.3680
+2013-03-28 1561.8750
+2013-04-05 1559.8740
+2013-04-12 1580.3260
+2013-04-19 1555.1600
+2013-04-26 1577.4940
+2013-05-03 1597.1780
+2013-05-10 1627.3040
+2013-05-17 1652.1660
+2013-05-24 1658.1820
+2013-05-31 1648.3925
+2013-06-07 1629.3280
+2013-06-14 1628.9100
+2013-06-21 1620.0800
+2013-06-28 1596.7720
+2013-07-05 1619.0850
+2013-07-12 1660.1220
+2013-07-19 1684.2260
+2013-07-26 1691.1520
+2013-08-02 1694.7120
+2013-08-09 1696.8640
+2013-08-16 1677.2340
+2013-08-23 1652.3340
+2013-08-30 1638.6720
+2013-09-06 1650.7750
+2013-09-13 1683.2480
+2013-09-20 1712.0260
+2013-09-27 1696.4900
+2013-10-04 1687.9160
+2013-10-11 1676.7460
+2013-10-18 1721.4780
+2013-10-25 1751.5100
+2013-11-01 1763.1100
+2013-11-08 1763.8300
+2013-11-15 1782.0760
+2013-11-22 1792.2760
+2013-11-29 1804.5675
+2013-12-06 1795.7960
+2013-12-13 1788.8060
+2013-12-20 1801.2220
+2013-12-27 1836.1825
+2014-01-03 1838.1950
+2014-01-10 1836.5280
+2014-01-17 1838.2100
+2014-01-24 1826.8525
+2014-01-31 1785.0080
+2014-02-07 1763.8360
+2014-02-14 1821.4620
+2014-02-21 1836.3850
+2014-02-28 1850.3260
+2014-03-07 1869.7040
+2014-03-14 1860.0940
+2014-03-21 1866.0760
+2014-03-28 1856.4560
+2014-03-31 1872.3400
+
 
 &lt;/pre&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -8327,7 +9726,435 @@ Error in &amp;#96;colnames&amp;lt;-&amp;#96;(&amp;#96;*tmp*&amp;#96;, value = c(
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[20]:
+In&amp;nbsp;[56]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
+&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;NA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;NA&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="vbox output_wrapper"&gt;
+&lt;div class="output vbox"&gt;
+
+
+&lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="box-flex1 output_subarea output_display_data"&gt;
+
+
+&lt;pre&gt;
+    a  b  c
+1   1 NA NA
+2   2 NA NA
+3   3 NA NA
+4   4 NA NA
+5   5 NA NA
+6   6 NA NA
+7   7 NA NA
+8   8 NA NA
+9   9 NA NA
+10 10 NA NA
+
+&lt;/pre&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[90]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
+&lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zoo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;symbol&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;paste0&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;read.zoo(&amp;#39;../data/cleaned/d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;.csv&amp;#39;, header=TRUE, sep=&amp;#39;,&amp;#39;, format = &amp;#39;%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;myweek&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;lapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;apply&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;weekly&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="c"&gt;#a = data.frame(myweek)&lt;/span&gt;
+&lt;span class="c"&gt;#colnames(myweek) = replicate(ncol(myweek), &amp;quot;Adj Close&amp;quot;)&lt;/span&gt;
+&lt;span class="c"&gt;#colnames(a) = paste0(&amp;quot;w&amp;quot;,stocks$symbol)&lt;/span&gt;
+&lt;span class="c"&gt;#colnames(a) = replicate(&amp;quot;Adj Close&amp;quot;, ncol(a))&lt;/span&gt;
+&lt;span class="c"&gt;#print(colnames(a))&lt;/span&gt;
+&lt;span class="c"&gt;#print(class(myweek))&lt;/span&gt;
+&lt;span class="c"&gt;#print(a[1])&lt;/span&gt;
+&lt;span class="c"&gt;#print(ncol(a))&lt;/span&gt;
+&lt;span class="c"&gt;#print(replicate(ncol(a), &amp;quot;Adj Close&amp;quot;))&lt;/span&gt;
+&lt;span class="c"&gt;#print(a)&lt;/span&gt;
+&lt;span class="c"&gt;#print(a[&amp;quot;waapl&amp;quot;])&lt;/span&gt;
+&lt;span class="c"&gt;#print(as.data.frame(myweek))&lt;/span&gt;
+&lt;span class="c"&gt;#print(ncol(myweek))&lt;/span&gt;
+&lt;span class="c"&gt;#m = apply(myweek,1,function(x) data.frame(&amp;quot;Adj Close&amp;quot; = x))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Adj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Close&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;span class="c"&gt;#a = apply(myweek, 2, function(x) data.frame(&amp;quot;Adj Close&amp;quot;=x))&lt;/span&gt;
+&lt;span class="c"&gt;#print(class(a))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="vbox output_wrapper"&gt;
+&lt;div class="output vbox"&gt;
+
+
+&lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="box-flex1 output_subarea output_display_data"&gt;
+
+
+&lt;pre&gt;
+           structure.c.143.252..146.452..147.132..159.538..169.582..177.33..
+2008-04-04                                                          143.2520
+2008-04-11                                                          146.4520
+2008-04-18                                                          147.1320
+2008-04-25                                                          159.5380
+2008-05-02                                                          169.5820
+2008-05-09                                                          177.3300
+2008-05-16                                                          181.0280
+2008-05-23                                                          174.1440
+2008-05-30                                                          179.9500
+2008-06-06                                                          179.1080
+2008-06-13                                                          171.7960
+2008-06-20                                                          171.6980
+2008-06-27                                                          165.7300
+2008-07-03                                                          163.4975
+2008-07-11                                                          168.8140
+2008-07-18                                                          164.0300
+2008-07-25                                                          156.8060
+2008-08-01                                                          151.2800
+2008-08-08                                                          155.9340
+2008-08-15                                                          170.0560
+2008-08-22                                                          168.3640
+2008-08-29                                                          166.1100
+2008-09-05                                                          157.2800
+2008-09-12                                                          146.6340
+2008-09-19                                                          131.3080
+2008-09-26                                                          124.3300
+2008-10-03                                                          100.9600
+2008-10-10                                                           88.9320
+2008-10-17                                                           98.3440
+2008-10-24                                                           92.5440
+2008-10-31                                                           99.0340
+2008-11-07                                                           99.6900
+2008-11-14                                                           89.8580
+2008-11-21                                                           82.1620
+2008-11-28                                                           89.2475
+2008-12-05                                                           88.9480
+2008-12-12                                                           94.4340
+2008-12-19                                                           88.1900
+2008-12-26                                                           82.4125
+2009-01-02                                                           83.8600
+2009-01-09                                                           88.7900
+2009-01-16                                                           82.1620
+2009-01-23                                                           81.1575
+2009-01-30                                                           87.9860
+2009-02-06                                                           91.1620
+2009-02-13                                                           95.2680
+2009-02-20                                                           89.0850
+2009-02-27                                                           85.9000
+2009-03-06                                                           84.8940
+2009-03-13                                                           87.7920
+2009-03-20                                                           96.0780
+2009-03-27                                                          103.2980
+2009-04-03                                                          105.1500
+2009-04-09                                                          112.7775
+2009-04-17                                                          115.5380
+2009-04-24                                                          117.8520
+2009-05-01                                                          120.4980
+2009-05-08                                                          126.0120
+2009-05-15                                                          118.9620
+2009-05-22                                                          120.4620
+2009-05-29                                                          128.4825
+2009-06-05                                                          136.1380
+2009-06-12                                                          135.2800
+2009-06-19                                                          131.3640
+2009-06-26                                                          132.6200
+2009-07-02                                                          136.3050
+2009-07-10                                                          131.8920
+2009-07-17                                                          140.4740
+2009-07-24                                                          149.7420
+2009-07-31                                                          154.9960
+2009-08-07                                                          158.8800
+2009-08-14                                                          159.1780
+2009-08-21                                                          158.3500
+2009-08-28                                                          162.5060
+2009-09-04                                                          160.6180
+2009-09-11                                                          165.5075
+2009-09-18                                                          173.0700
+2009-09-25                                                          176.8880
+2009-10-02                                                          177.3600
+2009-10-09                                                          181.8540
+2009-10-16                                                          182.7620
+2009-10-23                                                          192.7460
+2009-10-30                                                          187.8280
+2009-11-06                                                          184.0120
+2009-11-13                                                          194.9460
+2009-11-20                                                          196.0780
+2009-11-27                                                          195.8600
+2009-12-04                                                          188.9460
+2009-12-11                                                          186.0260
+2009-12-18                                                          187.1320
+2009-12-24                                                          194.5700
+2009-12-31                                                          202.5825
+2010-01-08                                                          204.1340
+2010-01-15                                                          200.6580
+2010-01-22                                                          200.0650
+2010-01-29                                                          193.8140
+2010-02-05                                                          187.8740
+2010-02-12                                                          189.2480
+2010-02-19                                                          194.7675
+2010-02-26                                                          193.1460
+2010-03-05                                                          203.1540
+2010-03-12                                                          215.1160
+2010-03-19                                                          215.1640
+2010-03-26                                                          219.1500
+2010-04-01                                                          225.6800
+2010-04-09                                                          230.7480
+2010-04-16                                                          235.8160
+2010-04-23                                                          247.6280
+2010-04-30                                                          254.2960
+2010-05-07                                                          242.8120
+2010-05-14                                                          246.9740
+2010-05-21                                                          237.4040
+2010-05-28                                                          239.5800
+2010-06-04                                                          250.8300
+2010-06-11                                                          239.8040
+2010-06-18                                                          255.1200
+2010-06-25                                                          259.6440
+2010-07-02                                                          244.4080
+2010-07-09                                                          246.2950
+2010-07-16                                                          242.8200
+2010-07-23                                                          244.2620
+2010-07-30                                                          249.8380
+2010-08-06                                                          251.5440
+2010-08-13                                                          244.5620
+2010-08-20                                                          240.7100
+2010-08-27                                                          232.6980
+2010-09-03                                                          239.6880
+2010-09-10                                                          251.6350
+2010-09-17                                                          260.9080
+2010-09-24                                                          276.0420
+2010-10-01                                                          275.2120
+2010-10-08                                                          276.8280
+2010-10-15                                                          290.4780
+2010-10-22                                                          298.9240
+2010-10-29                                                          294.2920
+2010-11-05                                                          300.2140
+2010-11-12                                                          303.2260
+2010-11-19                                                          293.0140
+2010-11-26                                                          300.8150
+2010-12-03                                                          303.7260
+2010-12-10                                                          307.5100
+2010-12-17                                                          308.3740
+2010-12-23                                                          311.2150
+2010-12-31                                                          311.7340
+2011-01-07                                                          320.0100
+2011-01-14                                                          331.1500
+2011-01-21                                                          321.7225
+2011-01-28                                                          327.1780
+2011-02-04                                                          330.3700
+2011-02-11                                                          341.5240
+2011-02-18                                                          344.2980
+2011-02-25                                                          329.7425
+2011-03-04                                                          341.0560
+2011-03-11                                                          338.7600
+2011-03-18                                                          325.6980
+2011-03-25                                                          329.9060
+2011-04-01                                                          335.0800
+2011-04-08                                                          325.1140
+2011-04-15                                                          318.9520
+2011-04-21                                                          327.4725
+2011-04-29                                                          336.4940
+2011-05-06                                                          333.9920
+2011-05-13                                                          332.8200
+2011-05-20                                                          323.9200
+2011-05-27                                                          322.1380
+2011-06-03                                                          332.2925
+2011-06-10                                                          319.0460
+2011-06-17                                                          313.5700
+2011-06-24                                                          311.5680
+2011-07-01                                                          323.0000
+2011-07-08                                                          340.7550
+2011-07-15                                                          343.7960
+2011-07-22                                                          368.7260
+2011-07-29                                                          380.0020
+2011-08-05                                                          370.8560
+2011-08-12                                                          354.0120
+2011-08-19                                                          358.7820
+2011-08-26                                                          358.2260
+2011-09-02                                                          369.0580
+2011-09-09                                                          366.5125
+2011-09-16                                                          374.3360
+2011-09-23                                                          392.7920
+2011-09-30                                                          378.9520
+2011-10-07                                                          359.9560
+2011-10-14                                                          388.6380
+2011-10-21                                                          390.0440
+2011-10-28                                                          387.1120
+2011-11-04                                                          384.8480
+2011-11-11                                                          378.9040
+2011-11-18                                                          366.2420
+2011-11-25                                                          354.6850
+2011-12-02                                                          366.9960
+2011-12-09                                                          376.2580
+2011-12-16                                                          369.2380
+2011-12-23                                                          379.9420
+2011-12-30                                                          389.0975
+2012-01-06                                                          400.1050
+2012-01-13                                                          405.3620
+2012-01-20                                                          408.9350
+2012-01-27                                                          420.2940
+2012-02-03                                                          438.3780
+2012-02-10                                                          460.5980
+2012-02-17                                                          483.2800
+2012-02-24                                                          496.6025
+2012-03-02                                                          517.7280
+2012-03-09                                                          515.4240
+2012-03-16                                                          553.7800
+2012-03-23                                                          577.6460
+2012-03-30                                                          586.0140
+2012-04-05                                                          602.1475
+2012-04-13                                                          599.5440
+2012-04-20                                                          568.7320
+2012-04-27                                                          567.5960
+2012-05-04                                                          557.3080
+2012-05-11                                                          546.7200
+2012-05-18                                                          522.4800
+2012-05-25                                                          541.4040
+2012-06-01                                                          550.3000
+2012-06-08                                                          547.9780
+2012-06-15                                                          550.7700
+2012-06-22                                                          561.0660
+2012-06-29                                                          551.7680
+2012-07-06                                                          578.5550
+2012-07-13                                                          582.5360
+2012-07-20                                                          584.1380
+2012-07-27                                                          565.1120
+2012-08-03                                                          583.6300
+2012-08-10                                                          598.0480
+2012-08-17                                                          613.3360
+2012-08-24                                                          640.1600
+2012-08-31                                                          647.3280
+2012-09-07                                                          652.0275
+2012-09-14                                                          650.0960
+2012-09-21                                                          676.1920
+2012-09-28                                                          652.1340
+2012-10-05                                                          639.3140
+2012-10-12                                                          612.5160
+2012-10-19                                                          612.3060
+2012-10-26                                                          594.1800
+2012-11-02                                                          569.0833
+2012-11-09                                                          543.9900
+2012-11-16                                                          518.9620
+2012-11-23                                                          547.8350
+2012-11-30                                                          568.6060
+2012-12-07                                                          539.4040
+2012-12-14                                                          513.8760
+2012-12-21                                                          508.1380
+2012-12-28                                                          498.8600
+2013-01-04                                                          521.2825
+2013-01-11                                                          506.2020
+2013-01-18                                                          484.1540
+2013-01-25                                                          462.8250
+2013-02-01                                                          441.0220
+2013-02-08                                                          447.2600
+2013-02-15                                                          456.7680
+2013-02-22                                                          440.2950
+2013-03-01                                                          430.7540
+2013-03-08                                                          417.2780
+2013-03-15                                                          423.4580
+2013-03-22                                                          444.1560
+2013-03-28                                                          443.6475
+2013-04-05                                                          417.7580
+2013-04-12                                                          419.9840
+2013-04-19                                                          396.2760
+2013-04-26                                                          397.1280
+2013-05-03                                                          430.6480
+2013-05-10                                                          448.4560
+2013-05-17                                                          431.0640
+2013-05-24                                                          434.1980
+2013-05-31                                                          438.7875
+2013-06-07                                                          436.9820
+2013-06-14                                                          427.0180
+2013-06-21                                                          415.7140
+2013-06-28                                                          391.4500
+2013-07-05                                                          408.9000
+2013-07-12                                                          414.6960
+2013-07-19                                                          421.1240
+2013-07-26                                                          425.1760
+2013-08-02                                                          446.2980
+2013-08-09                                                          455.7860
+2013-08-16                                                          485.3760
+2013-08-23                                                          497.1360
+2013-08-30                                                          486.5080
+2013-09-06                                                          489.3875
+2013-09-13                                                          475.5820
+2013-09-20                                                          456.5480
+2013-09-27                                                          480.3520
+2013-10-04                                                          478.4660
+2013-10-11                                                          481.8300
+2013-10-18                                                          495.9660
+2013-10-25                                                          518.6640
+2013-11-01                                                          516.7100
+2013-11-08                                                          516.9180
+2013-11-15                                                          519.4600
+2013-11-22                                                          515.7380
+2013-11-29                                                          536.5800
+2013-12-06                                                          558.7500
+2013-12-13                                                          558.3180
+2013-12-20                                                          548.0660
+2013-12-27                                                          562.0725
+2014-01-03                                                          549.1250
+2014-01-10                                                          536.1700
+2014-01-17                                                          543.6240
+2014-01-24                                                          547.4300
+2014-01-31                                                          508.5820
+2014-02-07                                                          509.2080
+2014-02-14                                                          537.8580
+2014-02-21                                                          534.9400
+2014-02-28                                                          524.1740
+2014-03-07                                                          530.5100
+2014-03-14                                                          531.7920
+2014-03-21                                                          530.1940
+2014-03-28                                                          539.6560
+2014-03-31                                                          536.7400
+
+&lt;/pre&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;ncol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;)){&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rownames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Adj Close&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[12]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -8348,18 +10175,19 @@ In&amp;nbsp;[20]:
 
 
 &lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="box-flex1 output_subarea output_stream output_stdout"&gt;
+&lt;div class="box-flex1 output_subarea output_display_data"&gt;
+
+
 &lt;pre&gt;
-
-Attaching package: ‘zoo’
-
-The following objects are masked from ‘package:base’:
-
-    as.Date, as.Date.numeric
-
-Error in eval(expr, envir, enclos) : object &amp;apos;stocks&amp;apos; not found
+[1] &amp;quot;read.zoo(&amp;apos;../data/cleaned/daapl.csv&amp;apos;, header=TRUE, sep=&amp;apos;,&amp;apos;, format = &amp;apos;%Y-%m-%d&amp;apos;)&amp;quot;
+[1] &amp;quot;read.zoo(&amp;apos;../data/cleaned/dgoogl.csv&amp;apos;, header=TRUE, sep=&amp;apos;,&amp;apos;, format = &amp;apos;%Y-%m-%d&amp;apos;)&amp;quot;
+[1] &amp;quot;read.zoo(&amp;apos;../data/cleaned/damzn.csv&amp;apos;, header=TRUE, sep=&amp;apos;,&amp;apos;, format = &amp;apos;%Y-%m-%d&amp;apos;)&amp;quot;
+[1] &amp;quot;read.zoo(&amp;apos;../data/cleaned/dmsft.csv&amp;apos;, header=TRUE, sep=&amp;apos;,&amp;apos;, format = &amp;apos;%Y-%m-%d&amp;apos;)&amp;quot;
+[1] &amp;quot;read.zoo(&amp;apos;../data/cleaned/dhp.csv&amp;apos;, header=TRUE, sep=&amp;apos;,&amp;apos;, format = &amp;apos;%Y-%m-%d&amp;apos;)&amp;quot;
+[1] &amp;quot;read.zoo(&amp;apos;../data/cleaned/d^GSPC.csv&amp;apos;, header=TRUE, sep=&amp;apos;,&amp;apos;, format = &amp;apos;%Y-%m-%d&amp;apos;)&amp;quot;
 
 &lt;/pre&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -11114,7 +12942,7 @@ In&amp;nbsp;[]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[3]:
+In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Loading R Magic&lt;/span&gt;
@@ -11150,6 +12978,9 @@ In&amp;nbsp;[5]:
 &lt;h1 id="Creating-Directory"&gt;Creating Directory&lt;a class="anchor-link" href="#Creating-Directory"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
 
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;In the step below, we created the directory structure for our project.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -11234,6 +13065,9 @@ In&amp;nbsp;[6]:
 &lt;h3 id="Yahoo-Finance-Data"&gt;Yahoo Finance Data&lt;a class="anchor-link" href="#Yahoo-Finance-Data"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Source: http://finance.yahoo.com/&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -11353,10 +13187,16 @@ Date,Open,High,Low,Close,Volume,Adj Close
 &lt;h3 id="Federal-Reserve-Data---LIBOR"&gt;Federal Reserve Data - LIBOR&lt;a class="anchor-link" href="#Federal-Reserve-Data---LIBOR"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;In the following step, we download and display the LIBOR data from Federal Reserve.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Source: http://www.federalreserve.gov/datadownload/Output.aspx?rel=H15&amp;amp;series=27f0815d23884776d16f28288a09804a&amp;amp;lastObs=&amp;amp;from=&amp;amp;to=&amp;amp;filetype=csv&amp;amp;label=include&amp;amp;layout=seriescolumn&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[1]:
+In&amp;nbsp;[8]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -11370,27 +13210,11 @@ In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class="vbox output_wrapper"&gt;
-&lt;div class="output vbox"&gt;
-
-
-&lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="box-flex1 output_subarea output_stream output_stderr"&gt;
-&lt;pre&gt;
-ERROR: Cell magic &amp;#96;%%R&amp;#96; not found.
-
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[2]:
+In&amp;nbsp;[3]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Displaying Data&lt;/span&gt;
