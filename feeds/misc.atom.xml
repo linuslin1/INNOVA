@@ -24,11 +24,11 @@ In&amp;nbsp;[1]:
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Problem"&gt;Problem&lt;a class="anchor-link" href="#Problem"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="Problem"&gt;Problem&lt;a class="anchor-link" href="#Problem"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;In this project, we are building a portfolio on future prediction of stock market in one year time. We are going to compare 3 companies in each of the following three industries: technology, health and retail. Then finding out the best stock in each industry based on the data provided and our analysis. We’ll put them into a portfolio that only shows stocks with grander prospects. Our analysis will be based on the daily stock price trend of each picked individual stock in a year long, and the peaks and lowest points will be highlighted.&lt;/p&gt;
+&lt;p&gt;In this project, we are building a portfolio on future prediction of stock market in one year time. We are going to compare 3 companies in each of the following three industries: IT, Retail and Bank. Then finding out the best stock in each industry based on the data provided and our analysis. We’ll put them into a portfolio that only shows stocks with grander prospects. Our analysis will be based on the daily stock price trend of each picked individual stock from 2008 to 2014.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data"&gt;Data&lt;a class="anchor-link" href="#Data"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
@@ -38,14 +38,14 @@ In&amp;nbsp;[1]:
 &lt;p&gt;We get our data from Yahoo Finance, which has provided daily stock market price information in a large spreadsheet on its website. These data is in a format of API data. In addition, we also acquire the LIBOR rate from the official website of Federal Reserve. They will be used to quantify the stock market trend in each specific field. We use the internet interactive facilities of Python, Bash, and R to get different datasets, highlight the importance, graph the trend and organize them into dataframe portfolio.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Main-challenge-of-this-project"&gt;Main challenge of this project&lt;a class="anchor-link" href="#Main-challenge-of-this-project"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id="Main-challenge-of-this-project"&gt;Main challenge of this project&lt;a class="anchor-link" href="#Main-challenge-of-this-project"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Since we analysis 3 different area of stock, and each area contains 5 differetnt type of stock, it would be really unefficent to repeat all of the codes for 15 times. Therefore, the biggest challenge for us is to come up with some functions that can make it simple and efficent.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Presentation-of-our-Finding"&gt;Presentation of our Finding&lt;a class="anchor-link" href="#Presentation-of-our-Finding"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
+&lt;h2 id="Presentation-of-our-Finding"&gt;Presentation of our Finding&lt;a class="anchor-link" href="#Presentation-of-our-Finding"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
@@ -1054,7 +1054,7 @@ iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/9k=
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h6 id="We-will-drop-the-two-stocks-that-with-the-lowest-value:"&gt;We will drop the two stocks that with the lowest value:&lt;a class="anchor-link" href="#We-will-drop-the-two-stocks-that-with-the-lowest-value:"&gt;&amp;#182;&lt;/a&gt;&lt;/h6&gt;
+&lt;h4 id="We-will-drop-the-two-stocks-that-with-the-lowest-value:"&gt;We will drop the two stocks that with the lowest value:&lt;a class="anchor-link" href="#We-will-drop-the-two-stocks-that-with-the-lowest-value:"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
@@ -2892,10 +2892,10 @@ UAFFFFABRRRQAUUUUAFFFFABRRRQB//Z
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;For bank stock, we will drop JP.Morgan and Bank of Ozarks.&lt;/p&gt;
+&lt;p&gt;For bank stock, we will drop Citibank and Bank of America.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h5 id="Work-Cited"&gt;Work Cited&lt;a class="anchor-link" href="#Work-Cited"&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;
+&lt;h2 id="Work-Cited"&gt;Work Cited&lt;a class="anchor-link" href="#Work-Cited"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2911,9 +2911,7 @@ UAFFFFABRRRQAUUUUAFFFFABRRRQB//Z
 &lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
 &lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;team member 1 &lt;strong&gt;name&lt;/strong&gt;: team member 1 &lt;strong&gt;responsabilities&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 2 &lt;strong&gt;name&lt;/strong&gt;: team member 2 &lt;strong&gt;responsabilities&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;etc.&lt;/li&gt;
+&lt;li&gt;team member 1 &lt;strong&gt;All of four members participated in this notebook&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I advise you to work at least in pairs for each project notebook, as you did for the homework assignments. Of course, all team members may participate to each notebook.&lt;/p&gt;
 &lt;/div&gt;
