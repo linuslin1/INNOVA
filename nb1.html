@@ -1840,12 +1840,29 @@ Data Analysis Project            </a>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[1]:
+In&nbsp;[4]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Loading R Magic</span>
 <span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
 </pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+The rmagic extension is already loaded. To reload it, use:
+  %reload_ext rmagic
+
+</pre>
+</div>
+</div>
 
 </div>
 </div>
@@ -1882,7 +1899,7 @@ In&nbsp;[5]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[6]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">bash</span>
@@ -1919,6 +1936,7 @@ NB1_data_gathering.ipynb
 mkdir: cannot create directory ‘../script’: File exists
 mkdir: cannot create directory ‘../data’: File exists
 mkdir: cannot create directory ‘../data/raw’: File exists
+mkdir: cannot create directory ‘../data/cleaned’: File exists
 mkdir: cannot create directory ‘../data/simulated’: File exists
 mkdir: cannot create directory ‘../visualizations’: File exists
 
@@ -1941,7 +1959,7 @@ mkdir: cannot create directory ‘../visualizations’: File exists
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[7]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Function for Downloading Raw Data from Yahoo API</span>
@@ -1969,7 +1987,7 @@ In&nbsp;[6]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[20]:
+In&nbsp;[11]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Downloading Raw Data</span>
@@ -1979,7 +1997,17 @@ In&nbsp;[20]:
           <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Amazon&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;amzn&#39;</span><span class="p">},</span>
           <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Microsoft&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;msft&#39;</span><span class="p">},</span>
           <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;HP&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;hp&#39;</span><span class="p">},</span>
-          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;SP500&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;^GSPC&#39;</span><span class="p">}]</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;SP500&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;^GSPC&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Target&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;tgt&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Costco&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;cost&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Walmart&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;wmt&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Walgreen&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;wag&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Safeway&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;swy&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Citibank&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;ctbk&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Wells Fargo&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;wfc&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Bank of America&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;bac&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;JP Morgan&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;jpm&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Bank of Ozarks&#39;</span><span class="p">,</span> <span class="s">&#39;symbol&#39;</span><span class="p">:</span> <span class="s">&#39;ozrk&#39;</span><span class="p">}]</span>
 
 <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stocks</span><span class="p">:</span>
     <span class="n">stock</span><span class="p">[</span><span class="s">&#39;pd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">download</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s">&#39;symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="c"># Downloading Data</span>
@@ -2072,6 +2100,126 @@ Date,Open,High,Low,Close,Volume,Adj Close
 2008-04-09,1365.5,1368.39,1349.97,1354.49,3556670000,1354.49
 2008-04-10,1355.37,1367.24,1350.11,1360.55,3686150000,1360.55
 
+Raw Data - Target
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,49.76,51.05,49.22,50.68,12471200,44.99
+2008-04-01,51.06,53.42,51.06,53.27,10911300,47.29
+2008-04-02,53.23,54.14,52.83,53.45,11549200,47.45
+2008-04-03,53.23,53.44,52.5,53.25,5654700,47.28
+2008-04-04,52.56,53.4,52.46,52.67,7002400,46.76
+2008-04-07,53.16,53.22,52.5,52.77,6007400,46.85
+2008-04-08,52.5,53.45,51.91,53.26,7452400,47.28
+2008-04-09,53.1,53.28,51.79,52.34,8194400,46.47
+2008-04-10,52.47,53.7,52.04,53.16,11577800,47.2
+
+Raw Data - Costco
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,64.92,65.39,63.74,64.97,4127800,56.45
+2008-04-01,65.18,66.87,65.11,66.49,5742800,57.77
+2008-04-02,65.94,66.93,65.74,66.25,3978400,57.57
+2008-04-03,66.13,67.05,66.02,66.87,3128500,58.1
+2008-04-04,66.44,66.97,66.2,66.45,3712800,57.74
+2008-04-07,66.5,67.14,65.92,66.3,2927000,57.61
+2008-04-08,65.97,67.13,65.97,66.93,3068300,58.16
+2008-04-09,67.02,67.4,65.4,66.03,2997900,57.37
+2008-04-10,66.17,67.28,65.93,66.52,4891500,57.8
+
+Raw Data - Walmart
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,52.2,53.11,51.63,52.68,19594400,45.85
+2008-04-01,53.19,54.16,52.81,54.08,24232600,47.07
+2008-04-02,54.31,54.89,54.0,54.46,21720300,47.4
+2008-04-03,54.1,55.2,53.99,54.93,23190400,47.81
+2008-04-04,54.91,54.95,54.22,54.4,20728100,47.35
+2008-04-07,54.69,54.81,53.91,54.23,18858100,47.2
+2008-04-08,54.01,54.85,53.99,54.45,15757000,47.39
+2008-04-09,54.37,54.6,53.74,54.14,19530800,47.12
+2008-04-10,54.55,55.33,54.41,54.66,28967600,47.57
+
+Raw Data - Walgreen
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,37.43,38.26,37.24,38.09,6295000,33.63
+2008-04-01,38.17,39.0,37.7,38.93,6197000,34.37
+2008-04-02,38.8,38.83,37.68,38.14,5737500,33.67
+2008-04-03,37.93,38.4,37.93,38.19,3888600,33.72
+2008-04-04,38.17,38.41,37.6,37.9,4877000,33.46
+2008-04-07,38.2,38.64,37.88,38.05,5094000,33.59
+2008-04-08,38.0,38.17,37.39,37.62,6441700,33.22
+2008-04-09,37.57,37.62,36.65,36.91,5655300,32.59
+2008-04-10,36.84,36.89,36.4,36.62,6807200,32.33
+
+Raw Data - Safeway
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,28.37,29.38,28.35,29.35,5957000,22.66
+2008-04-01,29.75,30.14,29.6,29.89,6392300,23.07
+2008-04-02,29.98,30.04,29.2,29.38,4177100,22.68
+2008-04-03,29.26,29.6,28.97,29.14,2666200,22.5
+2008-04-04,29.13,29.23,28.71,28.93,2467200,22.33
+2008-04-07,29.12,29.12,28.74,28.79,3027000,22.23
+2008-04-08,28.8,28.96,27.9,28.69,3055400,22.15
+2008-04-09,28.59,28.81,28.0,28.64,4441900,22.11
+2008-04-10,28.69,29.19,28.45,28.9,3771800,22.31
+
+Raw Data - Citibank
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,21.8,23.0,21.8,22.27,70600,21.53
+2008-04-01,22.77,24.59,22.38,23.87,134200,23.08
+2008-04-02,23.82,24.34,23.47,23.79,98400,23.0
+2008-04-03,23.53,23.71,22.0,22.43,123300,21.69
+2008-04-04,22.5,22.56,21.4,21.67,61500,20.95
+2008-04-07,21.87,22.0,21.19,21.66,28000,20.94
+2008-04-08,21.45,21.8,21.01,21.36,24500,20.65
+2008-04-09,21.4,21.4,20.18,20.56,67000,19.88
+2008-04-10,20.33,21.63,20.33,21.48,40300,20.77
+
+Raw Data - Wells Fargo
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,29.39,29.75,28.91,29.1,34976200,25.27
+2008-04-01,30.33,31.53,30.11,31.49,36070500,27.35
+2008-04-02,31.71,31.75,30.31,30.53,37101500,26.52
+2008-04-03,30.23,31.0,30.0,30.79,20045200,26.74
+2008-04-04,30.81,31.14,30.38,30.93,25087100,26.86
+2008-04-07,31.46,31.77,30.77,30.79,20142300,26.74
+2008-04-08,30.27,30.33,29.66,29.93,33757900,25.99
+2008-04-09,30.01,30.15,29.04,29.45,29806200,25.58
+2008-04-10,29.31,29.56,28.4,28.52,45453800,24.77
+
+Raw Data - Bank of America
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,38.15,40.0,37.78,37.91,37031600,34.9
+2008-04-01,39.26,40.88,39.19,40.86,52432700,37.61
+2008-04-02,40.89,41.5,40.02,40.3,40527100,37.1
+2008-04-03,39.69,40.67,39.24,40.37,31047600,37.16
+2008-04-04,40.22,40.28,39.31,39.41,31394100,36.28
+2008-04-07,39.85,40.4,39.36,39.5,32126700,36.36
+2008-04-08,39.18,39.3,38.25,38.38,39627900,35.33
+2008-04-09,38.63,38.8,37.86,37.93,31935100,34.92
+2008-04-10,37.94,38.3,37.36,37.69,37341200,34.7
+
+Raw Data - JP Morgan
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,42.71,44.25,42.61,42.95,28920400,37.35
+2008-04-01,45.13,47.0,44.66,47.0,54562600,40.87
+2008-04-02,47.08,47.56,45.94,46.24,36597900,40.54
+2008-04-03,45.37,47.03,45.32,46.28,30314400,40.57
+2008-04-04,45.85,46.44,45.12,45.57,29875900,39.95
+2008-04-07,46.43,46.74,45.47,45.54,24069200,39.92
+2008-04-08,45.24,45.61,44.43,44.86,29187700,39.33
+2008-04-09,45.18,45.18,44.08,44.3,28476400,38.83
+2008-04-10,44.2,44.81,43.58,43.86,30230100,38.45
+
+Raw Data - Bank of Ozarks
+Date,Open,High,Low,Close,Volume,Adj Close
+2008-03-31,23.51,24.42,23.26,23.9,184600,10.69
+2008-04-01,24.18,24.33,23.76,24.25,204000,10.85
+2008-04-02,24.2,24.63,23.9,24.17,234800,10.81
+2008-04-03,24.0,24.41,23.79,23.89,172800,10.69
+2008-04-04,23.86,24.02,23.24,23.44,126000,10.49
+2008-04-07,23.51,23.77,23.31,23.66,141600,10.58
+2008-04-08,23.42,24.33,23.06,24.21,196200,10.83
+2008-04-09,24.45,24.45,23.6,23.75,244400,10.62
+2008-04-10,23.89,23.91,23.44,23.91,196600,10.7
+
 
 </pre>
 </div>
@@ -2094,7 +2242,7 @@ Date,Open,High,Low,Close,Volume,Adj Close
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[12]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2112,7 +2260,7 @@ In&nbsp;[8]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[13]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Displaying Data</span>
