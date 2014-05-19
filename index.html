@@ -1791,14 +1791,25 @@ Data Analysis Project            </a>
             <article>
                 <h2><a href="http://linuslin1.github.io/INNOVA/nb4.html">Project Report</a></h2>
                 <div class="summary"><p>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
-<p>List the team members contributing to this notebook, along with their responsabilities:</p>
-<ul>
-<li>team member 1 <strong>Hui, Man Kin (Ken)</strong>: <strong>Writing the Report for Profolio Optimization, Risk Analysis, Forecasting, and Work Cited</strong></li>
-<li>team member 2 <strong>Huanpu Zhang</strong>: <strong>Summary</strong></li>
-<li>team member 3 <strong>Xinhe Wei</strong>: <strong>Analysis</strong></li>
-<li>team ...</li></ul></div></p>
+<h2 id="Problem">Problem<a class="anchor-link" href="#Problem">&#182;</a></h2>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this project, we are building a portfolio on future prediction of stock market in one year time. We are going to compare 5 companies in each of the following three industries: IT, Retail and Bank. Then finding out the best stock in each industry ...</p></div></p>
                     <a class="btn btn-default btn-xs" href="http://linuslin1.github.io/INNOVA/nb4.html">more ...</a>
                 </div>
             </article>
@@ -1807,12 +1818,58 @@ Data Analysis Project            </a>
                 <h2><a href="http://linuslin1.github.io/INNOVA/nb3.html">Data Analysis</a></h2>
                 <div class="summary"><p>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
-<p>List the team members contributing to this notebook, along with their responsabilities:</p>
-<ul>
-<li>team member 1 <strong>Huanpu Zhang</strong>: team member 1 <strong>Profolio Optimization</strong></li>
-<li>team member 2 <strong>Xinhe Wei</strong>: team member 2 <strong>Risk Analysis</strong></li>
-<li>team member 3 <strong>Hui, Man Kin (Ken)</strong>: team member 3 <strong>Time Series ...</strong></li></ul></div></p>
+<h1 id="R-Magic">R Magic<a class="anchor-link" href="#R-Magic">&#182;</a></h1>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Profolio-Optimization">Profolio Optimization<a class="anchor-link" href="#Profolio-Optimization">&#182;</a></h1>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Loading-Library">Loading Library<a class="anchor-link" href="#Loading-Library">&#182;</a></h2>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;Quandl&quot;</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">Quandl</span><span class="p">)</span>
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
+<span class="n">install_github</span><span class="p">(</span><span class="s">&#39;R-package&#39;</span><span class="p">,</span> <span class="s">&#39;quandl&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_display_data">
+
+
+<pre>
+--- Please select a CRAN mirror for use in this session ---
+trying URL &apos;http://cran.cnr.Berkeley.edu/bin/macosx/contrib/3.0/Quandl_2.3 ...</pre></div></div></div></div></div></p>
                     <a class="btn btn-default btn-xs" href="http://linuslin1.github.io/INNOVA/nb3.html">more ...</a>
                 </div>
             </article>
@@ -1820,13 +1877,6 @@ Data Analysis Project            </a>
             <article>
                 <h2><a href="http://linuslin1.github.io/INNOVA/nb2.html">Data Cleaning</a></h2>
                 <div class="summary"><p>
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="team-members-responsible-for-this-notebook">Team members responsible for this notebook:</h2>
-<p>List the team members contributing to this notebook, along with their responsabilities:</p>
-<ul>
-<li>team member 1 <strong>Hui, Man Kin (Ken)</strong>: <strong>Transform the Data to Time Series for Daily and Weekly Data, and Gathering the Data by Category</strong></li>
-</ul>
-</div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="R-Magic">R Magic<a class="anchor-link" href="#R-Magic">&#182;</a></h1>
 </div>
@@ -1838,7 +1888,51 @@ In&nbsp;[2]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Loading R Magic</span>
-<span class="o">%</span><span class="k">load_ext ...</span></pre></div></div></div></div></p>
+<span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Import-Datetime-&amp;-Pandas">Import Datetime &amp; Pandas<a class="anchor-link" href="#Import-Datetime-&amp;-Pandas">&#182;</a></h1>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Import Datetime &amp; Pandas</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas.io.data</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Cleaning-LIBOR-Data">Cleaning LIBOR Data<a class="anchor-link" href="#Cleaning-LIBOR-Data">&#182;</a></h1>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cleaning">Cleaning<a class="anchor-link" href="#Cleaning">&#182;</a></h2>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
+<span class="c"># Loading Libor CSV</span>
+<span class="n">libor</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;../data/raw/libor.csv&quot;</span><span class="p">,</span> <span class="n">skip ...</span></pre></div></div></div></div></p>
                     <a class="btn btn-default btn-xs" href="http://linuslin1.github.io/INNOVA/nb2.html">more ...</a>
                 </div>
             </article>
@@ -1847,11 +1941,67 @@ In&nbsp;[2]:
                 <h2><a href="http://linuslin1.github.io/INNOVA/nb1.html">Data Gathering</a></h2>
                 <div class="summary"><p>
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="team-members-responsible-for-this-notebook">Team Members Responsible for This Notebook:</h2>
-<p>List the team members contributing to this notebook, along with their responsabilities:</p>
-<ul>
-<li>Team Member 1 <strong>Hui, Man Kin (Ken)</strong>: Write Code for Downloading Data Yahoo Finance Data from API, and LIBOR from Federal Reserve Data from Webpage</li>
-<li>Team Member 2 <strong>Huanpu Zhang</strong>: Write Code ...</li></ul></div></p>
+<h1 id="Using-R-Magic">Using R Magic<a class="anchor-link" href="#Using-R-Magic">&#182;</a></h1>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Loading R Magic</span>
+<span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+The rmagic extension is already loaded. To reload it, use:
+  %reload_ext rmagic
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Import-Datetime-&amp;-Pandas">Import Datetime &amp; Pandas<a class="anchor-link" href="#Import-Datetime-&amp;-Pandas">&#182;</a></h1>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[5]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># Import Datetime &amp; Pandas</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas.io.data</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Creating-Directory">Creating Directory<a class="anchor-link" href="#Creating-Directory">&#182;</a></h1>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the step ...</p></div></p>
                     <a class="btn btn-default btn-xs" href="http://linuslin1.github.io/INNOVA/nb1.html">more ...</a>
                 </div>
             </article>

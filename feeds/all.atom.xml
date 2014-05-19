@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Data Analysis Project</title><link href="http://linuslin1.github.io/INNOVA/" rel="alternate"></link><link href="http://linuslin1.github.io/INNOVA/feeds/all.atom.xml" rel="self"></link><id>http://linuslin1.github.io/INNOVA/</id><updated>2014-03-04T00:00:00-08:00</updated><entry><title>Project Report</title><link href="http://linuslin1.github.io/INNOVA/nb4.html" rel="alternate"></link><updated>2014-03-04T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-04:INNOVA/nb4.html</id><summary type="html">&lt;p&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
-&lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;team member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: &lt;strong&gt;Writing the Report for Profolio Optimization, Risk Analysis, Forecasting, and Work Cited&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 2 &lt;strong&gt;Huanpu Zhang&lt;/strong&gt;: &lt;strong&gt;Summary&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 3 &lt;strong&gt;Xinhe Wei&lt;/strong&gt;: &lt;strong&gt;Analysis&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 4 &lt;strong&gt;Jiarong Lin&lt;/strong&gt;: &lt;strong&gt;Graph&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -10335,16 +10325,6 @@ In&amp;nbsp;[]:
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Daroczi, Gergeky, Michael Pchle, Edina Berlinger, Peter Csoka, Daniel Havran, Marton Michaletzky, Zsolt Tulassay, Kata Varadi and Agnes Vidovics-Dancs. \(Introduction\) \(to\) \(R\) \(for\) \(Quantitative\) \(Finance\). Packt Publishing, 2013. Print.&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Analysis</title><link href="http://linuslin1.github.io/INNOVA/nb3.html" rel="alternate"></link><updated>2014-03-03T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-03:INNOVA/nb3.html</id><summary type="html">&lt;p&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
-&lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;team member 1 &lt;strong&gt;Huanpu Zhang&lt;/strong&gt;: team member 1 &lt;strong&gt;Profolio Optimization&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 2 &lt;strong&gt;Xinhe Wei&lt;/strong&gt;: team member 2 &lt;strong&gt;Risk Analysis&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 3 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: team member 3 &lt;strong&gt;Time Series Analysis, Seasonal Analysis, and Forecasting&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 4 &lt;strong&gt;Jiarong Lin&lt;/strong&gt;: team member 4 &lt;strong&gt;Writing Code for Website Folder&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="R-Magic"&gt;R Magic&lt;a class="anchor-link" href="#R-Magic"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
@@ -30931,13 +30911,6 @@ FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9k=
 &lt;p&gt;Based on the time series analysis, we used 3 different ARIMA models to predict their stock prices. By doing so, we can suggest when is the best time to purchace and sell the stocks to maximize the profits.&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Cleaning</title><link href="http://linuslin1.github.io/INNOVA/nb2.html" rel="alternate"></link><updated>2014-03-02T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-02:INNOVA/nb2.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
-&lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;team member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: &lt;strong&gt;Transform the Data to Time Series for Daily and Weekly Data, and Gathering the Data by Category&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="R-Magic"&gt;R Magic&lt;a class="anchor-link" href="#R-Magic"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
 
@@ -31889,14 +31862,6 @@ Category Data - Bank
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;We combined the dataset (including S&amp;amp;P500 data) into 3 different industry. By doing so, we can do the analysis later on easily.&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Gathering</title><link href="http://linuslin1.github.io/INNOVA/nb1.html" rel="alternate"></link><updated>2014-03-01T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-01:INNOVA/nb1.html</id><summary type="html">&lt;p&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team Members Responsible for This Notebook:&lt;/h2&gt;
-&lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Team Member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: Write Code for Downloading Data Yahoo Finance Data from API, and LIBOR from Federal Reserve Data from Webpage&lt;/li&gt;
-&lt;li&gt;Team Member 2 &lt;strong&gt;Huanpu Zhang&lt;/strong&gt;: Write Code for Downloading Data from API&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Using-R-Magic"&gt;Using R Magic&lt;a class="anchor-link" href="#Using-R-Magic"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
