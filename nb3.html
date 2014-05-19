@@ -1720,7 +1720,7 @@ init_mathjax();
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="Data Analysis"/>
             <meta property="og:url" content="http://linuslin1.github.io/INNOVA/nb3.html"/>
-            <meta property="og:description" content="Team members responsible for this notebook: List the team members contributing to this notebook, along with their responsabilities: team member 1 Huanpu Zhang: team member 1 Profolio Optimization team member 2 Xinhe Wei: team member 2 Risk Analysis team member 3 **Hui, Man Kin (Ken): team member 3 Time Series ..."/>
+            <meta property="og:description" content="Team members responsible for this notebook: List the team members contributing to this notebook, along with their responsabilities: team member 1 Huanpu Zhang: team member 1 Profolio Optimization team member 2 Xinhe Wei: team member 2 Risk Analysis team member 3 Hui, Man Kin (Ken): team member 3 Time Series ..."/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://linuslin1.github.io/INNOVA/theme/css/bootstrap.min.css" type="text/css"/>
@@ -1820,7 +1820,8 @@ Data Analysis Project            </a>
 <ul>
 <li>team member 1 <strong>Huanpu Zhang</strong>: team member 1 <strong>Profolio Optimization</strong></li>
 <li>team member 2 <strong>Xinhe Wei</strong>: team member 2 <strong>Risk Analysis</strong></li>
-<li>team member 3 **Hui, Man Kin (Ken): team member 3 <strong>Time Series Analysis, Seasonal Analysis, and Forecasting</strong></li>
+<li>team member 3 <strong>Hui, Man Kin (Ken)</strong>: team member 3 <strong>Time Series Analysis, Seasonal Analysis, and Forecasting</strong></li>
+<li>team member 4 <strong>Jiarong Zhang</strong>: team member 4 <strong>Writing Code for Website Folder</strong></li>
 </ul>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1979,6 +1980,9 @@ In&nbsp;[5]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the function that for minimum variance. The theorem behind this model is just Lagrange. By doing so, we can find the expected return with the minimum variance (i.e. less risk).</p>
+</div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
@@ -2025,6 +2029,10 @@ In&nbsp;[6]:
 </div>
 
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Frontier-Plot">Frontier Plot<a class="anchor-link" href="#Frontier-Plot">&#182;</a></h3>
+</div>
+
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
@@ -2055,7 +2063,7 @@ In&nbsp;[8]:
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[2]:
 </div>
 <div class="input_area box-flex1">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="o">%%</span><span class="k">R</span>
@@ -2075,7 +2083,120 @@ In&nbsp;[9]:
 </div>
 </div>
 
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stderr">
+<pre>
+ERROR: Cell magic &#96;%%R&#96; not found.
+
+</pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;../visualizations/PF_IT.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_pyerr">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">IOError</span>                                   Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-1-08f7c658e801&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">      1</span> <span class="ansigreen">from</span> IPython<span class="ansiyellow">.</span>display <span class="ansigreen">import</span> Image<span class="ansiyellow"></span>
+<span class="ansigreen">----&gt; 2</span><span class="ansiyellow"> </span>Image<span class="ansiyellow">(</span>filename<span class="ansiyellow">=</span><span class="ansiblue">&apos;../visualizations/PF_IT.jpg&apos;</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc</span> in <span class="ansicyan">__init__</span><span class="ansiblue">(self, data, url, filename, format, embed, width, height, retina)</span>
+<span class="ansigreen">    599</span>         self<span class="ansiyellow">.</span>height <span class="ansiyellow">=</span> height<span class="ansiyellow"></span>
+<span class="ansigreen">    600</span>         self<span class="ansiyellow">.</span>retina <span class="ansiyellow">=</span> retina<span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 601</span><span class="ansiyellow">         </span>super<span class="ansiyellow">(</span>Image<span class="ansiyellow">,</span> self<span class="ansiyellow">)</span><span class="ansiyellow">.</span>__init__<span class="ansiyellow">(</span>data<span class="ansiyellow">=</span>data<span class="ansiyellow">,</span> url<span class="ansiyellow">=</span>url<span class="ansiyellow">,</span> filename<span class="ansiyellow">=</span>filename<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    602</span> <span class="ansiyellow"></span>
+<span class="ansigreen">    603</span>         <span class="ansigreen">if</span> retina<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc</span> in <span class="ansicyan">__init__</span><span class="ansiblue">(self, data, url, filename)</span>
+<span class="ansigreen">    303</span>         self<span class="ansiyellow">.</span>filename <span class="ansiyellow">=</span> None <span class="ansigreen">if</span> filename <span class="ansigreen">is</span> None <span class="ansigreen">else</span> unicode<span class="ansiyellow">(</span>filename<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    304</span> <span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 305</span><span class="ansiyellow">         </span>self<span class="ansiyellow">.</span>reload<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    306</span> <span class="ansiyellow"></span>
+<span class="ansigreen">    307</span>     <span class="ansigreen">def</span> reload<span class="ansiyellow">(</span>self<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc</span> in <span class="ansicyan">reload</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    621</span>         <span class="ansiblue">&quot;&quot;&quot;Reload the raw data from file or URL.&quot;&quot;&quot;</span><span class="ansiyellow"></span>
+<span class="ansigreen">    622</span>         <span class="ansigreen">if</span> self<span class="ansiyellow">.</span>embed<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 623</span><span class="ansiyellow">             </span>super<span class="ansiyellow">(</span>Image<span class="ansiyellow">,</span>self<span class="ansiyellow">)</span><span class="ansiyellow">.</span>reload<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    624</span>             <span class="ansigreen">if</span> self<span class="ansiyellow">.</span>retina<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    625</span>                 self<span class="ansiyellow">.</span>_retina_shape<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc</span> in <span class="ansicyan">reload</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    308</span>         <span class="ansiblue">&quot;&quot;&quot;Reload the raw data from file or URL.&quot;&quot;&quot;</span><span class="ansiyellow"></span>
+<span class="ansigreen">    309</span>         <span class="ansigreen">if</span> self<span class="ansiyellow">.</span>filename <span class="ansigreen">is</span> <span class="ansigreen">not</span> None<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 310</span><span class="ansiyellow">             </span><span class="ansigreen">with</span> open<span class="ansiyellow">(</span>self<span class="ansiyellow">.</span>filename<span class="ansiyellow">,</span> self<span class="ansiyellow">.</span>_read_flags<span class="ansiyellow">)</span> <span class="ansigreen">as</span> f<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    311</span>                 self<span class="ansiyellow">.</span>data <span class="ansiyellow">=</span> f<span class="ansiyellow">.</span>read<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    312</span>         <span class="ansigreen">elif</span> self<span class="ansiyellow">.</span>url <span class="ansigreen">is</span> <span class="ansigreen">not</span> None<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+
+<span class="ansired">IOError</span>: [Errno 2] No such file or directory: u&apos;../visualizations/PF_IT.jpg&apos;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;../visualizations/PF_Retail.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;../visualizations/PF_Bank.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These are Frontier Plot, which is variance vs return. By looking at these plots, we can pick the point with minimum variance and maximize return. This is a similar way for using minimum variance function above, but graphically.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Loading-Library">Loading Library<a class="anchor-link" href="#Loading-Library">&#182;</a></h2>
+</div>
+
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">
@@ -2256,6 +2377,51 @@ The following object is masked from &apos;package:graphics&apos;:
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;../visualizations/Return_IT.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;../visualizations/Return_Retail.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;../visualizations/Return_Bank.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We plotted the Return Plots by date. By doing so, we can just drop the last two bad stocks in our protfolio in order to maximize the return</p>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Risk-Analysis">Risk Analysis<a class="anchor-link" href="#Risk-Analysis">&#182;</a></h1>

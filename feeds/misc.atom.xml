@@ -4,9 +4,8 @@
 &lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
 &lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;team member 1 &lt;strong&gt;Jiarong Lin&lt;/strong&gt;: team member 1 &lt;strong&gt;Markdown&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 2 &lt;strong&gt;Xinhe Wei&lt;/strong&gt;: team member 2 &lt;strong&gt;Markdown&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 3 &lt;strong&gt;Huanpu Zhang&lt;/strong&gt;: team member 3 &lt;strong&gt;Summary&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;team member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: team member 1 &lt;strong&gt;Writing the Report for Profolio Optimization, Risk Analysis, Forecasting, and Work Cited&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;team member 2 &lt;strong&gt;Huanpu Zhang&lt;/strong&gt;: team member 3 &lt;strong&gt;Summary&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
@@ -30,6 +29,9 @@ In&amp;nbsp;[1]:
 &lt;p&gt;In this project, we are building a portfolio on future prediction of stock market in one year time. We are going to compare 5 companies in each of the following three industries: IT, Retail and Bank. Then finding out the best stock in each industry based on the data provided and our analysis. We’ll put them into a portfolio that only shows stocks with grander prospects. Our analysis will be based on the daily stock price trend of each picked individual stock from 2008 to 2014.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;The reason we are doing this project is we are trying to apply what we have learned from statistics for dealing with the quantive finance. Therefore, we can help the customer to make profit from buy/sell stocks. In other words, we are trying to construct and predict the stock price to help customer making profits from purchasing stocks.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data"&gt;Data&lt;a class="anchor-link" href="#Data"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
@@ -44,7 +46,24 @@ In&amp;nbsp;[1]:
 &lt;p&gt;Since we analysis 3 different area of stock, and each area contains 5 differetnt type of stock, it would be really unefficent to repeat all of the codes for 15 times. Therefore, the biggest challenge for us is to come up with some functions that can make it simple and efficent.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Also, the financial engineering are difficult for us (Statistics undergraduate). We have to do lots of research in different resources to learn the Quantive finance theory, and how to apply it through R. These courses are mainly learned from Master / Phd level of financial engineering.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Presentation-of-our-Finding"&gt;Presentation of our Finding&lt;a class="anchor-link" href="#Presentation-of-our-Finding"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;From now on, we can imagine the customer have 15 favourite stocks chosed from 3 different industry. We, as consultant, help him to pick the 3 best stocks to construct the profolio, and help him to invest and make profit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Profolio-Optimization"&gt;Profolio Optimization&lt;a class="anchor-link" href="#Profolio-Optimization"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;In this section, we are trying to drop the lowest return stocks from each industry. By doing so, we can construct the optimal profolio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="IT-Industry"&gt;IT Industry&lt;a class="anchor-link" href="#IT-Industry"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
@@ -369,6 +388,10 @@ iigAooooA//Z
 &lt;/div&gt;
 
 &lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Retail-Industry"&gt;Retail Industry&lt;a class="anchor-link" href="#Retail-Industry"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -716,6 +739,10 @@ CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==
 &lt;/div&gt;
 
 &lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Bank-Industry"&gt;Bank Industry&lt;a class="anchor-link" href="#Bank-Industry"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -1046,9 +1073,8 @@ ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/Z
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="We-will-drop-the-two-stocks-that-with-the-lowest-value:"&gt;We will drop the two stocks that with the lowest value:&lt;a class="anchor-link" href="#We-will-drop-the-two-stocks-that-with-the-lowest-value:"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;By looking at the Frontier graph, we found the minimum variance and maximum return for each industry. The alternatively way for doing this part is us min variance function to do so. (We mentioned it in NB3.)&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Returns-of-IT"&gt;Returns of IT&lt;a class="anchor-link" href="#Returns-of-IT"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -2921,6 +2947,9 @@ KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/9k=
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;For bank stock, we will drop Citibank and Bank of America.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Therefore, we had 15 stocks in the beginning. However, we dropped 2 stocks with lowest return from each industry, and keep 9 stocks in total.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="We-will-drop-two-stocks-with-the-highest-risk:"&gt;We will drop two stocks with the highest risk:&lt;a class="anchor-link" href="#We-will-drop-two-stocks-with-the-highest-risk:"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
@@ -7105,7 +7134,7 @@ ooooAKKKKACiiigD/9k=
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Risk-Analysis---Financial-Industry(Bank)"&gt;Risk Analysis --Financial Industry(Bank)&lt;a class="anchor-link" href="#Risk-Analysis---Financial-Industry(Bank)"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Risk-Analysis---Financial-Industry-(Bank)"&gt;Risk Analysis --Financial Industry (Bank)&lt;a class="anchor-link" href="#Risk-Analysis---Financial-Industry-(Bank)"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
@@ -9274,9 +9303,15 @@ oooA/9k=
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Forecasting-for-Next-Year"&gt;Forecasting for Next Year&lt;a class="anchor-link" href="#Forecasting-for-Next-Year"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;These 4 different graph allowed us to drop the highest risk of stocks. By doing so, we kept 1 stock per industry. The remaining 3 stocks form our optimum profolio. They are Google, Costco, and JP Morgan.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Forecasting-for-Next-Year:"&gt;Forecasting for Next Year:&lt;a class="anchor-link" href="#Forecasting-for-Next-Year:"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Sometimes, even though we have the best profolio, we may make losses by purchasing and selling stocks in the wrong time. By doing the forecasting for each stocks from our profolio, we can make porfit surely. We used ARIMA model to model our stocks data.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Google"&gt;Google&lt;a class="anchor-link" href="#Google"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
@@ -9595,9 +9630,6 @@ oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//2Q==
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The price of Google's stock will rise in next year.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Costco"&gt;Costco&lt;a class="anchor-link" href="#Costco"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
@@ -9909,9 +9941,6 @@ KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The price of Costco's stock will rise in next year.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="JP-Morgan"&gt;JP Morgan&lt;a class="anchor-link" href="#JP-Morgan"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 
@@ -9921,7 +9950,7 @@ KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=
 In&amp;nbsp;[3]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
 &lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../visualizations/Jpm_Forecast.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -10232,7 +10261,13 @@ FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9k=
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The price of JP Morgan's stock will rise in next year.&lt;/p&gt;
+&lt;p&gt;By using the ARIMA model, we can predict the stock price for next year. In this case, we can the best time (lower price) to purchace the stock, and the best time (higher price) to sell the stock. This is support by the Buy Low, Sell High Theory. However, to construct the best model for each stocks need some time to do so -- an hour for each stock. Therefore, we jsut summarize our result. The processes to pick the best ARIMA model invole choosing the lowest AIGs. You can refer to NB3 if you are interest in the way how it works.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;As we can see, we have a blue line for each stock, which is our predict stock price. However, sicne we are predicting them, it would be some variation for each forecasting. Therefore, we plot the grey area for the 95% confidence interval. Therefore, we can predict the stock price more accurately.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;From the analysis we mentioned above, we are confident that our profolio will make profits in the next year.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="SUMMARY"&gt;SUMMARY&lt;a class="anchor-link" href="#SUMMARY"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
@@ -10258,13 +10293,45 @@ FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9k=
 &lt;/div&gt;
 
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;\(Yahoo\) \(Finance\). 18 April 2014. &amp;lt;&lt;a href="http://finance.yahoo.com/"&gt;&lt;code class="url"&gt;http://finance.yahoo.com/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(Yahoo\)&lt;/span&gt; &lt;span class="math"&gt;\(Finance\)&lt;/span&gt;. 05 April 2014. http://finance.yahoo.com/&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;\(Federal\) \(Reserve\). 25 April 2014. &amp;lt;&lt;a href="http://www.federalreserve.gov/datadownload/"&gt;&lt;code class="url"&gt;http://www.federalreserve.gov/datadownload/&lt;/code&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(Federal\)&lt;/span&gt; &lt;span class="math"&gt;\(Reserve\)&lt;/span&gt;. 10 April 2014. http://www.federalreserve.gov/datadownload/&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Daroczi, Gergeky, Michael Pchle, Edina Berlinger, Peter Csoka, Daniel Havran, Marton Michaletzky, Zsolt Tulassay, Kata Varadi and Agnes Vidovics-Dancs. \(Introduction\) \(to\) \(R\) \(for\) \(Quantitative\) \(Finance\). Packt Publishing, 2013. Print.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(Time\)&lt;/span&gt; &lt;span class="math"&gt;\(Series\)&lt;/span&gt; &lt;span class="math"&gt;\(Analysis\)&lt;/span&gt; &lt;span class="math"&gt;\(and\)&lt;/span&gt; &lt;span class="math"&gt;\(Its\)&lt;/span&gt; &lt;span class="math"&gt;\(Applications:\)&lt;/span&gt; &lt;span class="math"&gt;\(With\)&lt;/span&gt; &lt;span class="math"&gt;\(R\)&lt;/span&gt; &lt;span class="math"&gt;\(Examples.\)&lt;/span&gt; 10 April 2014. http://www.stat.pitt.edu/stoffer/tsa3/R_toot.htm&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(Forecasting:\)&lt;/span&gt; &lt;span class="math"&gt;\(Principles\)&lt;/span&gt; &lt;span class="math"&gt;\(and\)&lt;/span&gt; &lt;span class="math"&gt;\(Practice\)&lt;/span&gt; 10 April 2014. https://www.otexts.org/fpp/1/1&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Introduction&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;ARIMA&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;April&lt;/span&gt; &lt;span class="mf"&gt;2014.&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Daroczi, Gergeky, Michael Pchle, Edina Berlinger, Peter Csoka, Daniel Havran, Marton Michaletzky, Zsolt Tulassay, Kata Varadi and Agnes Vidovics-Dancs. &lt;span class="math"&gt;\(Introduction\)&lt;/span&gt; &lt;span class="math"&gt;\(to\)&lt;/span&gt; &lt;span class="math"&gt;\(R\)&lt;/span&gt; &lt;span class="math"&gt;\(for\)&lt;/span&gt; &lt;span class="math"&gt;\(Quantitative\)&lt;/span&gt; &lt;span class="math"&gt;\(Finance\)&lt;/span&gt;. Packt Publishing, 2013. Print.&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Analysis</title><link href="http://linuslin1.github.io/INNOVA/nb3.html" rel="alternate"></link><updated>2014-03-03T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-03:INNOVA/nb3.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
@@ -10272,7 +10339,8 @@ FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9k=
 &lt;ul&gt;
 &lt;li&gt;team member 1 &lt;strong&gt;Huanpu Zhang&lt;/strong&gt;: team member 1 &lt;strong&gt;Profolio Optimization&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;team member 2 &lt;strong&gt;Xinhe Wei&lt;/strong&gt;: team member 2 &lt;strong&gt;Risk Analysis&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;team member 3 **Hui, Man Kin (Ken): team member 3 &lt;strong&gt;Time Series Analysis, Seasonal Analysis, and Forecasting&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;team member 3 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: team member 3 &lt;strong&gt;Time Series Analysis, Seasonal Analysis, and Forecasting&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;team member 4 &lt;strong&gt;Jiarong Zhang&lt;/strong&gt;: team member 4 &lt;strong&gt;Writing Code for Website Folder&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -10431,6 +10499,9 @@ In&amp;nbsp;[5]:
 &lt;/div&gt;
 
 &lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;This is the function that for minimum variance. The theorem behind this model is just Lagrange. By doing so, we can find the expected return with the minimum variance (i.e. less risk).&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -10477,6 +10548,10 @@ In&amp;nbsp;[6]:
 &lt;/div&gt;
 
 &lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Frontier-Plot"&gt;Frontier Plot&lt;a class="anchor-link" href="#Frontier-Plot"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -10507,7 +10582,7 @@ In&amp;nbsp;[8]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[9]:
+In&amp;nbsp;[2]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -10527,7 +10602,120 @@ In&amp;nbsp;[9]:
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;div class="vbox output_wrapper"&gt;
+&lt;div class="output vbox"&gt;
+
+
+&lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="box-flex1 output_subarea output_stream output_stderr"&gt;
+&lt;pre&gt;
+ERROR: Cell magic &amp;#96;%%R&amp;#96; not found.
+
+&lt;/pre&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[1]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../visualizations/PF_IT.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="vbox output_wrapper"&gt;
+&lt;div class="output vbox"&gt;
+
+
+&lt;div class="hbox output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="box-flex1 output_subarea output_pyerr"&gt;
+&lt;pre&gt;
+&lt;span class="ansired"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ansired"&gt;IOError&lt;/span&gt;                                   Traceback (most recent call last)
+&lt;span class="ansigreen"&gt;&amp;lt;ipython-input-1-08f7c658e801&amp;gt;&lt;/span&gt; in &lt;span class="ansicyan"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansiblue"&gt;()&lt;/span&gt;
+&lt;span class="ansigreen"&gt;      1&lt;/span&gt; &lt;span class="ansigreen"&gt;from&lt;/span&gt; IPython&lt;span class="ansiyellow"&gt;.&lt;/span&gt;display &lt;span class="ansigreen"&gt;import&lt;/span&gt; Image&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;----&amp;gt; 2&lt;/span&gt;&lt;span class="ansiyellow"&gt; &lt;/span&gt;Image&lt;span class="ansiyellow"&gt;(&lt;/span&gt;filename&lt;span class="ansiyellow"&gt;=&lt;/span&gt;&lt;span class="ansiblue"&gt;&amp;apos;../visualizations/PF_IT.jpg&amp;apos;&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;__init__&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, data, url, filename, format, embed, width, height, retina)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    599&lt;/span&gt;         self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;height &lt;span class="ansiyellow"&gt;=&lt;/span&gt; height&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    600&lt;/span&gt;         self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;retina &lt;span class="ansiyellow"&gt;=&lt;/span&gt; retina&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 601&lt;/span&gt;&lt;span class="ansiyellow"&gt;         &lt;/span&gt;super&lt;span class="ansiyellow"&gt;(&lt;/span&gt;Image&lt;span class="ansiyellow"&gt;,&lt;/span&gt; self&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;.&lt;/span&gt;__init__&lt;span class="ansiyellow"&gt;(&lt;/span&gt;data&lt;span class="ansiyellow"&gt;=&lt;/span&gt;data&lt;span class="ansiyellow"&gt;,&lt;/span&gt; url&lt;span class="ansiyellow"&gt;=&lt;/span&gt;url&lt;span class="ansiyellow"&gt;,&lt;/span&gt; filename&lt;span class="ansiyellow"&gt;=&lt;/span&gt;filename&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    602&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    603&lt;/span&gt;         &lt;span class="ansigreen"&gt;if&lt;/span&gt; retina&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;__init__&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, data, url, filename)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    303&lt;/span&gt;         self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;filename &lt;span class="ansiyellow"&gt;=&lt;/span&gt; None &lt;span class="ansigreen"&gt;if&lt;/span&gt; filename &lt;span class="ansigreen"&gt;is&lt;/span&gt; None &lt;span class="ansigreen"&gt;else&lt;/span&gt; unicode&lt;span class="ansiyellow"&gt;(&lt;/span&gt;filename&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    304&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 305&lt;/span&gt;&lt;span class="ansiyellow"&gt;         &lt;/span&gt;self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;reload&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    306&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    307&lt;/span&gt;     &lt;span class="ansigreen"&gt;def&lt;/span&gt; reload&lt;span class="ansiyellow"&gt;(&lt;/span&gt;self&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;reload&lt;/span&gt;&lt;span class="ansiblue"&gt;(self)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    621&lt;/span&gt;         &lt;span class="ansiblue"&gt;&amp;quot;&amp;quot;&amp;quot;Reload the raw data from file or URL.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    622&lt;/span&gt;         &lt;span class="ansigreen"&gt;if&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;embed&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 623&lt;/span&gt;&lt;span class="ansiyellow"&gt;             &lt;/span&gt;super&lt;span class="ansiyellow"&gt;(&lt;/span&gt;Image&lt;span class="ansiyellow"&gt;,&lt;/span&gt;self&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;.&lt;/span&gt;reload&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    624&lt;/span&gt;             &lt;span class="ansigreen"&gt;if&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;retina&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    625&lt;/span&gt;                 self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;_retina_shape&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/IPython/core/display.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;reload&lt;/span&gt;&lt;span class="ansiblue"&gt;(self)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    308&lt;/span&gt;         &lt;span class="ansiblue"&gt;&amp;quot;&amp;quot;&amp;quot;Reload the raw data from file or URL.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    309&lt;/span&gt;         &lt;span class="ansigreen"&gt;if&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;filename &lt;span class="ansigreen"&gt;is&lt;/span&gt; &lt;span class="ansigreen"&gt;not&lt;/span&gt; None&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 310&lt;/span&gt;&lt;span class="ansiyellow"&gt;             &lt;/span&gt;&lt;span class="ansigreen"&gt;with&lt;/span&gt; open&lt;span class="ansiyellow"&gt;(&lt;/span&gt;self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;filename&lt;span class="ansiyellow"&gt;,&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;_read_flags&lt;span class="ansiyellow"&gt;)&lt;/span&gt; &lt;span class="ansigreen"&gt;as&lt;/span&gt; f&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    311&lt;/span&gt;                 self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;data &lt;span class="ansiyellow"&gt;=&lt;/span&gt; f&lt;span class="ansiyellow"&gt;.&lt;/span&gt;read&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    312&lt;/span&gt;         &lt;span class="ansigreen"&gt;elif&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;url &lt;span class="ansigreen"&gt;is&lt;/span&gt; &lt;span class="ansigreen"&gt;not&lt;/span&gt; None&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansired"&gt;IOError&lt;/span&gt;: [Errno 2] No such file or directory: u&amp;apos;../visualizations/PF_IT.jpg&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../visualizations/PF_Retail.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../visualizations/PF_Bank.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;These are Frontier Plot, which is variance vs return. By looking at these plots, we can pick the point with minimum variance and maximize return. This is a similar way for using minimum variance function above, but graphically.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Loading-Library"&gt;Loading Library&lt;a class="anchor-link" href="#Loading-Library"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
@@ -10708,6 +10896,51 @@ The following object is masked from &amp;apos;package:graphics&amp;apos;:
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../visualizations/Return_IT.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../visualizations/Return_Retail.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell vbox"&gt;
+&lt;div class="input hbox"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="input_area box-flex1"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../visualizations/Return_Bank.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;We plotted the Return Plots by date. By doing so, we can just drop the last two bad stocks in our protfolio in order to maximize the return&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Risk-Analysis"&gt;Risk Analysis&lt;a class="anchor-link" href="#Risk-Analysis"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
@@ -21610,7 +21843,7 @@ FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9k=
 &lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team members responsible for this notebook:&lt;/h2&gt;
 &lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;team member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: &lt;strong&gt;Transform the Data to Time Series, and Gathering the Data by Category&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;team member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: &lt;strong&gt;Transform the Data to Time Series for Daily and Weekly Data, and Gathering the Data by Category&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -21620,7 +21853,7 @@ FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9k=
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[1]:
+In&amp;nbsp;[2]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Loading R Magic&lt;/span&gt;
@@ -21638,7 +21871,7 @@ In&amp;nbsp;[1]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[2]:
+In&amp;nbsp;[3]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Import Datetime &amp;amp; Pandas&lt;/span&gt;
@@ -21663,7 +21896,7 @@ In&amp;nbsp;[2]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[3]:
+In&amp;nbsp;[4]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -21696,7 +21929,7 @@ In&amp;nbsp;[3]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[4]:
+In&amp;nbsp;[5]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;!&lt;/span&gt;head ../data/cleaned/libor.csv
@@ -21738,7 +21971,7 @@ In&amp;nbsp;[4]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[5]:
+In&amp;nbsp;[6]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Mapping Dictionary&lt;/span&gt;
@@ -21765,13 +21998,16 @@ In&amp;nbsp;[5]:
 
 &lt;/div&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;This is a mapping dictionary. We can use it to store the finance code for each stock.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Making-Daily-Data"&gt;Making Daily Data&lt;a class="anchor-link" href="#Making-Daily-Data"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[6]:
+In&amp;nbsp;[7]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Loading Data to Panda&lt;/span&gt;
@@ -22007,7 +22243,7 @@ Date,Adj Close
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[7]:
+In&amp;nbsp;[8]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -22069,7 +22305,7 @@ In&amp;nbsp;[7]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[8]:
+In&amp;nbsp;[9]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -22081,39 +22317,16 @@ In&amp;nbsp;[8]:
 
 &lt;span class="c"&gt;# Calculating Weekly Average through xts Library&lt;/span&gt;
 &lt;span class="n"&gt;myweek&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sapply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;apply&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;weekly&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    
+
 &lt;span class="c"&gt;# Making List of DataFrame&lt;/span&gt;
 &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;ncol&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;)){&lt;/span&gt;
     &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Week&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rownames&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Adj Close&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;myweek&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])}&lt;/span&gt;
 
 &lt;span class="c"&gt;# Saving DataFrame to CSV&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/waapl.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wgoogl.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wamzn.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wmsft.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/whp.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/w^GSPC.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wtgt.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wcost.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wwmt.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wwag.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wswy.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/w^GSPC.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wctbk.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wwfc.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wbac.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wjpm.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/wozrk.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;../data/cleaned/w^GSPC.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    
-&lt;span class="c"&gt;#write.csv(file=&amp;#39;../data/cleaned/w&amp;quot;,stock,&amp;quot;.csv&amp;#39;, x=&amp;quot;, a[1] ,&amp;quot;,row.names=FALSE)&lt;/span&gt;
-&lt;span class="c"&gt;#write.csv(file=&amp;#39;../data/cleaned/w&amp;quot;,stock,&amp;quot;.csv&amp;#39;, x=&amp;quot;, a[1] ,&amp;quot;,row.names=FALSE)&lt;/span&gt;
-&lt;span class="c"&gt;#for (stock in stocks$symbol){&lt;/span&gt;
-&lt;span class="c"&gt;#    fname = paste0(&amp;quot;write.csv(file=&amp;#39;../data/cleaned/w&amp;quot;,stock,&amp;quot;.csv&amp;#39;, x=&amp;quot;,a,&amp;quot;,row.names=FALSE)&amp;quot;)&lt;/span&gt;
-&lt;span class="c"&gt;#    eval(parse(text=fname))}&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stock&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;stocks&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;symbol&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+    &lt;span class="n"&gt;fname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;paste0&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;write.csv(file=&amp;#39;../data/cleaned/w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;stock&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;.csv&amp;#39;, x=&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;,row.names=FALSE)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="p"&gt;))}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -22129,9 +22342,9 @@ In&amp;nbsp;[8]:
 
 &lt;pre&gt;
 
-Attaching package: &amp;apos;zoo&amp;apos;
+Attaching package: ‘zoo’
 
-The following objects are masked from &amp;apos;package:base&amp;apos;:
+The following objects are masked from ‘package:base’:
 
     as.Date, as.Date.numeric
 
@@ -22148,7 +22361,7 @@ The following objects are masked from &amp;apos;package:base&amp;apos;:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[9]:
+In&amp;nbsp;[10]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Displaying Weekly Data&lt;/span&gt;
@@ -22171,195 +22384,195 @@ In&amp;nbsp;[9]:
 &lt;pre&gt;
 Weekly Data - Apple
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,143.252
-&amp;quot;2008-04-11&amp;quot;,146.452
-&amp;quot;2008-04-18&amp;quot;,147.132
-&amp;quot;2008-04-25&amp;quot;,159.538
-&amp;quot;2008-05-02&amp;quot;,169.582
-&amp;quot;2008-05-09&amp;quot;,177.33
-&amp;quot;2008-05-16&amp;quot;,181.028
-&amp;quot;2008-05-23&amp;quot;,174.144
-&amp;quot;2008-05-30&amp;quot;,179.95
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Google
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,230.04
-&amp;quot;2008-04-11&amp;quot;,233.768
-&amp;quot;2008-04-18&amp;quot;,234.48
-&amp;quot;2008-04-25&amp;quot;,272.91
-&amp;quot;2008-05-02&amp;quot;,286.212
-&amp;quot;2008-05-09&amp;quot;,291.94
-&amp;quot;2008-05-16&amp;quot;,290.822
-&amp;quot;2008-05-23&amp;quot;,280.3
-&amp;quot;2008-05-30&amp;quot;,287.5275
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Amazon
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,75.436
-&amp;quot;2008-04-11&amp;quot;,75.082
-&amp;quot;2008-04-18&amp;quot;,74.768
-&amp;quot;2008-04-25&amp;quot;,79.866
-&amp;quot;2008-05-02&amp;quot;,79.602
-&amp;quot;2008-05-09&amp;quot;,74.002
-&amp;quot;2008-05-16&amp;quot;,75.174
-&amp;quot;2008-05-23&amp;quot;,79.784
-&amp;quot;2008-05-30&amp;quot;,80.6675
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Microsoft
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,25.006
-&amp;quot;2008-04-11&amp;quot;,24.834
-&amp;quot;2008-04-18&amp;quot;,24.88
-&amp;quot;2008-04-25&amp;quot;,26.478
-&amp;quot;2008-05-02&amp;quot;,24.936
-&amp;quot;2008-05-09&amp;quot;,25.254
-&amp;quot;2008-05-16&amp;quot;,25.934
-&amp;quot;2008-05-23&amp;quot;,24.714
-&amp;quot;2008-05-30&amp;quot;,24.4675
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - HP
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,45.816
-&amp;quot;2008-04-11&amp;quot;,48.59
-&amp;quot;2008-04-18&amp;quot;,51.782
-&amp;quot;2008-04-25&amp;quot;,52.732
-&amp;quot;2008-05-02&amp;quot;,50.6
-&amp;quot;2008-05-09&amp;quot;,53.68
-&amp;quot;2008-05-16&amp;quot;,56.17
-&amp;quot;2008-05-23&amp;quot;,58.204
-&amp;quot;2008-05-30&amp;quot;,57.78
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - SP500
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,1360.024
-&amp;quot;2008-04-11&amp;quot;,1357.19
-&amp;quot;2008-04-18&amp;quot;,1356.67
-&amp;quot;2008-04-25&amp;quot;,1386.14
-&amp;quot;2008-05-02&amp;quot;,1399.228
-&amp;quot;2008-05-09&amp;quot;,1400.856
-&amp;quot;2008-05-16&amp;quot;,1412.84
-&amp;quot;2008-05-23&amp;quot;,1400.204
-&amp;quot;2008-05-30&amp;quot;,1393.7075
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Target
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,46.754
-&amp;quot;2008-04-11&amp;quot;,46.788
-&amp;quot;2008-04-18&amp;quot;,47.256
-&amp;quot;2008-04-25&amp;quot;,47.308
-&amp;quot;2008-05-02&amp;quot;,47.82
-&amp;quot;2008-05-09&amp;quot;,46.99
-&amp;quot;2008-05-16&amp;quot;,48.068
-&amp;quot;2008-05-23&amp;quot;,47.552
-&amp;quot;2008-05-30&amp;quot;,47.08
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Costco
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,57.526
-&amp;quot;2008-04-11&amp;quot;,57.606
-&amp;quot;2008-04-18&amp;quot;,58.426
-&amp;quot;2008-04-25&amp;quot;,60.572
-&amp;quot;2008-05-02&amp;quot;,62.076
-&amp;quot;2008-05-09&amp;quot;,62.528
-&amp;quot;2008-05-16&amp;quot;,64.312
-&amp;quot;2008-05-23&amp;quot;,61.82
-&amp;quot;2008-05-30&amp;quot;,63.16
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Walmart
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,47.096
-&amp;quot;2008-04-11&amp;quot;,47.394
-&amp;quot;2008-04-18&amp;quot;,48.994
-&amp;quot;2008-04-25&amp;quot;,49.6
-&amp;quot;2008-05-02&amp;quot;,50.392
-&amp;quot;2008-05-09&amp;quot;,49.52
-&amp;quot;2008-05-16&amp;quot;,49.956
-&amp;quot;2008-05-23&amp;quot;,48.836
-&amp;quot;2008-05-30&amp;quot;,50.0725
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Walgreen
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,33.77
-&amp;quot;2008-04-11&amp;quot;,32.718
-&amp;quot;2008-04-18&amp;quot;,31.526
-&amp;quot;2008-04-25&amp;quot;,31.438
-&amp;quot;2008-05-02&amp;quot;,31.24
-&amp;quot;2008-05-09&amp;quot;,31.13
-&amp;quot;2008-05-16&amp;quot;,31.782
-&amp;quot;2008-05-23&amp;quot;,31.568
-&amp;quot;2008-05-30&amp;quot;,31.7075
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Safeway
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,22.648
-&amp;quot;2008-04-11&amp;quot;,22.13
-&amp;quot;2008-04-18&amp;quot;,21.438
-&amp;quot;2008-04-25&amp;quot;,21.87
-&amp;quot;2008-05-02&amp;quot;,24.146
-&amp;quot;2008-05-09&amp;quot;,24.01
-&amp;quot;2008-05-16&amp;quot;,24.398
-&amp;quot;2008-05-23&amp;quot;,23.828
-&amp;quot;2008-05-30&amp;quot;,24.3225
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Citibank
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,22.05
-&amp;quot;2008-04-11&amp;quot;,20.486
-&amp;quot;2008-04-18&amp;quot;,19.048
-&amp;quot;2008-04-25&amp;quot;,18.628
-&amp;quot;2008-05-02&amp;quot;,18.068
-&amp;quot;2008-05-09&amp;quot;,16.662
-&amp;quot;2008-05-16&amp;quot;,15.044
-&amp;quot;2008-05-23&amp;quot;,14.404
-&amp;quot;2008-05-30&amp;quot;,14.06
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Wells Fargo
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,26.548
-&amp;quot;2008-04-11&amp;quot;,25.474
-&amp;quot;2008-04-18&amp;quot;,25.034
-&amp;quot;2008-04-25&amp;quot;,25.71
-&amp;quot;2008-05-02&amp;quot;,26.454
-&amp;quot;2008-05-09&amp;quot;,26.388
-&amp;quot;2008-05-16&amp;quot;,25.65
-&amp;quot;2008-05-23&amp;quot;,24.53
-&amp;quot;2008-05-30&amp;quot;,24.25
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Bank of America
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,36.61
-&amp;quot;2008-04-11&amp;quot;,35.064
-&amp;quot;2008-04-18&amp;quot;,33.906
-&amp;quot;2008-04-25&amp;quot;,34.546
-&amp;quot;2008-05-02&amp;quot;,35.49
-&amp;quot;2008-05-09&amp;quot;,35.014
-&amp;quot;2008-05-16&amp;quot;,33.828
-&amp;quot;2008-05-23&amp;quot;,32.18
-&amp;quot;2008-05-30&amp;quot;,31.45
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - JP Morgan
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,39.856
-&amp;quot;2008-04-11&amp;quot;,38.762
-&amp;quot;2008-04-18&amp;quot;,38.474
-&amp;quot;2008-04-25&amp;quot;,40.464
-&amp;quot;2008-05-02&amp;quot;,42.074
-&amp;quot;2008-05-09&amp;quot;,41.268
-&amp;quot;2008-05-16&amp;quot;,40.708
-&amp;quot;2008-05-23&amp;quot;,38.132
-&amp;quot;2008-05-30&amp;quot;,37.79
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 Weekly Data - Bank of Ozarks
 &amp;quot;Week&amp;quot;,&amp;quot;Adj.Close&amp;quot;
-&amp;quot;2008-04-04&amp;quot;,10.706
-&amp;quot;2008-04-11&amp;quot;,10.726
-&amp;quot;2008-04-18&amp;quot;,11.552
-&amp;quot;2008-04-25&amp;quot;,11.438
-&amp;quot;2008-05-02&amp;quot;,11.296
-&amp;quot;2008-05-09&amp;quot;,10.836
-&amp;quot;2008-05-16&amp;quot;,11.306
-&amp;quot;2008-05-23&amp;quot;,11.416
-&amp;quot;2008-05-30&amp;quot;,11.3075
+1,1360.024
+2,1357.19
+3,1356.67
+4,1386.14
+5,1399.228
+6,1400.856
+7,1412.84
+8,1400.204
+9,1393.7075
 
 
 &lt;/pre&gt;
@@ -22380,7 +22593,7 @@ Weekly Data - Bank of Ozarks
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[10]:
+In&amp;nbsp;[14]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -22439,10 +22652,13 @@ In&amp;nbsp;[10]:
 &lt;/div&gt;
 
 &lt;/div&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;This is a dictionary-like Data Frame. We can use it to store the industry and code for each stock.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[11]:
+In&amp;nbsp;[16]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -22460,7 +22676,7 @@ In&amp;nbsp;[11]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[12]:
+In&amp;nbsp;[17]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -22477,7 +22693,7 @@ In&amp;nbsp;[12]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[13]:
+In&amp;nbsp;[19]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="k"&gt;R&lt;/span&gt;
@@ -22504,7 +22720,7 @@ In&amp;nbsp;[13]:
 &lt;div class="cell border-box-sizing code_cell vbox"&gt;
 &lt;div class="input hbox"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[14]:
+In&amp;nbsp;[20]:
 &lt;/div&gt;
 &lt;div class="input_area box-flex1"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# Displaying Category Data&lt;/span&gt;
@@ -22579,24 +22795,14 @@ Category Data - Bank
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell vbox"&gt;
-&lt;div class="input hbox"&gt;
-&lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[14]:
-&lt;/div&gt;
-&lt;div class="input_area box-flex1"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;We combined the dataset (including S&amp;amp;P500 data) into 3 different industry. By doing so, we can do the analysis later on easily.&lt;/p&gt;
 &lt;/div&gt;&lt;/p&gt;</summary></entry><entry><title>Data Gathering</title><link href="http://linuslin1.github.io/INNOVA/nb1.html" rel="alternate"></link><updated>2014-03-01T00:00:00-08:00</updated><author><name>Benoit Dherin</name></author><id>tag:linuslin1.github.io,2014-03-01:INNOVA/nb1.html</id><summary type="html">&lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="team-members-responsible-for-this-notebook"&gt;Team Members Responsible for This Notebook:&lt;/h2&gt;
 &lt;p&gt;List the team members contributing to this notebook, along with their responsabilities:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Team Member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: Write Code for Downloading Data from API&lt;/li&gt;
+&lt;li&gt;Team Member 1 &lt;strong&gt;Hui, Man Kin (Ken)&lt;/strong&gt;: Write Code for Downloading Data Yahoo Finance Data from API, and LIBOR from Federal Reserve Data from Webpage&lt;/li&gt;
 &lt;li&gt;Team Member 2 &lt;strong&gt;Huanpu Zhang&lt;/strong&gt;: Write Code for Downloading Data from API&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
